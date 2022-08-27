@@ -3,6 +3,7 @@ select 'Mutator', 'case_65', null, null, 'uasp-mutator-filter-input', 'DEFAULT_C
 select 'Mutator', 'case_65', null, null, 'mutator_consumer_2', 'DEFAULT_CONSUMER' from dual union all
 select 'Mutator', 'case_65', 'ivr__uasp_realtime__bussiness_rules__uaspdto__dlq', 'DEFAULT_PRODUCER', null, null from dual UNION ALL
 select 'Mutator', 'case_65', 'dev_ivr__uasp_realtime__business_rules__uaspdto', 'DEFAULT_PRODUCER', null, null from dual  UNION ALL
+select 'Filter', 'case_65', 'Filter_producer_1', 'DEFAULT_PRODUCER', null, null from dual  UNION ALL
 select 'Filter', 'case_65', 'Filter_producer_2', 'DEFAULT_PRODUCER', null, null from dual  UNION ALL
 select 'Filter', 'case_65',null, null, 'dev_ivr__uasp_realtime__business_rules__uaspdto', 'DEFAULT_CONSUMER' from dual
 /
