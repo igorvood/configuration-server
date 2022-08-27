@@ -12,7 +12,12 @@ create table dict_topic
   producer_prop_grp varchar2(64),
   producer_prop_grp_ref as (nvl(producer_prop_grp, 'DEFAULT_PRODUCER')),
   constraint dict_topic_producer_prop_grp_fk FOREIGN KEY (producer_prop_grp_ref)
-    references dict_topic_property_producer_group(id)
+    references dict_topic_property_producer_group(id),
+
+  consumer_prop_grp varchar2(64),
+  consumer_prop_grp_ref as (nvl(consumer_prop_grp, 'DEFAULT_CONSUMER')),
+  constraint dict_topic_consumer_prop_grp_fk FOREIGN KEY (consumer_prop_grp_ref)
+      references dict_topic_property_consumer_group(id)
 
 )
 /
@@ -33,4 +38,8 @@ comment on column dict_topic.ift_name_real is 'Имя топика на ift ст
 comment on column dict_topic.producer_prop_grp is 'группа свойств продьюссера, если пусто возьмется по умолчанию'
 /
 comment on column dict_topic.producer_prop_grp_ref is 'группа свойств продьюссера для констренйнта'
+/
+comment on column dict_topic.consumer_prop_grp is 'группа свойств консьюмера, если пусто возьмется по умолчанию'
+/
+comment on column dict_topic.consumer_prop_grp_ref is 'группа свойств консьюмера для констренйнта'
 /
