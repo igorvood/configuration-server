@@ -12,9 +12,9 @@
         <sqlFile path="liquibase/release_001/task_001/data/0080.dict_topic_property_producer_group_data.sql"/>
     </changeSet>
 
-    <changeSet id="001/001/data/0085.dict_topic_property_producer_group_data.sql" author="vood" runAlways="true">
+    <changeSet id="001/001/data/0085.dict_topic_producer_property_data.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/data/0085.dict_topic_property_producer_group_data.sql"/>
+        <sqlFile path="liquibase/release_001/task_001/data/0085.dict_topic_producer_property_data.sql"/>
     </changeSet>
 
     <changeSet id="001/001/data/0090.dict_topic_property_consumer_group_data.sql" author="vood" runAlways="true">
@@ -22,9 +22,9 @@
         <sqlFile path="liquibase/release_001/task_001/data/0090.dict_topic_property_consumer_group_data.sql"/>
     </changeSet>
 
-    <changeSet id="001/001/data/0095.dict_topic_property_consumer_group_data.sql" author="vood" runAlways="true">
+    <changeSet id="001/001/data/0095.dict_topic_consumer_property_data.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/data/0095.dict_topic_property_consumer_group_data.sql"/>
+        <sqlFile path="liquibase/release_001/task_001/data/0095.dict_topic_consumer_property_data.sql"/>
     </changeSet>
 
 
