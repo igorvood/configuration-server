@@ -16,10 +16,6 @@
         <sqlFile path="liquibase/release_001/task_001/0083.dict_topic_consumer_property.sql"/>
     </changeSet>
 
-
-
-
-
     <changeSet id="001/001/0090.dict_topic_property_producer_group.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/0090.dict_topic_property_producer_group.sql"/>
@@ -34,6 +30,17 @@
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/0100.dict_topic.sql"/>
     </changeSet>
+
+    <changeSet id="001/001/0200.dict_service.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/0200.dict_service.sql"/>
+    </changeSet>
+
+    <changeSet id="001/001/0210.dict_service_profile.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/0210.dict_service_profile.sql"/>
+    </changeSet>
+
 
 <!--    <changeSet id="001/001/110.DICT_ACT_FLOW_TYPE.sql" author="vood" runAlways="true">-->
 <!--        <validCheckSum>any</validCheckSum>-->

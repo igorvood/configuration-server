@@ -8,12 +8,12 @@ create table dict_topic_consumer_property
 
 )
 /
-comment on table dict_topic_consumer_property is 'Справочник групп настроек топиков.'
+comment on table dict_topic_consumer_property is 'Справочник настроек топиков консьюмеров.'
 /
 comment on column dict_topic_consumer_property.grp_id is 'Идентификатор группы.'
 /
 comment on column dict_topic_consumer_property.prop_id is 'Идентификатор свойства.'
 /
-comment on column dict_topic_consumer_property.prop_value is 'Идентификатор свойства.'
+comment on column dict_topic_consumer_property.prop_value is 'Значение свойства.'
 /
 

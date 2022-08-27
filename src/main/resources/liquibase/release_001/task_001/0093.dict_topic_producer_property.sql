@@ -8,12 +8,12 @@ create table dict_topic_producer_property
 
 )
 /
-comment on table dict_topic_producer_property is 'Справочник групп настроек топиков.'
+comment on table dict_topic_producer_property is 'Справочник настроек топиков продьюсеров.'
 /
 comment on column dict_topic_producer_property.grp_id is 'Идентификатор группы.'
 /
 comment on column dict_topic_producer_property.prop_id is 'Идентификатор свойства.'
 /
-comment on column dict_topic_producer_property.prop_value is 'Идентификатор свойства.'
+comment on column dict_topic_producer_property.prop_value is 'Значение свойства.'
 /
 
