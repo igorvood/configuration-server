@@ -5,6 +5,13 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <property name="sqlBatchDelimiter" value="\n/"/>
 
+
+    <changeSet id="check_coments.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/checks/check_coments.sql" endDelimiter="${sqlBatchDelimiter}"/>
+    </changeSet>
+
+
     <changeSet id="check_indexes_tablespace.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/checks/check_indexes_tablespace.sql" endDelimiter="${sqlBatchDelimiter}"/>

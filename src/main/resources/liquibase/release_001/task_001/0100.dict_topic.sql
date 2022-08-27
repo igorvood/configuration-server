@@ -30,3 +30,7 @@ comment on column dict_topic.ift_name is 'Имя топика на ift стен�
 /
 comment on column dict_topic.ift_name_real is 'Имя топика на ift стенде вычисленное.'
 /
+comment on column dict_topic.producer_prop_grp is 'группа свойств продьюссера, если пусто возьмется по умолчанию'
+/
+comment on column dict_topic.producer_prop_grp_ref is 'группа свойств продьюссера для констренйнта'
+/
