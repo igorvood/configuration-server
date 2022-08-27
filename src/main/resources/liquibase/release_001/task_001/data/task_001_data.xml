@@ -42,9 +42,9 @@
         <sqlFile path="liquibase/release_001/task_001/data/0210.dict_service_profile_data.sql"/>
     </changeSet>
 
-    <changeSet id="001/001/data/0310.dict_service_profile_data.sql" author="vood" runAlways="true">
+    <changeSet id="001/001/data/0310.dict_service_profile_topic_data.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/data/0310.dict_service_profile_data.sql"/>
+        <sqlFile path="liquibase/release_001/task_001/data/0310.dict_service_profile_topic_data.sql"/>
     </changeSet>
 
 
