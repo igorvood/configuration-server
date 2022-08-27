@@ -1,6 +1,6 @@
 create table dict_topic
 (
-  id varchar2(20)  not null,
+  id varchar2(256) not null,
   constraint dict_act_state_pk primary key (id) using index tablespace t_idx,
     ---
   description varchar2(255) not null,
