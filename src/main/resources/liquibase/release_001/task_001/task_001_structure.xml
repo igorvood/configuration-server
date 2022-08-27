@@ -41,6 +41,20 @@
         <sqlFile path="liquibase/release_001/task_001/0210.dict_service_profile.sql"/>
     </changeSet>
 
+    <changeSet id="001/001/0300.dict_service_profile_property.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/0300.dict_service_profile_property.sql"/>
+    </changeSet>
+
+    <changeSet id="001/001/0310.dict_service_profile_topics.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/0310.dict_service_profile_topics.sql"/>
+    </changeSet>
+
+
+
+
+
 
 <!--    <changeSet id="001/001/110.DICT_ACT_FLOW_TYPE.sql" author="vood" runAlways="true">-->
 <!--        <validCheckSum>any</validCheckSum>-->
