@@ -9,7 +9,7 @@ begin
       )
       UNION ALL
       (
-      SELECT 'table '||AAT.OWNER||'.'||AAT.TABLE_NAME||'.'||AAT.COLUMN_NAME||' has no coments' FROM ALL_TAB_COLS AAT
+      SELECT 'column '||AAT.OWNER||'.'||AAT.TABLE_NAME||'.'||AAT.COLUMN_NAME||' has no coments' FROM ALL_TAB_COLS AAT
         JOIN ALL_COL_COMMENTS ACC ON  (ACC.OWNER, ACC.TABLE_NAME, ACC.COLUMN_NAME) = ((aat.OWNER, aat.TABLE_NAME, AAT.COLUMN_NAME))
       where aat.OWNER='LOCALDEV' and ACC.COMMENTS is null and
         aat.TABLE_NAME not in ('DATABASECHANGELOGLOCK', 'DATABASECHANGELOG'))
