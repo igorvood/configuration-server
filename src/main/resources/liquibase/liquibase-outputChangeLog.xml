@@ -8,7 +8,7 @@
     <include file="liquibase/release_001/release_001.xml"/>
 
 
-    <include file="liquibase/checks/checks.xml"/>
+<!--    <include file="liquibase/checks/checks.xml"/>-->
 
 
 </databaseChangeLog>

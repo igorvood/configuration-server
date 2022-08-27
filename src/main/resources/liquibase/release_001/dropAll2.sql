@@ -27,7 +27,7 @@ begin
         from all_objects o
                  join tp on tp.tp = o.object_type
                  left join all_tables ot on (ot.owner, ot.table_name) = ((o.owner, o.object_name))
-        where o.owner = 'JP'
+        where o.owner = 'LOCALDEV'
           and o.object_name not like 'SYSTP%'
           and o.object_name not in ('DATABASECHANGELOG', 'DATABASECHANGELOGLOCK')
           and ot.iot_name is null

@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@//172.26.0.1:1521/ORCLPDB1
+    url: jdbc:oracle:thin:@//172.19.0.1:1521/ORCLPDB1
     username: localdev
     password: localdev
   liquibase:
