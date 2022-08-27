@@ -3,17 +3,17 @@ begin
         with d as (
             select c.table_name || '.' || c.constraint_name nm
             from all_constraints c
-            where c.owner = 'JP'
+            where c.owner = 'LOCALDEV'
               and length(c.constraint_name) > 30
             union all
             select tc.table_name || '.' || tc.column_name nm
             from all_tab_columns tc
-            where tc.owner = 'JP'
+            where tc.owner = 'LOCALDEV'
               and length(tc.column_name) > 30
             union all
             select c.OBJECT_TYPE || ' -> ' || c.OBJECT_NAME nm
             from ALL_OBJECTS c
-            where c.owner = 'JP'
+            where c.owner = 'LOCALDEV'
               and length(c.OBJECT_NAME) > 30
             order by 1
         )

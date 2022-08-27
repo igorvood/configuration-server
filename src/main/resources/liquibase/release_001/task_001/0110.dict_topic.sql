@@ -9,6 +9,8 @@ create table dict_topic
   dev_name varchar2(256) not null,
   ift_name varchar2(256),
   ift_name_real as (nvl(ift_name, 'ift_'||substr(dev_name,5)))
+
+
 )
 /
 comment on table dict_topic is 'Справочник топиков.'

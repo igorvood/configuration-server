@@ -10,10 +10,10 @@
         <sqlFile path="liquibase/checks/check_indexes_tablespace.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
-    <changeSet id="check_long_obj_names.sql" author="vood" runAlways="true">
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/checks/check_long_obj_names.sql" endDelimiter="${sqlBatchDelimiter}"/>
-    </changeSet>
+<!--    <changeSet id="check_long_obj_names.sql" author="vood" runAlways="true">-->
+<!--        <validCheckSum>any</validCheckSum>-->
+<!--        <sqlFile path="liquibase/checks/check_long_obj_names.sql" endDelimiter="${sqlBatchDelimiter}"/>-->
+<!--    </changeSet>-->
 
     <changeSet id="check_postfix_constraint.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>

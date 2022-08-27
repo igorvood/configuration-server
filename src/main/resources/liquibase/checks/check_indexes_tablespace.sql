@@ -4,8 +4,8 @@ begin
     for r in (
         select i.index_name
         from all_indexes i
-        where i.owner = 'JP'
-          and i.tablespace_name != 'JP_IDX'
+        where i.owner = 'LOCALDEV'
+          and i.tablespace_name != 'T_IDX'
           and i.table_name not in ('DATABASECHANGELOG', 'DATABASECHANGELOGLOCK')
           and rownum <= 10
         )

@@ -7,7 +7,7 @@ begin
                c.constraint_type,
                lower(c.constraint_name || '_' || c.constraint_type || 'K') new_name
         from all_constraints c
-        where c.owner = 'JP'
+        where c.owner = 'LOCALDEV'
           and ((not regexp_like(c.constraint_name, '(*)_UK$|(*)_DUK$') and c.constraint_type = 'U')
             or (not regexp_like(c.constraint_name, '(*)_PK$|(*)_DPK$') and c.constraint_type = 'P')
             or (not regexp_like(c.constraint_name, '(*)_CK$|(*)_DCK$') and c.constraint_type = 'C' and

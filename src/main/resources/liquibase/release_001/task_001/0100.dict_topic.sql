@@ -5,10 +5,15 @@ create table dict_topic
     ---
   description varchar2(255) not null,
   is_our_topic number(1) not null,
-  constraint dict_topic_is_our_topic check ( is_our_topic in (0, 1) ),
+  constraint dict_topic_is_our_topic_ck check ( is_our_topic in (0, 1) ),
   dev_name varchar2(256) not null,
   ift_name varchar2(256),
-  ift_name_real as (nvl(ift_name, 'ift_'||substr(dev_name,5)))
+  ift_name_real as (nvl(ift_name, 'ift_'||substr(dev_name,5))),
+  producer_prop_grp varchar2(64),
+  producer_prop_grp_ref as (nvl(producer_prop_grp, 'DEFAULT_PRODUCER')),
+  constraint dict_topic_producer_prop_grp_fk FOREIGN KEY (producer_prop_grp_ref)
+    references dict_topic_property_producer_group(id)
+
 )
 /
 comment on table dict_topic is 'Справочник топиков.'
