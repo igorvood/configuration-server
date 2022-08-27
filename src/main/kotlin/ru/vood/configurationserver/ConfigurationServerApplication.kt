@@ -2,8 +2,10 @@ package ru.vood.configurationserver
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.transaction.annotation.EnableTransactionManagement
 
 @SpringBootApplication
+@EnableTransactionManagement
 class ConfigurationServerApplication
 
 fun main(args: Array<String>) {
