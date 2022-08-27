@@ -17,8 +17,9 @@ create table dict_topic
   consumer_prop_grp varchar2(64),
   consumer_prop_grp_ref as (nvl(consumer_prop_grp, 'DEFAULT_CONSUMER')),
   constraint dict_topic_consumer_prop_grp_fk FOREIGN KEY (consumer_prop_grp_ref)
-      references dict_topic_property_consumer_group(id)
-
+      references dict_topic_property_consumer_group(id),
+  constraint dict_topic_producer_prop_grp_ref_uk unique (id, producer_prop_grp_ref) using index tablespace t_idx,
+  constraint dict_topic_consumer_prop_grp_ref_uk unique (id, consumer_prop_grp_ref) using index tablespace t_idx
 )
 /
 comment on table dict_topic is 'Справочник топиков.'
