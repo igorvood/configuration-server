@@ -14,7 +14,8 @@ class PumlGeneratorRepositoryImpl(
 ) : PumlGeneratorRepositoryIntf {
     override fun findBySrvIdAndProfileId(srvId: String, profileId: String): Set<FlinkServiceDto> {
 
-        val queryRes = jdbcTemplate.query("""
+        val queryRes = jdbcTemplate.query(
+            """
             select SERVICE_ID, PROFILE_ID, IN_TOPIC, OUT_TOPIC 
             from report_order_service
             where SERVICE_ID = :1 and PROFILE_ID = :2 """,
@@ -32,12 +33,12 @@ class PumlGeneratorRepositoryImpl(
             .groupBy(keySelector = { d: FlinkServiceDtoTemp -> FlinkServiceProfileDto(d.serviceId, d.profileId) })
             .map<FlinkServiceProfileDto, List<FlinkServiceDtoTemp>, FlinkServiceDto> { d ->
                 FlinkServiceDto(
-                srv = d.key,
-                topics = Topics(
-                    d.value.map { q -> q.inTopic }.distinct(),
-                    d.value.map { q -> q.outTopic }.distinct()
+                    srv = d.key,
+                    topics = Topics(
+                        d.value.map { q -> q.inTopic }.distinct(),
+                        d.value.map { q -> q.outTopic }.distinct()
+                    )
                 )
-            )
             }.toSet()
     }
 }
