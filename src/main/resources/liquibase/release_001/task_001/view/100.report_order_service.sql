@@ -1,4 +1,4 @@
--- create or replace view report_order_service as
+create or replace view report_order_service as
 with full_srv_and_topic as
 (SELECT SP.SERVICE_ID, sp.ID profile_id, nvl(DSPT.CONSUMER_TOPIC_ID, '-') IN_TOPIC, nvl(dspt.PRODUCER_TOPIC_ID,'-') OUT_TOPIC
 FROM DICT_SERVICE_PROFILE SP
