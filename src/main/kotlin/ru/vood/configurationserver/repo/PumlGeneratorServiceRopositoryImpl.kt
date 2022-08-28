@@ -2,6 +2,10 @@ package ru.vood.configurationserver.repo
 
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.stereotype.Service
+import ru.vood.configurationserver.repo.dto.FlinkServiceDto
+import ru.vood.configurationserver.repo.dto.FlinkServiceDtoTemp
+import ru.vood.configurationserver.repo.dto.FlinkServiceProfileDto
+import ru.vood.configurationserver.repo.dto.Topics
 import ru.vood.configurationserver.repo.intf.PumlGeneratorServiceRopository
 
 @Service

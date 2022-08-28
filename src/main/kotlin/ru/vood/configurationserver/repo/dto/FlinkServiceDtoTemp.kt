@@ -1,4 +1,4 @@
-package ru.vood.configurationserver.repo
+package ru.vood.configurationserver.repo.dto
 
 data class FlinkServiceDtoTemp(
     val serviceId: String,

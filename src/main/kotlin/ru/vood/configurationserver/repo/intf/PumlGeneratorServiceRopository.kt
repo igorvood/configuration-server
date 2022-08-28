@@ -1,7 +1,6 @@
 package ru.vood.configurationserver.repo.intf
 
-import ru.vood.configurationserver.repo.FlinkServiceDto
-import ru.vood.configurationserver.repo.FlinkServiceDtoTemp
+import ru.vood.configurationserver.repo.dto.FlinkServiceDto
 
 interface PumlGeneratorServiceRopository {
 
