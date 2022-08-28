@@ -18,7 +18,8 @@ class PumlGeneratorRepositoryImpl(
             """
             select SERVICE_ID, PROFILE_ID, IN_TOPIC, OUT_TOPIC 
             from report_order_service
-            where SERVICE_ID = :1 and PROFILE_ID = :2 """,
+            --where SERVICE_ID = :1 and PROFILE_ID = :2 
+            """,
             { rs, _ ->
                 FlinkServiceDtoTemp(
                     serviceId = rs.getString(1),
@@ -26,7 +27,7 @@ class PumlGeneratorRepositoryImpl(
                     inTopic = rs.getString(3),
                     outTopic = rs.getString(4)
                 )
-            }, srvId, profileId
+            }//, srvId, profileId
         )
 
         return queryRes
