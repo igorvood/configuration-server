@@ -9,7 +9,7 @@ import ru.vood.configurationserver.rest.intf.PumlGeneratorRestIntf
 class PumlGeneratorRestImpl(
     val pumlGeneratorControllerIntf: PumlGeneratorControllerIntf
     ) : PumlGeneratorRestIntf {
-    @GetMapping("/greeting")
+    @GetMapping("/pumlFile")
     override fun plantUML(): String {
         return pumlGeneratorControllerIntf.generatePuml("","")
     }

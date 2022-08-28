@@ -7,6 +7,7 @@ create table dict_service_profile_topic
   constraint dict_service_profile_topic_type_topic_ck check ( type_topic in ('in', 'out', 'unknown') ),
   topic_id varchar2(256) not null,
   topic_grp_ref varchar2(256) not null,
+  constraint dict_service_profile_topic_pk primary key (service_id, profile_id, type_topic, topic_id, topic_grp_ref) using index tablespace t_idx compress 2,
 
   producer_topic_id as (case when type_topic='out' then topic_id end ),
   producer_prop_grp_ref as (case when type_topic='out' then topic_grp_ref end ),

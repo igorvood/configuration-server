@@ -1,5 +1,6 @@
 insert into DICT_TOPIC(ID, DESCRIPTION, IS_OUR_TOPIC, DEV_NAME, IFT_NAME, PRODUCER_PROP_GRP, CONSUMER_PROP_GRP)
-select 'uasp_mutator_filter_input', 'DESCRIPTION', 1, 'dev-uasp-mutator-filter-input', null, 'DEFAULT_PRODUCER', 'DEFAULT_CONSUMER' from dual union all
+select 'uasp_mutator_filter_input', 'DESCRIPTION', 0, 'dev-uasp-mutator-filter-input', null, 'DEFAULT_PRODUCER', 'DEFAULT_CONSUMER' from dual union all
+select 'uasp_mutator_filter_input_2', 'DESCRIPTION', 0, 'dev-uasp-mutator-filter-input_2', null, 'DEFAULT_PRODUCER', 'DEFAULT_CONSUMER' from dual union all
 select 'mutator_consumer_2', 'DESCRIPTION', 1, 'dev-uasp-mutator-mutator_consumer_2-input', null, 'DEFAULT_PRODUCER', 'DEFAULT_CONSUMER' from dual union all
 select 'ivr__uasp_realtime__bussiness_rules__uaspdto__dlq', 'DESCRIPTION', 1, 'dev_ivr__uasp_realtime__bussiness_rules__uaspdto__dlq', null, 'DEFAULT_PRODUCER', 'DEFAULT_CONSUMER' from dual union all
 select 'dev_ivr__uasp_realtime__business_rules__uaspdto', 'DESCRIPTION', 1, 'dev_ivr__uasp_realtime__business_rules__uaspdto', null, 'DEFAULT_PRODUCER', 'DEFAULT_CONSUMER' from dual union all
