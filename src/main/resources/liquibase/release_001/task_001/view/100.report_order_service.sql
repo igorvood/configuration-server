@@ -1,4 +1,4 @@
-create or replace view report_order_service as
+-- create or replace view report_order_service as
 with full_srv_and_topic as
 (SELECT SP.SERVICE_ID, sp.ID profile_id, nvl(DSPT.CONSUMER_TOPIC_ID, '-') IN_TOPIC, nvl(dspt.PRODUCER_TOPIC_ID,'-') OUT_TOPIC
 FROM DICT_SERVICE_PROFILE SP
@@ -21,6 +21,7 @@ select srv_in.SERVICE_ID, srv_in.profile_id, srv_in.IN_TOPIC, srv_out.OUT_TOPIC 
  join srv_out on (srv_in.SERVICE_ID, srv_in.profile_id) = ((srv_out.SERVICE_ID, srv_out.profile_id))
 )
 select * from all_topic
+--     connect by prior OUT_TOPIC=IN_TOPIC
 
 /
 comment on table report_order_service is 'Вьюха с порядком сервисов.'
