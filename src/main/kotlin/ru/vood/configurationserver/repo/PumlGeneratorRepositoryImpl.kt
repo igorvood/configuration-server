@@ -6,12 +6,12 @@ import ru.vood.configurationserver.repo.dto.FlinkServiceDto
 import ru.vood.configurationserver.repo.dto.FlinkServiceDtoTemp
 import ru.vood.configurationserver.repo.dto.FlinkServiceProfileDto
 import ru.vood.configurationserver.repo.dto.Topics
-import ru.vood.configurationserver.repo.intf.PumlGeneratorServiceRopository
+import ru.vood.configurationserver.repo.intf.PumlGeneratorRepositoryIntf
 
 @Service
-class PumlGeneratorServiceRopositoryImpl(
+class PumlGeneratorRepositoryImpl(
     private val jdbcTemplate: JdbcTemplate
-) : PumlGeneratorServiceRopository {
+) : PumlGeneratorRepositoryIntf {
     override fun findBySrvIdAndProfileId(srvId: String, profileId: String): Set<FlinkServiceDto> {
 
         val queryRes = jdbcTemplate.query("""
