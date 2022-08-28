@@ -20,10 +20,10 @@ class PumlGeneratorServiceRopositoryImpl(
             where SERVICE_ID = :1 and PROFILE_ID = :2 """,
             { rs, _ ->
                 FlinkServiceDtoTemp(
-                    rs.getString(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4)
+                    serviceId = rs.getString(1),
+                    profileId = rs.getString(2),
+                    inTopic = rs.getString(3),
+                    outTopic = rs.getString(4)
                 )
             }, srvId, profileId
         )
