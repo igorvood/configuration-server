@@ -29,41 +29,37 @@ class PumlGeneratorRepositoryImpl(
         ).toSet()
 
 
-    private fun getNode(typeNode: String?, name: String): GraphNode {
+    private fun getNode(typeNode: String, name: String): GraphNode {
         val graphNode: GraphNode = if (typeNode == "topic")
-            Topic(name)
+            findTopic(name)
         else FlinkService(name)
         return graphNode
     }
 
-//    override fun findBySrvIdAndProfileId(srvId: String, profileId: String): Set<FlinkServiceDto> {
-//
-//        val queryRes = jdbcTemplate.query(
-//            """
-//            select SERVICE_ID, PROFILE_ID, IN_TOPIC, OUT_TOPIC
-//            from report_order_service
-//            --where SERVICE_ID = :1 and PROFILE_ID = :2
-//            """,
-//            { rs, _ ->
-//                FlinkServiceDtoTemp(
-//                    serviceId = rs.getString(1),
-//                    profileId = rs.getString(2),
-//                    inTopic = rs.getString(3),
-//                    outTopic = rs.getString(4)
-//                )
-//            }//, srvId, profileId
-//        )
-//
-//        return queryRes
-//            .groupBy(keySelector = { d: FlinkServiceDtoTemp -> FlinkServiceProfileDto(d.serviceId, d.profileId) })
-//            .map<FlinkServiceProfileDto, List<FlinkServiceDtoTemp>, FlinkServiceDto> { d ->
-//                FlinkServiceDto(
-//                    srv = d.key,
-//                    topics = Topics(
-//                        d.value.map { q -> q.inTopic }.distinct(),
-//                        d.value.map { q -> q.outTopic }.distinct()
-//                    )
-//                )
-//            }.toSet()
-//    }
+    private fun findTopic(topicId: String): Topic {
+        val queryForObject = jdbcTemplate.queryForObject(
+            """
+            select ID, IS_OUR from dict_topic_node
+            where ID = :1
+        """, { rs, _ ->
+                Topic(
+                    rs.getString(1), rs.getBoolean(2)
+                )
+            }, topicId
+        )
+        return queryForObject!!
+    }
+
+
 }
+
+
+//    create table dict_topic_node
+//    (
+//    id varchar2(512) not null,
+//    constraint dict_topic_node_pk primary key (id) using index tablespace t_idx,
+//    node_type as ('topic'),
+//    constraint dict_topic_node_node_type_fk foreign key (node_type, id) references dict_abstract_graph_node(node_type, NODE_ID),
+//    is_our number(1) default 1 not null,
+//    constraint dict_topic_node_is_our_ck check ( is_our in (0, 1) )
+//    )

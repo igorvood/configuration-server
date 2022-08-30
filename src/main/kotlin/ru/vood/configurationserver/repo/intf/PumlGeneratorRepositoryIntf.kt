@@ -8,5 +8,4 @@ interface PumlGeneratorRepositoryIntf {
 //    fun findBySrvIdAndProfileId(srvId: String, profileId: String): Set<FlinkServiceDto>
 
     fun findByGraphId(graphId: String): Set<Arrow<out GraphNode, out GraphNode>>
-
 }

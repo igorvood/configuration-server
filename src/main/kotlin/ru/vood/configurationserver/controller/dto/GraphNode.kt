@@ -5,14 +5,17 @@ sealed interface GraphNode {
     fun pamlUmlText(): String
 }
 
-data class Topic(val name: String) : GraphNode {
+data class Topic(
+    val name: String,
+    val isOur: Boolean
+) : GraphNode {
     override val alias: String
         get() = name.replace("-", "_")
 
     override fun pamlUmlText(): String {
+        val color = if (isOur) "Green" else "FireBrick"
+        return """$alias [label="$alias" shape=box color=$color];"""
 
-        return """$alias [label="$alias" shape=box color=Green];"""
-//        FireBrick
     }
 
 }
