@@ -18,72 +18,27 @@ digraph dfd{
     private val tail = """}
 @enduml"""
 
-    override fun generatePuml(srvId: String, profileId: String): String {
-        val findBySrvIdAndProfileId = pumlGeneratorRepositoryIntf.findBySrvIdAndProfileId(srvId, profileId)
 
 
-        val inTopics = findBySrvIdAndProfileId.flatMap { d -> d.topics.inTopics }.map { it.replace("-", "_") }.toSet()
-        val outTopics = findBySrvIdAndProfileId.flatMap { d -> d.topics.outTopics }.map { it.replace("-", "_") }.toSet()
-        val allTopic = inTopics.plus(outTopics)
-//        """dev_ivr__uasp_realtime__mdm_enrichment__uaspdto [label="p0_ivr__uasp_realtime__mdm_enrichment__uaspdto" shape=box]"""
-        val topics = allTopic.joinToString(separator = "\n") { t -> """$t [label="$t" shape=box];""" }
+    override fun generatePumlByGraphId(graphId: String): String {
+        val arrows = pumlGeneratorRepositoryIntf.findByGraphId(graphId)
+        val nodesStr = arrows
+            .flatMap { it -> listOf(it.from, it.to) }
+            .toSet()
+            .joinToString(separator = "\n") { it.pamlUmlText() }
 
-        //        """bevents_streaming_input_convertor_first_salary_transactions [label="{<f0> uasp-streaming-input-convertor |<f1> bevents-streaming-input-convertor-first-salary-transactions\n\n\n}" shape=Mrecord];"""
-        val srvs = findBySrvIdAndProfileId
-            .map { d -> d.srv }
-            .joinToString(separator = "\n") { d -> """${d.serviceId} [label="{<f0> ${d.serviceId} |<f1> ${d.profileId}\n\n\n}" shape=Mrecord];""" }
-
-        val topicToSrvArrow = findBySrvIdAndProfileId.flatMap { d ->
-            d.topics.inTopics.map { t ->
-                ArrowOld(
-                    t.replace("-", "_"),
-                    d.srv.serviceId
-                )
-            }
-        }.toSet()
-        val srvToTopicArrow = findBySrvIdAndProfileId.flatMap { d ->
-            d.topics.outTopics.map { t ->
-                ArrowOld(
-                    d.srv.serviceId,
-                    t.replace("-", "_")
-                )
-            }
-        }.toSet()
-
-        val arrows = topicToSrvArrow.plus(srvToTopicArrow)
-//"""uasp_streaming_mdm_enrichment_rates:p1->dev_ivr__uasp_realtime__outer_cbr_rate__ask"""
-        val arrowsStr = arrows.joinToString(separator = "\n") { d -> """${d.from} -> ${d.to}""" }
-
+        val joinToString = arrows
+            .joinToString(separator = "\n") { it.pamlUmlText() }
 
         val trimMargin = """$head
             |
-            |$topics
+            |$nodesStr
             |
-            |$srvs
-            |
-            |$arrowsStr
+            |$joinToString
             |
             |$tail
-            
         """.trimMargin()
         return trimMargin
-    }
-
-    override fun generatePumlNew(srvId: String, profileId: String): String {
-        val findBySrvIdAndProfileId = pumlGeneratorRepositoryIntf.findBySrvIdAndProfileId(srvId, profileId)
-        val arrows = findBySrvIdAndProfileId
-            .flatMap { d ->
-                val toSrv = d.topics.inTopics
-                    .map { s -> Arrow(Topic(s), FlinkService(d.srv.serviceId)) }
-                val fromSrv = d.topics.outTopics
-                    .map { s -> Arrow(FlinkService(d.srv.serviceId), Topic(s)) }
-                toSrv.plus(fromSrv)
-            }
-        val mutableListOf = listOf<FlinkGraph>()
-        val graphs = calcGraphs(arrows, mutableListOf)
-        graphs
-
-        return ""
     }
 
     private /*tailrec*/ fun calcGraphs(arrows: List<Arrow<out GraphNode, out GraphNode>>, flinkGraphs: List<FlinkGraph>): List<FlinkGraph> {
