@@ -21,5 +21,8 @@ comment on column dict_arrow.end_node_type is 'Тип ноды окончани�
 /
 comment on column dict_arrow.end_node_id is 'Идентификатор ноды окончания стрелки.'
 /
+comment on column dict_arrow.graph_id is 'Идентификатор графа.'
+/
+
 
 

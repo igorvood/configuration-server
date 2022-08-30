@@ -24,5 +24,8 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0200.dict_arrow.sql"/>
     </changeSet>
 
+    <include file="liquibase/release_001/task_001/graph_structure/view/graph_structure.xml"/>
+    <include file="liquibase/release_001/task_001/graph_structure/pck/graph_structure.xml"/>
+
 
 </databaseChangeLog>
