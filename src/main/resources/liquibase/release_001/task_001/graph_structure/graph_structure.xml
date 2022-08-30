@@ -26,6 +26,7 @@
 
     <include file="liquibase/release_001/task_001/graph_structure/view/graph_structure.xml"/>
     <include file="liquibase/release_001/task_001/graph_structure/pck/graph_structure.xml"/>
+    <include file="liquibase/release_001/task_001/graph_structure/data/graph_structure.xml"/>
 
 
 </databaseChangeLog>

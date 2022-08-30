@@ -14,4 +14,3 @@ from REPORT_ORDER_SERVICE
 /
 commit
 /
--- constraint dict_arrow_pk primary key (graph_id, beg_node_type, beg_node_id, end_node_type, end_node_id) using index tablespace t_idx compress 1,
