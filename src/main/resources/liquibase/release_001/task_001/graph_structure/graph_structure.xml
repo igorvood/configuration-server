@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/0100.dict_abstract_graph_node.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0100.dict_abstract_graph_node.sql"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/0110.dict_topic_node.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0110.dict_topic_node.sql"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/0120.dict_service_node.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0120.dict_service_node.sql"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/0200.dict_arrow.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0200.dict_arrow.sql"/>
+    </changeSet>
+
+
+</databaseChangeLog>
