@@ -9,5 +9,11 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0100.dict_topic.trg" endDelimiter="/"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/pck/0110.dict_service.trg" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0110.dict_service.trg" endDelimiter="/"/>
+    </changeSet>
+
+
 
 </databaseChangeLog>

@@ -4,9 +4,14 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="liquibase/release_001/task_001/graph_structure/view/0100.dict_nodes.sql" author="vood" runAlways="true">
+    <changeSet id="liquibase/release_001/task_001/graph_structure/view/0100.dict_topic_ins.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0100.dict_nodes.sql"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0100.dict_topic_ins.sql"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/view/0110.dict_topic_ins.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0110.dict_topic_ins.sql"/>
     </changeSet>
 
 
