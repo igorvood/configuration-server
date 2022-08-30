@@ -11,7 +11,8 @@ data class Topic(val name: String) : GraphNode {
 
     override fun pamlUmlText(): String {
 
-        return """$alias [label="$alias" shape=box];"""
+        return """$alias [label="$alias" shape=box color=Green];"""
+//        FireBrick
     }
 
 }
