@@ -7,7 +7,7 @@ create table dict_arrow
   end_node_id varchar2(512) not null,
   constraint dict_arrow_pk primary key (graph_id, beg_node_type, beg_node_id, end_node_type, end_node_id) using index tablespace t_idx compress 1,
   constraint dict_arrow_not_equal_ck check (
-    beg_node_type != end_node_type and beg_node_id != end_node_id
+    beg_node_type != end_node_type or beg_node_id != end_node_id
   )
 )
 /
