@@ -3,9 +3,10 @@ package ru.vood.configurationserver.controller
 import org.springframework.stereotype.Service
 import ru.vood.configurationserver.controller.dto.Arrow
 import ru.vood.configurationserver.controller.dto.FlinkGraph
+import ru.vood.configurationserver.controller.dto.GraphNode
 import ru.vood.configurationserver.controller.intf.PumlGeneratorControllerIntf
 import ru.vood.configurationserver.repo.intf.PumlGeneratorRepositoryIntf
-import ru.vood.configurationserver.controller.dto.*
+
 @Service
 class PumlGeneratorControllerImpl(
     val pumlGeneratorRepositoryIntf: PumlGeneratorRepositoryIntf
@@ -17,7 +18,6 @@ digraph dfd{
 
     private val tail = """}
 @enduml"""
-
 
 
     override fun generatePumlByGraphId(graphId: String): String {
@@ -41,7 +41,10 @@ digraph dfd{
         return trimMargin
     }
 
-    private /*tailrec*/ fun calcGraphs(arrows: List<Arrow<out GraphNode, out GraphNode>>, flinkGraphs: List<FlinkGraph>): List<FlinkGraph> {
+    private /*tailrec*/ fun calcGraphs(
+        arrows: List<Arrow<out GraphNode, out GraphNode>>,
+        flinkGraphs: List<FlinkGraph>
+    ): List<FlinkGraph> {
         if (arrows.isEmpty()) return flinkGraphs
 
         val nextArrow = arrows.first()
@@ -54,11 +57,11 @@ digraph dfd{
                     .any { n -> n == nextArrow.from || n == nextArrow.to }
             }
 
-try {
-    require(onlyOneGraph.isEmpty() || onlyOneGraph.size == 1) { "added arrow must be only ine or none $onlyOneGraph" }
-} catch (e:Throwable){
-    e.printStackTrace()
-}
+        try {
+            require(onlyOneGraph.isEmpty() || onlyOneGraph.size == 1) { "added arrow must be only ine or none $onlyOneGraph" }
+        } catch (e: Throwable) {
+            e.printStackTrace()
+        }
 
 
         return if (onlyOneGraph.isEmpty())

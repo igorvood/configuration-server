@@ -6,10 +6,6 @@ import ru.vood.configurationserver.controller.dto.Arrow
 import ru.vood.configurationserver.controller.dto.FlinkService
 import ru.vood.configurationserver.controller.dto.GraphNode
 import ru.vood.configurationserver.controller.dto.Topic
-import ru.vood.configurationserver.repo.dto.FlinkServiceDto
-import ru.vood.configurationserver.repo.dto.FlinkServiceDtoTemp
-import ru.vood.configurationserver.repo.dto.FlinkServiceProfileDto
-import ru.vood.configurationserver.repo.dto.Topics
 import ru.vood.configurationserver.repo.intf.PumlGeneratorRepositoryIntf
 
 @Service
@@ -25,19 +21,15 @@ class PumlGeneratorRepositoryImpl(
             where GRAPH_ID = :1
             """,
             { rs, _ ->
-
-                val typeNode = rs.getString(1)
-                val name = rs.getString(2)
-
-                Arrow(getNode(rs.getString(1), rs.getString(2)),
+                Arrow(
+                    getNode(rs.getString(1), rs.getString(2)),
                     getNode(rs.getString(3), rs.getString(4))
                 )
             }, graphId
         ).toSet()
 
 
-
-    private fun getNode(typeNode: String?, name: String): GraphNode  {
+    private fun getNode(typeNode: String?, name: String): GraphNode {
         val graphNode: GraphNode = if (typeNode == "topic")
             Topic(name)
         else FlinkService(name)
