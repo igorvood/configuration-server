@@ -18,7 +18,9 @@ data class Topic(val name: String) : GraphNode {
 
 data class FlinkService(val name: String) : GraphNode {
     override val alias: String
-        get() = name.replace("-", "_")
+        get() = name
+            .replace("-", "_")
+            .replace("~", "_")
 
     override fun pamlUmlText(): String {
 //        """${d.serviceId} [label="{<f0> ${d.serviceId} |<f1> ${d.profileId}\n\n\n}" shape=Mrecord];"""
