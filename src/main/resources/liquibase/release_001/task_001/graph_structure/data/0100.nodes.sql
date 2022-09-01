@@ -1,3 +1,9 @@
+insert into DICT_KAFKA_PRD_PROPERTY_GRP(ID, DESCRIPTION)
+SELECT 'producer_default', 'producer_default' from dual
+/
+insert into DICT_KAFKA_CNS_PROPERTY_GRP(ID, DESCRIPTION)
+SELECT 'consumer_default', 'consumer_default' from dual
+/
 insert into DICT_TOPIC_INS(GRAPH_ID, NODE_ID)
 select 'graph_1', ID from DICT_TOPIC
 /
