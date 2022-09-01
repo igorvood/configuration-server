@@ -1,0 +1,171 @@
+@startuml
+digraph dfd{
+	node[shape=record]
+
+    bevents_common_first_salary [label="<F0> Resources|<F1> bevents-common-first-salary"];
+    bevents_streaming_aggregate_first_salary_state [label="<F0> Flink State|<F1> bevents-streaming-aggregate-first-salary-state"];
+
+    CFT2RS_CD [label="<F0> Center Finacial Transactions|<F1> CFT2RS_CD"];
+    issuing_operation [label="<f0> DMZ Kafka Way4|<f1> issuing_operation"];
+    prof_tx  [label="<F0> Profile|<F1> prof_tx"];
+    dev_bevents__batch__ca_regulatory_client_id_of_profile__uaspdto  [label="<F0> dev_bevents__batch__ca_regulatory_client_id_of_profile__uaspdto|<F1> DRP"];
+    dev_bevents__batch__ca_regulatory_mdm_id_of_client_id_profile__uaspdto  [label="<F0> dev_bevents__batch__ca_regulatory_mdm_id_of_client_id_profile__uaspdto|<F1> DRP"];
+    dev_bevents__batch__ca_regulatory_contract_num_of_mdm_id_profile__uaspdto [label="<F0> dev_bevents__batch__ca_regulatory_contract_num_of_mdm_id_profile__uaspdto|<F1> DRP"];
+
+
+    dev_ivr__uasp_realtime__mdm_enrichment__uaspdto [label="p0_ivr__uasp_realtime__mdm_enrichment__uaspdto" shape=box];
+
+    dev_bevents__realtime__input_converter__prof__transactions__uaspdto [label="dev_bevents__realtime__input_converter__prof__transactions__uaspdto" shape=box];
+    dev_bevents__realtime__input_converter__prof__transactions__dlq [label="dev_bevents__realtime__input_converter__prof__transactions__dlq" shape=box];
+
+    dev_bevents__batch__ca_regulatory_client_id_of_profile__status [label="dev_bevents__batch__ca_regulatory_client_id_of_profile__status" shape=box];
+    dev_bevents__realtime__enrichment__prof__transactions_with_clientid__uaspdto [label="dev_bevents__realtime__enrichment__prof__transactions_with_clientid__uaspdto" shape=box];
+    dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq [label="dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq" shape=box];
+
+    dev_bevents__batch__ca_regulatory_mdm_id_of_client_id_profile__status [label="dev_bevents__batch__ca_regulatory_mdm_id_of_client_id_profile__status" shape=box];
+    dev_bevents__batch__ca_regulatory_contract_num_of_mdm_id_profile__status [label="dev_bevents__batch__ca_regulatory_contract_num_of_mdm_id_profile__status" shape=box];
+    dev_bevents__realtime__enrichment__prof__transactions_with_mdm_id__uaspdto [label="dev_bevents__realtime__enrichment__prof__transactions_with_mdm_id__uaspdto" shape=box];
+    dev_bevents__realtime__enrichment__prof__transactions_with_mdm_id__dlq [label="dev_bevents__realtime__enrichment__prof__transactions_with_mdm_id__dlq" shape=box];
+    dev_bevents__realtime__enrichment__prof__transactions_with_mdm_id__additional [label="dev_bevents__realtime__enrichment__prof__transactions_with_mdm_id__additional" shape=box];
+
+    dev_bevents__realtime__additional_enrichment__prof__transactions_with_mdm_id__dlq [label="dev_bevents__realtime__additional_enrichment__prof__transactions_with_mdm_id__dlq" shape=box];
+    dev_bevents__realtime__additional_enrichment__prof__transactions_with_mdm_id__uaspdto [label="dev_bevents__realtime__additional_enrichment__prof__transactions_with_mdm_id__uaspdto" shape=box];
+    ift_ivr__uasp_realtime__input_converter__mdm_cross_link__json [label="ift_ivr__uasp_realtime__input_converter__mdm_cross_link__json" shape=box];
+    dev_bevents__realtime__input_converter__mdm_cross_link__dlq [label="dev_bevents__realtime__input_converter__mdm_cross_link__dlq" shape=box];
+
+    dev_bevents__realtime__input_converter__cft__transactions__uaspdto [label="dev_bevents__realtime__input_converter__cft__transactions__uaspdto" shape=box];
+    dev_bevents__realtime__input_converter__cft__transactions__dlq [label="dev_bevents__realtime__input_converter__cft__transactions__dlq" shape=box];
+
+    dev_bevents__realtime__enrichment_prepare_transactions__uaspdto  [label="dev_bevents__realtime__enrichment_prepare_transactions__uaspdto" shape=box];
+    dev_bevents__realtime__enrichment_prepare_transactions__dlq  [label="dev_bevents__realtime__enrichment_prepare_transactions__dlq" shape=box];
+
+    dev_bevents__realtime__aggregate_first_salary__dlq [label="dev_bevents__realtime__aggregate_first_salary__dlq" shape=box];
+    dev_bevents__realtime__aggregate_first_salary__uaspdto [label="dev_bevents__realtime__aggregate_first_salary__uaspdto" shape=box];
+
+    dev_bevents__realtime__filter_first_salary__dlq [label="dev_bevents__realtime__filter_first_salary__dlq" shape=box];
+    dev_bevents__realtime__filter_first_salary__filter [label="dev_bevents__realtime__filter_first_salary__filter" shape=box];
+    dev_bevents__realtime__filter_first_salary__uaspdto [label="dev_bevents__realtime__filter_first_salary__uaspdto" shape=box];
+
+    dev_bevents__uasp_realtime__outer_cbr_rate__status [label="dev_bevents__uasp_realtime__outer_cbr_rate__status" shape=box];
+    dev_bevents__realtime__enrichment_first_salary_transactions__dlq [label="dev_bevents__realtime__enrichment_first_salary_transactions__dlq" shape=box];
+    dev_bevents__realtime__enrichment_first_salary_transactions__uaspdto [label="dev_bevents__realtime__enrichment_first_salary_transactions__uaspdto" shape=box];
+
+    dev_bevents__realtime__modelvector_first_salary__dlq [label="dev_bevents__realtime__modelvector_first_salary__dlq" shape=box];
+    dev_bevents__realtime__modelvector_first_salary__json [label="dev_bevents__realtime__modelvector_first_salary__json" shape=box];
+    dev_bevents__realtime__modelvector_first_pension__json [label="dev_bevents__realtime__modelvector_first_pension__json" shape=box];
+    dev_bevents__realtime__modelvector_first_postransaction__json [label="dev_bevents__realtime__modelvector_first_postransaction__json" shape=box];
+    dev_bevents__realtime__modelvector_account_refill__json [label="dev_bevents__realtime__modelvector_account_refill__json" shape=box];
+    dev_bevents__realtime__modelvector_first_salary__qa [label="dev_bevents__realtime__modelvector_first_salary__qa" shape=box];
+
+
+	"DEV.OUTER.CBR.RATES" [label="<f0> DEV.OUTER.CBR.RATES|<f1> External Kafka"]
+	dev_ivr__uasp_realtime__outer_cbr_rates__json [label="dev_ivr__uasp_realtime__outer_cbr_rates__json" shape=box]
+	dev_ivr__uasp_realtime__outer_cbr_rate__ask [label="dev_ivr__uasp_realtime__outer_cbr_rate__ask" shape=box]
+	"DEV.OUTER.CBR.RATES.ACK" [label="<f0>DEV.OUTER.CBR.RATES.ACK|<f1> External Kafka"]
+
+    dev_bevents__batch__ca_first_salary_transactions__uaspdto [label="dev_bevents__batch__ca_first_salary_transactions__uaspdto" shape=box];
+
+    bevents_pim_batch__ca_first_salary  [label="{<f0> bevents_pim_batch__ca_first_salary |<f1> bevents_pim_batch__ca_first_salary\n\n\n}" shape=Mrecord];
+    bevents_pim_batch__ca_first_salary:f1 -> dev_bevents__batch__ca_first_salary_transactions__uaspdto
+
+    uasp_streaming_main_input [label="{<f0> uasp_streaming_main_input \n(uasp-streaming-unp-convertor, \n uasp-streaming-input-convertor, \n uasp-streaming-mdm-enrichment) |<f1> uasp_streaming_main_input\n (details in project: \n uasp-streaming-common)\n\n}" shape=Mrecord];
+    issuing_operation:f1 -> uasp_streaming_main_input:f0
+    uasp_streaming_main_input:f1->dev_ivr__uasp_realtime__mdm_enrichment__uaspdto
+
+    bevents_streaming_unp_convertor_way4_transactions [label="{<f0> uasp-streaming-unp-convertor |<f1> bevents_streaming_unp_convertor_way4_transactions\n\n\n}" shape=Mrecord];
+    dev_ivr__uasp_realtime__mdm_enrichment__uaspdto->bevents_streaming_unp_convertor_way4_transactions:f0
+
+    bevents_streaming_input_convertor_first_salary_transactions [label="{<f0> uasp-streaming-input-convertor |<f1> bevents-streaming-input-convertor-first-salary-transactions\n\n\n}" shape=Mrecord];
+    CFT2RS_CD->bevents_streaming_input_convertor_first_salary_transactions:f0
+    bevents_streaming_input_convertor_first_salary_transactions:f1->dev_bevents__realtime__input_converter__cft__transactions__dlq
+    bevents_streaming_input_convertor_first_salary_transactions:f1->dev_bevents__realtime__input_converter__cft__transactions__uaspdto
+
+    bevents_streaming_input_convertor_profile_transactions [label="{<f0> uasp-streaming-input-convertor |<f1> bevents_streaming_input_convertor_profile_transactions\n\n\n}" shape=Mrecord];
+    prof_tx->bevents_streaming_input_convertor_profile_transactions:f0
+    bevents_streaming_input_convertor_profile_transactions:f1->dev_bevents__realtime__input_converter__prof__transactions__uaspdto
+    bevents_streaming_input_convertor_profile_transactions:f1->dev_bevents__realtime__input_converter__prof__transactions__dlq
+
+    bevents_streaming_enrichment_profile_client_id [label="{<f0> bevents_streaming_enrichment_profile_client_id |<f1> uasp-streaming-mdm-enrichment \n\n\n}" shape=Mrecord];
+    dev_bevents__realtime__input_converter__prof__transactions__uaspdto->bevents_streaming_enrichment_profile_client_id:f0
+    dev_bevents__batch__ca_regulatory_client_id_of_profile__uaspdto->bevents_streaming_enrichment_profile_client_id:f0
+    bevents_streaming_enrichment_profile_client_id:f1->dev_bevents__batch__ca_regulatory_client_id_of_profile__status
+    bevents_streaming_enrichment_profile_client_id:f1->dev_bevents__realtime__enrichment__prof__transactions_with_clientid__uaspdto
+    bevents_streaming_enrichment_profile_client_id:f1->dev_bevents__realtime__enrichment__prof__transactions_with_clientid__dlq
+
+    bevents_streaming_enrichment_profile_mdm_id [label="{<f0> bevents_streaming_enrichment_profile_mdm_id |<f1> uasp-streaming-mdm-enrichment \n\n\n}" shape=Mrecord];
+    dev_bevents__realtime__enrichment__prof__transactions_with_clientid__uaspdto->bevents_streaming_enrichment_profile_mdm_id:f0
+    dev_bevents__batch__ca_regulatory_mdm_id_of_client_id_profile__uaspdto->bevents_streaming_enrichment_profile_mdm_id:f0
+    dev_bevents__batch__ca_regulatory_contract_num_of_mdm_id_profile__uaspdto->bevents_streaming_enrichment_profile_mdm_id:f0
+    dev_bevents__realtime__additional_enrichment__prof__transactions_with_mdm_id__uaspdto->bevents_streaming_enrichment_profile_mdm_id:f1
+    bevents_streaming_enrichment_profile_mdm_id:f1->dev_bevents__batch__ca_regulatory_mdm_id_of_client_id_profile__status
+    bevents_streaming_enrichment_profile_mdm_id:f1->dev_bevents__batch__ca_regulatory_contract_num_of_mdm_id_profile__status
+    bevents_streaming_enrichment_profile_mdm_id:f1->dev_bevents__realtime__enrichment__prof__transactions_with_mdm_id__uaspdto
+    bevents_streaming_enrichment_profile_mdm_id:f1->dev_bevents__realtime__enrichment__prof__transactions_with_mdm_id__dlq
+    bevents_streaming_enrichment_profile_mdm_id:f1->dev_bevents__realtime__enrichment__prof__transactions_with_mdm_id__additional
+
+    bevents_streaming_mdm_additional_enrichment_profile_mdm_id [label="{<f0> bevents_streaming_mdm_additional_enrichment_profile_mdm_id |<f1> uasp-streaming-mdm-enrichment \n\n\n}" shape=Mrecord];
+    dev_bevents__realtime__enrichment__prof__transactions_with_mdm_id__additional->bevents_streaming_mdm_additional_enrichment_profile_mdm_id:f0
+    bevents_streaming_mdm_additional_enrichment_profile_mdm_id:f1->dev_bevents__realtime__additional_enrichment__prof__transactions_with_mdm_id__dlq
+    bevents_streaming_mdm_additional_enrichment_profile_mdm_id:f1->dev_bevents__realtime__additional_enrichment__prof__transactions_with_mdm_id__uaspdto
+    bevents_streaming_mdm_additional_enrichment_profile_mdm_id:f1->ift_ivr__uasp_realtime__input_converter__mdm_cross_link__json
+
+    bevents_streaming_input_convertor_mdm_cross_link [label="{<f0> bevents_streaming_input_convertor_mdm_cross_link |<f1> uasp-streaming-input-convertor \n\n\n}" shape=Mrecord];
+    ift_ivr__uasp_realtime__input_converter__mdm_cross_link__json->bevents_streaming_input_convertor_mdm_cross_link:f0
+    bevents_streaming_input_convertor_mdm_cross_link:f1->dev_bevents__realtime__input_converter__mdm_cross_link__dlq
+    bevents_streaming_input_convertor_mdm_cross_link:f1->dev_bevents__batch__ca_regulatory_mdm_id_of_client_id_profile__uaspdto
+
+    union_way4_cft [label="{<f0> union_way4_cft |<f1> union\n\n\n}" shape=Mrecord];
+    dev_bevents__realtime__input_converter__cft__transactions__uaspdto->union_way4_cft:f0
+    bevents_streaming_unp_convertor_way4_transactions:f1->union_way4_cft:f0
+    dev_bevents__realtime__enrichment__prof__transactions_with_mdm_id__uaspdto->union_way4_cft:f0
+
+    bevents_streaming_business_rules_prepare_enrichment_transactions [label="{<f0> bevents_streaming_business_rules_prepare_enrichment_transactions |<f1> uasp-streaming-mutator\n\n\n}" shape=Mrecord];
+    union_way4_cft:f1->bevents_streaming_business_rules_prepare_enrichment_transactions:f0
+    bevents_streaming_business_rules_prepare_enrichment_transactions:f1->dev_bevents__realtime__enrichment_prepare_transactions__uaspdto
+    bevents_streaming_business_rules_prepare_enrichment_transactions:f1->dev_bevents__realtime__enrichment_prepare_transactions__dlq
+
+    bevents_streaming_enrichment_first_salary_exchange [label="{<f0> bevents-streaming-enrichment-first-salary-exchange |<f1> uasp-streaming-mdm-enrichment \n\n\n}" shape=Mrecord];
+    dev_ivr__uasp_realtime__outer_cbr_rates__json->bevents_streaming_enrichment_first_salary_exchange:f0
+    dev_bevents__realtime__enrichment_prepare_transactions__uaspdto->bevents_streaming_enrichment_first_salary_exchange:f0
+    bevents_streaming_enrichment_first_salary_exchange:f0->dev_bevents__uasp_realtime__outer_cbr_rate__status
+    bevents_streaming_enrichment_first_salary_exchange:f1->dev_bevents__realtime__enrichment_first_salary_transactions__dlq
+    bevents_streaming_enrichment_first_salary_exchange:f1->dev_bevents__realtime__enrichment_first_salary_transactions__uaspdto
+
+    bevents_streaming_aggregate_first_salary [label="{<f0> bevents-streaming-aggregate-first-salary |<f1> bevents-streaming-aggregate-first-salary \n (contains uasp-streaming-mutator libs) \n\n}" shape=Mrecord];
+    bevents_common_first_salary->bevents_streaming_aggregate_first_salary:f0
+    dev_bevents__batch__ca_first_salary_transactions__uaspdto->bevents_streaming_aggregate_first_salary:f0
+    dev_bevents__realtime__enrichment_first_salary_transactions__uaspdto->bevents_streaming_aggregate_first_salary:f0
+    bevents_streaming_aggregate_first_salary_state->bevents_streaming_aggregate_first_salary:f0
+    bevents_streaming_aggregate_first_salary:f1->bevents_streaming_aggregate_first_salary_state
+    bevents_streaming_aggregate_first_salary:f1->dev_bevents__realtime__aggregate_first_salary__dlq
+    bevents_streaming_aggregate_first_salary:f1->dev_bevents__realtime__aggregate_first_salary__uaspdto
+
+    bevents_streaming_filter_first_salary [label="{<f0> uasp-streaming-filter |<f1> uasp-streaming-filter-first-salary\n\n\n}" shape=Mrecord];
+    dev_bevents__realtime__aggregate_first_salary__uaspdto->bevents_streaming_filter_first_salary:f0
+    bevents_streaming_filter_first_salary:f1->dev_bevents__realtime__filter_first_salary__dlq
+    bevents_streaming_filter_first_salary:f1->dev_bevents__realtime__filter_first_salary__filter
+    bevents_streaming_filter_first_salary:f1->dev_bevents__realtime__filter_first_salary__uaspdto
+
+    bevents_streaming_modelvector_first_salary [label="{<f0> uasp-streaming-model-vector |<f1> uasp-streaming-model-vector-first-salary\n\n\n}" shape=Mrecord];
+    dev_bevents__realtime__filter_first_salary__uaspdto->bevents_streaming_modelvector_first_salary:f0
+    bevents_streaming_modelvector_first_salary:f1->dev_bevents__realtime__modelvector_first_salary__dlq
+    bevents_streaming_modelvector_first_salary:f1->dev_bevents__realtime__modelvector_first_salary__json
+    bevents_streaming_modelvector_first_salary:f1->dev_bevents__realtime__modelvector_first_pension__json
+    bevents_streaming_modelvector_first_salary:f1->dev_bevents__realtime__modelvector_first_postransaction__json
+    bevents_streaming_modelvector_first_salary:f1->dev_bevents__realtime__modelvector_account_refill__json
+    bevents_streaming_modelvector_first_salary:f1->dev_bevents__realtime__modelvector_first_salary__qa
+
+    unp_convertor_outer_cbr_rates [label="{<f0> unp_convertor_outer_cbr_rates |<f1> uasp-streaming-unp-convertor\n\n\n}" shape=Mrecord];
+    "DEV.OUTER.CBR.RATES" -> unp_convertor_outer_cbr_rates:f0
+    unp_convertor_outer_cbr_rates:f1 -> dev_ivr__uasp_realtime__outer_cbr_rates__json
+
+    uasp_streaming_mdm_enrichment_rates[label="{<f0> uasp_streaming_mdm_enrichment_rates |<f1> uasp-streaming-mdm-enrichment\n\n\n}" shape=Mrecord];
+    dev_ivr__uasp_realtime__outer_cbr_rates__json->uasp_streaming_mdm_enrichment_rates:p0
+    uasp_streaming_mdm_enrichment_rates:p1->dev_ivr__uasp_realtime__outer_cbr_rate__ask
+
+    unp_convertor_outer_cbr_ack [label="{<f0> unp_convertor_outer_cbr_ack |<f1> uasp-streaming-unp-convertor\n\n\n}" shape=Mrecord];
+    dev_ivr__uasp_realtime__outer_cbr_rate__ask -> unp_convertor_outer_cbr_ack:f0
+    unp_convertor_outer_cbr_ack:f1 -> "DEV.OUTER.CBR.RATES.ACK"
+
+}
+@enduml
