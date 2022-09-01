@@ -40,11 +40,11 @@ class PumlGeneratorRepositoryImpl(
     private fun findTopic(topicId: String): Topic {
         val queryForObject = jdbcTemplate.queryForObject(
             """
-            select ID, IS_OUR from dict_topic_node
+            select ID, IS_OUR, CNT_PARTITION from dict_topic_node
             where ID = :1
         """, { rs, _ ->
                 Topic(
-                    rs.getString(1), rs.getBoolean(2)
+                    rs.getString(1), rs.getBoolean(2),rs.getInt(3)
                 )
             }, topicId
         )

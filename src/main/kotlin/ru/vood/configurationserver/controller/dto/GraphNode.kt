@@ -7,13 +7,15 @@ sealed interface GraphNode {
 
 data class Topic(
     val name: String,
-    val isOur: Boolean
+    val isOur: Boolean,
+    val cntPartition: Int
 ) : GraphNode {
     override val alias: String
         get() = name.replace("-", "_")
 
     override fun pamlUmlText(): String {
         val color = if (isOur) "Green" else "FireBrick"
+//        return """$alias [label="{<f0> $alias |<f1> partitionCnt_$cntPartition\n\n\n}" shape=box color=$color];"""
         return """$alias [label="$alias" shape=box color=$color];"""
 
     }
