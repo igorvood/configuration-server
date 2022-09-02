@@ -8,7 +8,7 @@ import ru.vood.configurationserver.repo.intf.ConfigurationGeneratorRepositoryInt
 @Service
 class ConfigurationGeneratorRepositoryIntfImpl(
     private val jdbcTemplate: JdbcTemplate
-)  : ConfigurationGeneratorRepositoryIntf {
+) : ConfigurationGeneratorRepositoryIntf {
     override fun property(
         serviceId: String,
         profileId: String,
@@ -23,7 +23,7 @@ class ConfigurationGeneratorRepositoryIntfImpl(
                 EnvProperty(rs.getString(1), rs.getString(2))
             }, serviceId, profileId, stand
         ).toSet()
-return query
+        return query
 
     }
 }

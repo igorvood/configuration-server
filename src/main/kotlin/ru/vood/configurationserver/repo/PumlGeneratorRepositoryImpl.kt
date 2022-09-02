@@ -31,7 +31,7 @@ class PumlGeneratorRepositoryImpl(
 
     private fun getNode(typeNode: String, name: String): GraphNode {
         val graphNode: GraphNode = if (typeNode == "topic")
-            // TODO Очень плохо так делать, но времени нет, потом переделать
+        // TODO Очень плохо так делать, но времени нет, потом переделать
             findTopic(name)
         else FlinkService(name)
         return graphNode
@@ -44,7 +44,7 @@ class PumlGeneratorRepositoryImpl(
             where ID = :1
         """, { rs, _ ->
                 Topic(
-                    rs.getString(1), rs.getBoolean(2),rs.getInt(3)
+                    rs.getString(1), rs.getBoolean(2), rs.getInt(3)
                 )
             }, topicId
         )
