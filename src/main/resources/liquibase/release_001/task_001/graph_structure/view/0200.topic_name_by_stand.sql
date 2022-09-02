@@ -5,6 +5,8 @@ select id topic_id, stand, topic_name FROM DICT_TOPIC_NODE
     topic_name  -- unpivot_clause
     FOR stand --  unpivot_for_clause
     IN ( -- unpivot_in_clause
+        DEV_NAME AS 'NOTEBOOK',
+        DEV_NAME AS 'NOTEBOOK_DSO',
         DEV_NAME AS 'DSO',
         IFT_NAME_REAL AS 'IFT',
         NT_NAME_REAL AS 'NT',
