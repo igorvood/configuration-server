@@ -9,5 +9,20 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0100.nodes.sql" endDelimiter="/"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0200.dict_topic_ins.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0200.dict_topic_ins.sql" endDelimiter="/"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0210.dict_sevice_ins.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0210.dict_sevice_ins.sql" endDelimiter="/"/>
+    </changeSet>
+
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0220.dict_arrow.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0220.dict_arrow.sql" endDelimiter="/"/>
+    </changeSet>
 
 </databaseChangeLog>
