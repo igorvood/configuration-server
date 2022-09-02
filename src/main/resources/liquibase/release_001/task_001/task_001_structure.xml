@@ -6,50 +6,50 @@
 
 <!--    <include file="liquibase/release_001/task_001/forTests/task_001_for_tests.xml"/>-->
 
-    <changeSet id="001/001/0080.dict_topic_property_consumer_group.sql" author="vood" runAlways="true">
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/0080.dict_topic_property_consumer_group.sql"/>
-    </changeSet>
+<!--    <changeSet id="001/001/0080.dict_topic_property_consumer_group.sql" author="vood" runAlways="true">-->
+<!--        <validCheckSum>any</validCheckSum>-->
+<!--        <sqlFile path="liquibase/release_001/task_001/0080.dict_topic_property_consumer_group.sql"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="001/001/0083.dict_topic_consumer_property.sql" author="vood" runAlways="true">
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/0083.dict_topic_consumer_property.sql"/>
-    </changeSet>
+<!--    <changeSet id="001/001/0083.dict_topic_consumer_property.sql" author="vood" runAlways="true">-->
+<!--        <validCheckSum>any</validCheckSum>-->
+<!--        <sqlFile path="liquibase/release_001/task_001/0083.dict_topic_consumer_property.sql"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="001/001/0090.dict_topic_property_producer_group.sql" author="vood" runAlways="true">
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/0090.dict_topic_property_producer_group.sql"/>
-    </changeSet>
+<!--    <changeSet id="001/001/0090.dict_topic_property_producer_group.sql" author="vood" runAlways="true">-->
+<!--        <validCheckSum>any</validCheckSum>-->
+<!--        <sqlFile path="liquibase/release_001/task_001/0090.dict_topic_property_producer_group.sql"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="001/001/0093.dict_topic_producer_property.sql" author="vood" runAlways="true">
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/0093.dict_topic_producer_property.sql"/>
-    </changeSet>
+<!--    <changeSet id="001/001/0093.dict_topic_producer_property.sql" author="vood" runAlways="true">-->
+<!--        <validCheckSum>any</validCheckSum>-->
+<!--        <sqlFile path="liquibase/release_001/task_001/0093.dict_topic_producer_property.sql"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="001/001/0100.dict_topic.sql" author="vood" runAlways="true">
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/0100.dict_topic.sql"/>
-    </changeSet>
+<!--    <changeSet id="001/001/0100.dict_topic.sql" author="vood" runAlways="true">-->
+<!--        <validCheckSum>any</validCheckSum>-->
+<!--        <sqlFile path="liquibase/release_001/task_001/0100.dict_topic.sql"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="001/001/0200.dict_service.sql" author="vood" runAlways="true">
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/0200.dict_service.sql"/>
-    </changeSet>
+<!--    <changeSet id="001/001/0200.dict_service.sql" author="vood" runAlways="true">-->
+<!--        <validCheckSum>any</validCheckSum>-->
+<!--        <sqlFile path="liquibase/release_001/task_001/0200.dict_service.sql"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="001/001/0210.dict_service_profile.sql" author="vood" runAlways="true">
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/0210.dict_service_profile.sql"/>
-    </changeSet>
+<!--    <changeSet id="001/001/0210.dict_service_profile.sql" author="vood" runAlways="true">-->
+<!--        <validCheckSum>any</validCheckSum>-->
+<!--        <sqlFile path="liquibase/release_001/task_001/0210.dict_service_profile.sql"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="001/001/0300.dict_service_profile_property.sql" author="vood" runAlways="true">
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/0300.dict_service_profile_property.sql"/>
-    </changeSet>
+<!--    <changeSet id="001/001/0300.dict_service_profile_property.sql" author="vood" runAlways="true">-->
+<!--        <validCheckSum>any</validCheckSum>-->
+<!--        <sqlFile path="liquibase/release_001/task_001/0300.dict_service_profile_property.sql"/>-->
+<!--    </changeSet>-->
 
-    <changeSet id="001/001/0310.dict_service_profile_topics.sql" author="vood" runAlways="true">
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/0310.dict_service_profile_topics.sql"/>
-    </changeSet>
+<!--    <changeSet id="001/001/0310.dict_service_profile_topics.sql" author="vood" runAlways="true">-->
+<!--        <validCheckSum>any</validCheckSum>-->
+<!--        <sqlFile path="liquibase/release_001/task_001/0310.dict_service_profile_topics.sql"/>-->
+<!--    </changeSet>-->
 
 
 
@@ -126,8 +126,8 @@
 
 
 
-    <include file="liquibase/release_001/task_001/view/task_001_views.xml"/>
-    <include file="liquibase/release_001/task_001/data/task_001_data.xml"/>
+<!--    <include file="liquibase/release_001/task_001/view/task_001_views.xml"/>-->
+<!--    <include file="liquibase/release_001/task_001/data/task_001_data.xml"/>-->
     <include file="liquibase/release_001/task_001/graph_structure/graph_structure.xml"/>
 
 </databaseChangeLog>

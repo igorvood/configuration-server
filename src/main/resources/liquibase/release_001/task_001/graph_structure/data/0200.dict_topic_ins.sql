@@ -28,3 +28,4 @@ select --GRAPH_ID, NODE_ID,
        'select '''||GRAPH_ID|| ''', '''||NODE_ID|| ''' from dual union'
        from DICT_ABSTRACT_GRAPH_NODE where NODE_TYPE = 'topic'
 order by GRAPH_ID, NODE_ID
+/
