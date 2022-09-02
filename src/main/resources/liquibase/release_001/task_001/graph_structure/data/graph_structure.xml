@@ -4,27 +4,27 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="liquibase/release_001/task_001/graph_structure/data/1.sql" author="vood" runAlways="true" >
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0010.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/1.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0010.sql" endDelimiter="/"/>
     </changeSet>
 
-    <changeSet id="liquibase/release_001/task_001/graph_structure/data/2.sql" author="vood" runAlways="true" >
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0020.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/2.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0020.sql" endDelimiter="/"/>
     </changeSet>
-    <changeSet id="liquibase/release_001/task_001/graph_structure/data/3.sql" author="vood" runAlways="true" >
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0030.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/3.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0030.sql" endDelimiter="/"/>
     </changeSet>
-    <changeSet id="liquibase/release_001/task_001/graph_structure/data/50.sql" author="vood" runAlways="true" >
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0035.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/50.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0035.sql" endDelimiter="/"/>
     </changeSet>
 
-    <changeSet id="liquibase/release_001/task_001/graph_structure/data/4.sql" author="vood" runAlways="true" >
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0040.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/4.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0040.sql" endDelimiter="/"/>
     </changeSet>
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0100.nodes.sql" author="vood" runAlways="true" >
