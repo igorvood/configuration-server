@@ -6,7 +6,8 @@ with srv as (select TOPIC_ID, DKPV.PROP_ID, DKPV.PROP_VALUE, sn.SERVICE_ID, PROF
              join DICT_KAFKA_PROP_VALUE DKPV on kpg.TYPE_READ = DKPV.TYPE_PROP and kpg.ID = DKPV.GRP_ID
 )
 select
-    SERVICE_ID||'_'||PROFILE_ID||'.'||TOPIC_NAME||'.'||DERRECTION||'.'||PROP_ID   env_prop_name,
+    --SERVICE_ID||'_'||PROFILE_ID||'.'||
+    lower(DERRECTION||'.'||TOPIC_NAME)||'.'||PROP_ID   env_prop_name,
     TOPIC_ID, PROP_ID, PROP_VALUE, SERVICE_ID, PROFILE_ID,  STAND, DERRECTION, TOPIC_NAME, GRP_PROP
 from srv
 
