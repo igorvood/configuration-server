@@ -2,8 +2,12 @@ package ru.vood.configurationserver.repo.intf
 
 import ru.vood.configurationserver.controller.dto.Arrow
 import ru.vood.configurationserver.controller.dto.GraphNode
+import ru.vood.configurationserver.repo.dto.EnvProperty
 
 interface ConfigurationGeneratorRepositoryIntf {
 
-    fun findByGraphId(graphId: String): Set<Arrow<out GraphNode, out GraphNode>>
+    fun property(serviceId: String,
+                 profileId: String,
+                 stand: String
+    ): Set<EnvProperty>
 }
