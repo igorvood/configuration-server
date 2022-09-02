@@ -44,6 +44,16 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0310.dict_kafka_prop_value.sql"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/0400.meta_property_function.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0400.meta_property_function.sql"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/0410.dict_flink_prop_value.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0410.dict_flink_prop_value.sql"/>
+    </changeSet>
+
     <include file="liquibase/release_001/task_001/graph_structure/view/graph_structure.xml"/>
     <include file="liquibase/release_001/task_001/graph_structure/pck/graph_structure.xml"/>
     <include file="liquibase/release_001/task_001/graph_structure/data/graph_structure.xml"/>
