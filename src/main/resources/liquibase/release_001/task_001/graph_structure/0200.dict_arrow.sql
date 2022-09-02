@@ -10,7 +10,8 @@ create table dict_arrow
     beg_node_type != end_node_type or beg_node_id != end_node_id
   ),
   constraint dict_arrow_beg_fk foreign key (graph_id, beg_node_type, beg_node_id) references dict_abstract_graph_node(graph_id, node_type, node_id),
-  constraint dict_arrow_end_fk foreign key (graph_id, end_node_type, end_node_id) references dict_abstract_graph_node(graph_id, node_type, node_id)
+  constraint dict_arrow_end_fk foreign key (graph_id, end_node_type, end_node_id) references dict_abstract_graph_node(graph_id, node_type, node_id),
+  property_key varchar2(256) not null
 )
 /
 comment on table dict_arrow is 'Справочник групп настроек для консьюмера топиков.'
@@ -24,4 +25,6 @@ comment on column dict_arrow.end_node_type is 'Тип ноды окончани�
 comment on column dict_arrow.end_node_id is 'Идентификатор ноды окончания стрелки.'
 /
 comment on column dict_arrow.graph_id is 'Идентификатор графа.'
+/
+comment on column dict_arrow.property_key is 'ключ для свойства для указания имени топика.'
 /
