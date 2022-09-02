@@ -1,6 +1,5 @@
 package ru.vood.configurationserver.rest
 
-import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -10,7 +9,7 @@ import ru.vood.configurationserver.rest.intf.ConfigurationGeneratorRestIntf
 @RestController
 class ConfigurationGeneratorRestImpl(
     val configurationGeneratorControllerIntf: ConfigurationGeneratorControllerIntf
-    ) : ConfigurationGeneratorRestIntf {
+) : ConfigurationGeneratorRestIntf {
 
 
     @GetMapping("/envBody")
