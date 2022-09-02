@@ -19,6 +19,11 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0200.topic_name_by_stand.sql"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/view/0205.KAFKA_PROP_VALUE_by_STAND.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0205.KAFKA_PROP_VALUE_by_STAND.sql"/>
+    </changeSet>
+
     <changeSet id="liquibase/release_001/task_001/graph_structure/view/0210.kafka_topic_by_service.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0210.kafka_topic_by_service.sql"/>
