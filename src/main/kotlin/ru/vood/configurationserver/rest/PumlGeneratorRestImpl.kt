@@ -9,14 +9,12 @@ import ru.vood.configurationserver.rest.intf.PumlGeneratorRestIntf
 class PumlGeneratorRestImpl(
     val pumlGeneratorControllerIntf: PumlGeneratorControllerIntf
 ) : PumlGeneratorRestIntf {
-//    @GetMapping("/pumlFile")
-//    override fun plantUML(): String {
-//        return pumlGeneratorControllerIntf.generatePuml("", "")
-//    }
 
-    @GetMapping("/pumlFileNew")
-    override fun plantUMLNew(): String {
-        return pumlGeneratorControllerIntf.generatePumlByGraphId("graph_1")
+    @GetMapping("/pumlFileByGraph")
+    override fun plantUMLNew(graphId: String): String {
+
+        return pumlGeneratorControllerIntf.generatePumlByGraphId(graphId)
+//        return pumlGeneratorControllerIntf.generatePumlByGraphId("graph_1")
     }
 
 }
