@@ -15,7 +15,8 @@ create table dict_topic_node
       else producer_prop_grp
     end
   ),
-  constraint dict_topic_node_producer_fk foreign key (producer_prop_grp_ref) references dict_kafka_prd_property_grp(id),
+  prd_type as ('prd'),
+  constraint dict_topic_node_producer_fk foreign key (prd_type, producer_prop_grp_ref) references dict_kafka_property_grp(type_read, id),
   consumer_prop_grp varchar2(256),
   consumer_prop_grp_ref as (
     case when consumer_prop_grp is null
@@ -23,7 +24,8 @@ create table dict_topic_node
       else consumer_prop_grp
     end
   ),
-  constraint dict_topic_node_consumer_fk foreign key (consumer_prop_grp_ref) references dict_kafka_cns_property_grp(id),
+  cns_type as ('cns'),
+  constraint dict_topic_node_consumer_fk foreign key (cns_type, consumer_prop_grp_ref) references dict_kafka_property_grp(type_read, id),
   dev_name varchar2(256) not null,
   constraint dict_act_state_dev_name_real_uk unique (dev_name) using index tablespace t_idx,
     ---
@@ -80,3 +82,8 @@ comment on column dict_topic_node.real_name is 'Имя топика на pred pr
 /
 comment on column dict_topic_node.real_name_real is 'Имя топика на pred prod стенде вычисленное.'
 /
+comment on column dict_topic_node.cns_type is 'Признак продьюсера.'
+/
+comment on column dict_topic_node.prd_type is 'Признак косьюмера.'
+/
+

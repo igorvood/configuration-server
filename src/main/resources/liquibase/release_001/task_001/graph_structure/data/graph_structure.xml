@@ -9,14 +9,6 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0010.sql" endDelimiter="/"/>
     </changeSet>
 
-    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0020.sql" author="vood" runAlways="true" >
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0020.sql" endDelimiter="/"/>
-    </changeSet>
-    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0030.sql" author="vood" runAlways="true" >
-        <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0030.sql" endDelimiter="/"/>
-    </changeSet>
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0035.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0035.sql" endDelimiter="/"/>
