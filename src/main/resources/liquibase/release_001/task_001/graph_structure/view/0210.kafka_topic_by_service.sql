@@ -16,8 +16,10 @@ all_topic as (
 select SERVICE_ID, PROFILE_ID, topic, derrection from from_srv union all
 select SERVICE_ID, PROFILE_ID, topic, derrection from to_srv)
 
-select al.SERVICE_ID, al.PROFILE_ID, al.topic topic_id, tns.STAND, al.derrection, tns.TOPIC_NAME from all_topic al
+select al.SERVICE_ID, al.PROFILE_ID, al.topic topic_id, tns.STAND, al.derrection, tns.TOPIC_NAME, nvl(tn.PRODUCER_PROP_GRP_REF, tn1.CONSUMER_PROP_GRP_REF) grp_prop from all_topic al
 join TOPIC_NAME_BY_STAND tns on tns.TOPIC_ID=al.topic
+left join DICT_TOPIC_NODE tn on (tn.ID, tn.PRD_TYPE) = ((al.topic, al.derrection))
+left join DICT_TOPIC_NODE tn1 on (tn1.ID, tn1.CNS_TYPE) = ((al.topic, al.derrection))
 -- where SERVICE_ID = 'mdm-enrichment' and PROFILE_ID = 'way4'
 -- and STAND='IFT'
 -- order by 3,4
@@ -36,3 +38,7 @@ comment on column kafka_topic_by_service.derrection is 'Идентификато
 /
 comment on column kafka_topic_by_service.TOPIC_NAME is 'Идентификатор профиля.'
 /
+
+comment on column kafka_topic_by_service.grp_prop is 'Группа свойств кафки.'
+/
+
