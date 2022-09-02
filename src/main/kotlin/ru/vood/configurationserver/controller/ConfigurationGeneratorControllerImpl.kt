@@ -1,6 +1,7 @@
-package ru.vood.configurationserver.controller.intf
+package ru.vood.configurationserver.controller
 
 import org.springframework.stereotype.Service
+import ru.vood.configurationserver.controller.intf.ConfigurationGeneratorControllerIntf
 import ru.vood.configurationserver.repo.intf.ConfigurationGeneratorRepositoryIntf
 
 
