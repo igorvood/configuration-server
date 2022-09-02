@@ -4,6 +4,26 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/1.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/1.sql" endDelimiter="/"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/2.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/2.sql" endDelimiter="/"/>
+    </changeSet>
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/3.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/3.sql" endDelimiter="/"/>
+    </changeSet>
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/4.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/4.sql" endDelimiter="/"/>
+    </changeSet>
+
+
+
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0100.nodes.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0100.nodes.sql" endDelimiter="/"/>
