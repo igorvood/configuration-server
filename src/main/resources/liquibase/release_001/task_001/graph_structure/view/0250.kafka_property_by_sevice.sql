@@ -14,7 +14,7 @@ to_srv as (select DAGN.SERVICE_ID, DAGN.PROFILE_ID, DA.BEG_NODE_ID topic, 'in' d
      ),
 all_topic as (
 select SERVICE_ID, PROFILE_ID, topic, derrection from from_srv union all
-select SERVICE_ID, PROFILE_ID, topic, derrection from to_srv),
+select SERVICE_ID, PROFILE_ID, topic, derrection from to_srv)
 
 select SERVICE_ID, PROFILE_ID, topic, derrection from all_topic
 
@@ -24,11 +24,11 @@ where SERVICE_ID = 'mdm-enrichment' and PROFILE_ID = 'way4'
 select *
 from DICT_ARROW where GRAPH_ID = 'way4'
 /
-comment on table kafka_property_by_sevice is 'вьюха для update нод графов.'
-/
-comment on column kafka_property_by_sevice.graph_id is 'Идентификатор графа.'
-/
-comment on column kafka_property_by_sevice.SERVICE_ID is 'Идентификатор сервиса.'
-/
-comment on column kafka_property_by_sevice.PROFILE_ID is 'Идентификатор профиля.'
-/
+-- comment on table kafka_property_by_sevice is 'вьюха для update нод графов.'
+-- /
+-- comment on column kafka_property_by_sevice.graph_id is 'Идентификатор графа.'
+-- /
+-- comment on column kafka_property_by_sevice.SERVICE_ID is 'Идентификатор сервиса.'
+-- /
+-- comment on column kafka_property_by_sevice.PROFILE_ID is 'Идентификатор профиля.'
+-- /
