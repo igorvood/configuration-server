@@ -28,3 +28,11 @@ comment on column kafka_property_by_sevice.derrection is 'Идентификат
 /
 comment on column kafka_property_by_sevice.TOPIC_NAME is 'Идентификатор профиля.'
 /
+comment on column kafka_property_by_sevice.ENV_PROP_NAME is 'кей для формирования env файла.'
+/
+comment on column kafka_property_by_sevice.GRP_PROP is 'группа свойств.'
+/
+comment on column kafka_property_by_sevice.PROP_ID is 'идентификатор свойства.'
+/
+comment on column kafka_property_by_sevice.PROP_VALUE is 'Значение свойства.'
+/
