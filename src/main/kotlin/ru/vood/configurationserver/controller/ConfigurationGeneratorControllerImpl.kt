@@ -11,9 +11,11 @@ class ConfigurationGeneratorControllerImpl(
 ) : ConfigurationGeneratorControllerIntf {
     override fun generateEnvBody(serviceId: String, profileId: String, stand: String): String {
         val property = configurationGeneratorRepositoryIntf.property(serviceId, profileId, stand)
-        return if (stand == "NOTEBOOK")
-            property.joinToString(separator = "\n") { "${it.envPropertyName}=${it.propertyValue}" }
-        else property.map { "`\"--${it.envPropertyName} ${it.propertyValue}  \"" }
-            .joinToString(separator = "`\n")
+        return when (stand) {
+            "NOTEBOOK" -> property
+                .joinToString(separator = "\n") { "${it.envPropertyName}=${it.propertyValue}" }
+            else -> property
+                .joinToString(separator = "`\n") { "`\"--${it.envPropertyName} ${it.propertyValue}  \"" }
+        }
     }
 }
