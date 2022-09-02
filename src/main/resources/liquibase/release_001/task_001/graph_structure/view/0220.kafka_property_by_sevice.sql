@@ -1,5 +1,5 @@
--- create or replace view kafka_property_by_sevice
--- as
+create or replace view kafka_property_by_sevice
+as
 with srv as (select TOPIC_ID, DKPV.PROP_ID, DKPV.PROP_VALUE, sn.SERVICE_ID, PROFILE_ID,  STAND, DERRECTION, TOPIC_NAME, GRP_PROP
              from kafka_topic_by_service sn
              join DICT_KAFKA_PROPERTY_GRP kpg on (kpg.TYPE_READ, kpg.ID) = ((sn.DERRECTION, sn.GRP_PROP))
@@ -10,8 +10,8 @@ select
     TOPIC_ID, PROP_ID, PROP_VALUE, SERVICE_ID, PROFILE_ID,  STAND, DERRECTION, TOPIC_NAME, GRP_PROP
 from srv
 
-where SERVICE_ID = 'mdm-enrichment' and PROFILE_ID = 'way4'
-and STAND='DSO' and TOPIC_ID = 'dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto'
+-- where SERVICE_ID = 'mdm-enrichment' and PROFILE_ID = 'way4'
+-- and STAND='DSO' and TOPIC_ID = 'dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto'
 -- order by 1,2
 /
 comment on table kafka_property_by_sevice is 'вьюха для update нод графов.'

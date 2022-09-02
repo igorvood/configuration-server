@@ -4,19 +4,19 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0010.sql" author="vood" runAlways="true" >
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0010.DICT_KAFKA_PROP.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0010.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0010.DICT_KAFKA_PROP.sql" endDelimiter="/"/>
     </changeSet>
 
-    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0035.sql" author="vood" runAlways="true" >
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0035.dict_kafka_property_grp.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0035.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0035.dict_kafka_property_grp.sql" endDelimiter="/"/>
     </changeSet>
 
-    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0040.sql" author="vood" runAlways="true" >
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0040.DICT_KAFKA_PROP_VALUE.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0040.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0040.DICT_KAFKA_PROP_VALUE.sql" endDelimiter="/"/>
     </changeSet>
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0100.nodes.sql" author="vood" runAlways="true" >

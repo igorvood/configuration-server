@@ -24,5 +24,12 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0210.kafka_topic_by_service.sql"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/view/0220.kafka_property_by_sevice.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0220.kafka_property_by_sevice.sql"/>
+    </changeSet>
+
+
+
 
 </databaseChangeLog>
