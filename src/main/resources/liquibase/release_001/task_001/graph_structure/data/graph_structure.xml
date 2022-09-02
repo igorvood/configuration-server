@@ -17,12 +17,15 @@
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/data/3.sql" endDelimiter="/"/>
     </changeSet>
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/50.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/50.sql" endDelimiter="/"/>
+    </changeSet>
+
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/4.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/data/4.sql" endDelimiter="/"/>
     </changeSet>
-
-
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0100.nodes.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>

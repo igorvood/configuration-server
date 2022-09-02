@@ -14,6 +14,11 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0105.dict_kafka_prd_property_grp.sql"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/0106.dict_kafka_property_grp.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0106.dict_kafka_property_grp.sql"/>
+    </changeSet>
+
     <changeSet id="liquibase/release_001/task_001/graph_structure/0107.dict_kafka_cns_property_grp.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0107.dict_kafka_cns_property_grp.sql"/>
