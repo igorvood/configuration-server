@@ -1,6 +1,7 @@
 create table dict_service_node
 (
   service_id varchar2(255) not null,
+  constraint dict_service_node_service_id_fk foreign key(service_id) references dict_service(id),
   profile_id varchar2(255) not null,
   constraint dict_service_node_pk primary key (service_id, profile_id) using index tablespace t_idx,
   node_type as ('flink_srv'),

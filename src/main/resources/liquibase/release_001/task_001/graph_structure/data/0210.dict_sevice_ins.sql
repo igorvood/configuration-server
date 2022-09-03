@@ -1,9 +1,9 @@
-insert into DICT_SERVICE_INS(GRAPH_ID, SERVICE_ID, PROFILE_ID)
+insert into DICT_SERVICE_INS(GRAPH_ID, SERVICE_ID, PROFILE_ID, MAIN_CLASS)
 -- select 'way4', 'mdm-enrichment', 'way4' from DUAL
-    select 'graph_1', 'Additional_enrich', 'case_65' from dual union
-    select 'graph_1', 'Filter', 'case_65' from dual union
-    select 'graph_1', 'Mutator', 'case_65' from dual union
-    select 'way4', 'mdm-enrichment', 'way4' from dual
+    select 'graph_1', 'Additional_enrich', 'case_65', 'MainClass1' from dual union
+    select 'graph_1', 'Filter', 'case_65', 'MainClass2' from dual union
+    select 'graph_1', 'Mutator', 'case_65', 'MainClass3' from dual union
+    select 'way4', 'mdm-enrichment', 'way4', 'ru.vtb.uasp.mdm.enrichment.EnrichmentJob' from dual
 
 --
 -- select *

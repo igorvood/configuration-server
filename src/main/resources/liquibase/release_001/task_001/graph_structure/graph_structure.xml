@@ -19,6 +19,11 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0110.dict_topic_node.sql"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/0118.dict_service.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0118.dict_service.sql"/>
+    </changeSet>
+
     <changeSet id="liquibase/release_001/task_001/graph_structure/0120.dict_service_node.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0120.dict_service_node.sql"/>
