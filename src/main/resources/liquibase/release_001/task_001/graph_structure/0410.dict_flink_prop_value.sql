@@ -8,7 +8,8 @@ create table dict_flink_prop_value
     is_function number(1) not null,
     constraint dict_flink_prop_value_is_function_ck check ( is_function in (0, 1) ),
     function_id as (case when is_function=1 then prop_value end),
-    constraint dict_flink_prop_value_function_id_fk foreign key (function_id) references meta_property_function(id)
+    constraint dict_flink_prop_value_function_id_fk foreign key (function_id) references meta_property_function(id),
+    constraint dict_flink_prop_value_srv_node_fk foreign key (service_id, profile_id) references DICT_SERVICE_NODE(SERVICE_ID, PROFILE_ID)
 )
 /
 comment on table dict_flink_prop_value is 'Справочник групп настроек для консьюмера топиков.'
