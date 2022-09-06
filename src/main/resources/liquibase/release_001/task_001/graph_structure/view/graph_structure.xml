@@ -39,8 +39,9 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0230.service_property_stand.sql"/>
     </changeSet>
 
-
-
-
+    <changeSet id="liquibase/release_001/task_001/graph_structure/view/0240.full_flink_service_property_stand.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0240.full_flink_service_property_stand.sql"/>
+    </changeSet>
 
 </databaseChangeLog>
