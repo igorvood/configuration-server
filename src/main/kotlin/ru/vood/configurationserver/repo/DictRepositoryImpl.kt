@@ -10,8 +10,8 @@ class DictRepositoryImpl(
     private val jdbcTemplate: JdbcOperations
 ) : DictRepository {
     override fun graphList(): Set<Graph> {
-            return jdbcTemplate.query("""select distinct GRAPH_ID from DICT_ABSTRACT_GRAPH_NODE""") { rs, o ->
-                Graph(rs.getString(1))
-            }.toSet()
+        return jdbcTemplate.query("""select distinct GRAPH_ID from DICT_ABSTRACT_GRAPH_NODE""") { rs, o ->
+            Graph(rs.getString(1))
+        }.toSet()
     }
 }
