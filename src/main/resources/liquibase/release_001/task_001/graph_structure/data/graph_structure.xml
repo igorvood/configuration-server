@@ -40,4 +40,16 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0220.dict_arrow.sql" endDelimiter="/"/>
     </changeSet>
 
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0230.META_PROPERTY_FUNCTION_data.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0230.META_PROPERTY_FUNCTION_data.sql" endDelimiter="/"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0240.DICT_FLINK_PROP_VALUE_data.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0240.DICT_FLINK_PROP_VALUE_data.sql" endDelimiter="/"/>
+    </changeSet>
+
+
 </databaseChangeLog>
