@@ -4,9 +4,9 @@ import ru.vood.configurationserver.repo.dto.EnvProperty
 
 interface ConfigurationGeneratorRepositoryIntf {
 
-    fun property(
+    fun propertyByService(
         serviceId: String,
         profileId: String,
         stand: String
-    ): Set<EnvProperty>
+    ): List<EnvProperty>
 }

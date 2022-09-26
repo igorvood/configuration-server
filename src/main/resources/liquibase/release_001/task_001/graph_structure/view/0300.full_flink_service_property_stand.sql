@@ -1,10 +1,16 @@
 create or replace view full_flink_service_property_stand as
 with
     al as
-(select 10 priority, s.service_id, s.profile_id, s.stand, s.prop_id, s.prop_value
-from flink_property_by_stand s
-union
-select 100 priority, k.service_id, k.profile_id, k.stand, k.ENV_PROP_NAME, k.PROPERTY_VAL from kafka_property_by_sevice k)
+        (
+            select 20 priority, s.service_id, s.profile_id, s.stand, s.prop_id, s.prop_value
+            from flink_property_by_stand s
+            union
+            select 100 priority, k.service_id, k.profile_id, k.stand, k.ENV_PROP_NAME, k.PROPERTY_VAL
+            from kafka_property_by_sevice k
+            union
+            select 10 priority, q.service_id, q.profile_id, q.stand, q.prop_id, q.prop_value
+            from SERVICE_TOPIC_NAME_BY_STAND q
+        )
 select * from al
 -- where STAND = 'DSO' and SERVICE_ID = 'mdm-enrichment' and PROFILE_ID = 'way4'
 -- order by 1, 6

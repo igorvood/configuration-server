@@ -9,20 +9,25 @@ import ru.vood.configurationserver.repo.intf.ConfigurationGeneratorRepositoryInt
 class ConfigurationGeneratorRepositoryIntfImpl(
     private val jdbcTemplate: JdbcOperations
 ) : ConfigurationGeneratorRepositoryIntf {
-    override fun property(
+    override fun propertyByService(
         serviceId: String,
         profileId: String,
         stand: String
-    ): Set<EnvProperty> {
+    ): List<EnvProperty> {
         val query = jdbcTemplate.query(
             """
-           select PROP_ID, PROP_VALUE from full_flink_service_property_stand
+           select PROP_ID, PROP_VALUE, PRIORITY from full_flink_service_property_stand
             where SERVICE_ID = :1 and PROFILE_ID = :2 and STAND = :3
+           order by PRIORITY, PROP_ID
         """.trimIndent(),
             { rs, n ->
-                EnvProperty(rs.getString(1), rs.getString(2))
+                EnvProperty(
+                    envPropertyName = rs.getString(1),
+                    propertyValue = rs.getString(2),
+                    priority = rs.getInt(3)
+                )
             }, serviceId, profileId, stand
-        ).toSet()
+        )
         return query
 
     }

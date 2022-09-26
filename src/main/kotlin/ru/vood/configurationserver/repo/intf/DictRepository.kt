@@ -8,4 +8,6 @@ interface DictRepository {
     fun graphList(): Set<Graph>
 
     fun serviceList(): Set<FlinkService>
+
+    fun serviceById(serviceId:String ): FlinkService
 }
