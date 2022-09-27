@@ -7,6 +7,6 @@ select 'DEFAULT_CONSUMER', 'exclude.internal.topics', 'true' from dual union
 select 'DEFAULT_CONSUMER', 'fetch.max.bytes', '52428800' from dual union
 select 'DEFAULT_CONSUMER', 'fetch.max.wait.ms', '500' from dual union
 select 'DEFAULT_CONSUMER', 'fetch.min.bytes', '50' from dual union
-select 'DEFAULT_CONSUMER', 'group.id', '${SRV_AND_PROFILE}' from dual union
+select 'DEFAULT_CONSUMER', 'group.id', '${PROFILE}' from dual union
 select 'DEFAULT_CONSUMER', 'heartbeat.interval.ms', '3000' from dual
 /

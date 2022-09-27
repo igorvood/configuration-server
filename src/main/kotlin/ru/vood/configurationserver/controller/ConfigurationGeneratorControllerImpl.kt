@@ -20,17 +20,16 @@ class ConfigurationGeneratorControllerImpl(
         val property: List<EnvProperty> =
             configurationGeneratorRepositoryIntf.propertyByService(serviceId, profileId, stand)
         val serviceById = dictRepository.serviceById(serviceId)
-        val sdsa: List<PlaceHolder> =
+        val plaseHolders: List<PlaceHolder> =
             placeHoldersResolver.placeHolders(property, FlinkServiceProfile(serviceById, profileId))
         val s = when (stand) {
             "NOTEBOOK" -> property
                 .joinToString(separator = "\n") { "${it.envPropertyName}=${it.propertyValue}" }
             else -> {
 
-
+                val plaseHoldersStr =
+                    plaseHolders.map { it.placeHolderName + "=" + it.placeHolderValue }.joinToString("\n")
                 val groupedBy = property.groupBy { it.priority.toString() + "_" + it.typyProperty }
-
-
                 val propertiesEnvStr = groupedBy
                     .entries
                     .sortedBy { it.key }
@@ -41,7 +40,7 @@ class ConfigurationGeneratorControllerImpl(
                     .joinToString(separator = "\n\n")
 
                 """
-SERVICE_NAME=${serviceById.id}_${profileId}
+$plaseHoldersStr                    
 MAIN_CLASS=${serviceById.mainClass}
                     
 PROGRAMARGS=$propertiesEnvStr
