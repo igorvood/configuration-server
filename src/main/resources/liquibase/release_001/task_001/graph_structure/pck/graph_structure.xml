@@ -4,6 +4,17 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/pck/0050.topic.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0050.topic.sql" endDelimiter="/"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/pck/0060.topics.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0060.topics.sql" endDelimiter="/"/>
+    </changeSet>
+
+
     <changeSet id="liquibase/release_001/task_001/graph_structure/pck/0100.dict_topic.trg" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0100.dict_topic.trg" endDelimiter="/"/>
@@ -12,6 +23,11 @@
     <changeSet id="liquibase/release_001/task_001/graph_structure/pck/0110.dict_service.trg" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0110.dict_service.trg" endDelimiter="/"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/pck/0150.create_all.pck" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0150.create_all.pck" endDelimiter="/"/>
     </changeSet>
 
 

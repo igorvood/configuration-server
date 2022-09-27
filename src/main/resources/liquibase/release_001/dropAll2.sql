@@ -31,7 +31,7 @@ begin
           and o.object_name not like 'SYSTP%'
           and o.object_name not in ('DATABASECHANGELOG', 'DATABASECHANGELOGLOCK')
           and ot.iot_name is null
-          and not (o.object_type = 'TYPE' and o.object_name not like 'CMN%')
+          and not ( o.object_name not like 'CMN%')
         order by tp.ord, o.object_name
         )
         loop

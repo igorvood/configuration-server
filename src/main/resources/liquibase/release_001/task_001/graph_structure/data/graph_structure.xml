@@ -52,4 +52,6 @@
     </changeSet>
 
 
+    <include file="liquibase/release_001/task_001/graph_structure/data/profiles/profiles_data.xml"/>
+
 </databaseChangeLog>
