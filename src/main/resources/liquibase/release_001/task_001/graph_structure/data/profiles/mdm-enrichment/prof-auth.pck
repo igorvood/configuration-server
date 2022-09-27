@@ -1,11 +1,10 @@
-declare
-    l_topics topics;
-    l_propperties PROPERTIES;
+create or replace procedure enrich is
     l_graph_id  varchar2(256) := 'very_big';
     l_SERVICE_ID varchar2(256) := 'mdm_enrichment';
     l_PROFILE_ID varchar2(256) := 'prof_auth';
     l_MAIN_CLASS varchar2(256) := 'ru.vtb.uasp.mdm.enrichment.EnrichmentJob';
-
+    l_topics topics;
+    l_propperties PROPERTIES;
 begin
     with t as (
         SELECT 'out' dirrection , 'dev_rto_batch_ca_customer_card_uaspdto__dlq' topic_name, 'enrichOne.GlobalIdEnrichProperty$.dlqTopic' prop_name from DUAL union
@@ -85,5 +84,9 @@ begin
             l_topics,
             l_propperties
         );
+end;
+/
+begin
+    enrich;
 end;
 /
