@@ -19,7 +19,7 @@ class ConfigurationGeneratorControllerImpl(
             else -> {
                 val serviceById = dictRepository.serviceById(serviceId)
 
-                val groupedBy = property.groupBy { it.priority }
+                val groupedBy = property.groupBy { it.priority.toString()+"_"+it.typyProperty }
 
 
                 val propertiesEnvStr = groupedBy

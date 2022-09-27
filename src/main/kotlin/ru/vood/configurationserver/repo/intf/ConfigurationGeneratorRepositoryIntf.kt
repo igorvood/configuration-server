@@ -7,6 +7,6 @@ interface ConfigurationGeneratorRepositoryIntf {
     fun propertyByService(
         serviceId: String,
         profileId: String,
-        stand: String
+        stand: String,
     ): List<EnvProperty>
 }

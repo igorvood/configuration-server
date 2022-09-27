@@ -16,7 +16,7 @@ class ConfigurationGeneratorRepositoryIntfImpl(
     ): List<EnvProperty> {
         val query = jdbcTemplate.query(
             """
-           select PROP_ID, PROP_VALUE, PRIORITY from full_flink_service_property_stand
+           select PROP_ID, PROP_VALUE, PRIORITY, type_property from full_flink_service_property_stand
             where SERVICE_ID = :1 and PROFILE_ID = :2 and STAND = :3
            order by PRIORITY, PROP_ID
         """.trimIndent(),
@@ -24,7 +24,8 @@ class ConfigurationGeneratorRepositoryIntfImpl(
                 EnvProperty(
                     envPropertyName = rs.getString(1),
                     propertyValue = rs.getString(2),
-                    priority = rs.getInt(3)
+                    priority = rs.getInt(3),
+                    typyProperty = rs.getString(4),
                 )
             }, serviceId, profileId, stand
         )
