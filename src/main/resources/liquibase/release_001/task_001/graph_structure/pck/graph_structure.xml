@@ -9,11 +9,20 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0050.topic.sql" endDelimiter="/"/>
     </changeSet>
 
-    <changeSet id="liquibase/release_001/task_001/graph_structure/pck/0060.topics.sql" author="vood" runAlways="true" >
+    <changeSet id="liquibase/release_001/task_001/graph_structure/pck/0051.topics.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0060.topics.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0051.topics.sql" endDelimiter="/"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/pck/0060.property.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0060.property.sql" endDelimiter="/"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/pck/0061.properties.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/pck/0061.properties.sql" endDelimiter="/"/>
+    </changeSet>
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/pck/0100.dict_topic.trg" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
