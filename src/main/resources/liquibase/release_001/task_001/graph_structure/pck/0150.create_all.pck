@@ -5,7 +5,8 @@ create or replace package create_all as
         p_SERVICE_ID varchar2,
         P_PROFILE_ID varchar2,
         P_MAIN_CLASS varchar2,
-        p_topics topics
+        p_topics topics,
+        p_propepies_flink PROPERTIES
     );
 end;
 /
@@ -15,7 +16,8 @@ create or replace package body create_all as
         p_SERVICE_ID varchar2,
         P_PROFILE_ID varchar2,
         P_MAIN_CLASS varchar2,
-        p_topics topics
+        p_topics topics,
+        p_propepies_flink PROPERTIES
     ) as
     begin
         insert into DICT_SERVICE_INS(GRAPH_ID, SERVICE_ID, PROFILE_ID, MAIN_CLASS)
@@ -43,9 +45,15 @@ create or replace package body create_all as
                    when 'out' then topic_name
                    when 'in' then p_SERVICE_ID||'~'||P_PROFILE_ID
                    end END_NODE_ID,
-               'PROPERTY_KEY' PROPERTY_KEY
-        from table ( p_topics)
-                 commit;
+               prop_name PROPERTY_KEY
+        from table ( p_topics);
+        
+        insert into DICT_FLINK_PROP_VALUE(SERVICE_ID, PROFILE_ID, PROP_ID, PROP_VALUE, IS_FUNCTION)
+        select p_SERVICE_ID, P_PROFILE_ID, prop_id, prop_value, is_function
+        from table(p_propepies_flink);
+
+
+        commit;
     end;
 end;
 /
