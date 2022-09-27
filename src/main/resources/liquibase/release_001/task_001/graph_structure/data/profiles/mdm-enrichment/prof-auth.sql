@@ -1,11 +1,16 @@
 create or replace procedure enrich is
-    l_graph_id  varchar2(256) := 'very_big';
-    l_SERVICE_ID varchar2(256) := 'mdm_enrichment';
-    l_PROFILE_ID varchar2(256) := 'prof_auth';
-    l_MAIN_CLASS varchar2(256) := 'ru.vtb.uasp.mdm.enrichment.EnrichmentJob';
+    l_graph_id  varchar2(256);
+    l_SERVICE_ID varchar2(256);
+    l_PROFILE_ID varchar2(256);
+    l_MAIN_CLASS varchar2(256);
     l_topics topics;
     l_propperties PROPERTIES;
 begin
+    l_graph_id   := 'very_big';
+    l_SERVICE_ID  := 'mdm_enrichment';
+    l_PROFILE_ID  := 'prof_auth';
+    l_MAIN_CLASS  := 'ru.vtb.uasp.mdm.enrichment.EnrichmentJob';
+
     with t as (
         SELECT 'out' dirrection , 'dev_rto_batch_ca_customer_card_uaspdto__dlq' topic_name, 'enrichOne.GlobalIdEnrichProperty$.dlqTopic' prop_name from DUAL union
         SELECT 'in', 'dev_rto_batch_ca_customer_card_uaspdto', 'enrichOne.GlobalIdEnrichProperty$.fromTopic' from DUAL union

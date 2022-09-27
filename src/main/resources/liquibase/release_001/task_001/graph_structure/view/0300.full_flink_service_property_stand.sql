@@ -5,7 +5,7 @@ with
             select 20 priority, s.service_id, s.profile_id, s.stand, s.prop_id, s.prop_value, 'business' type_property
             from flink_property_by_stand s
             union
-            select 100 priority, k.service_id, k.profile_id, k.stand, k.ENV_PROP_NAME, k.PROPERTY_VAL, 'kafka'
+            select 99 priority, k.service_id, k.profile_id, k.stand, k.ENV_PROP_NAME, k.PROPERTY_VAL, 'kafka'
             from kafka_property_by_sevice k
             union
             select 10 priority, q.service_id, q.profile_id, q.stand, q.prop_id, q.prop_value, 'topic_name'
