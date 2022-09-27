@@ -12,7 +12,7 @@ class DictRepositoryImpl(
     private val jdbcTemplate: JdbcOperations
 ) : DictRepository {
 
-    private val rowMapperFlinkService: (rs: ResultSet, rowNum: Int) -> FlinkService = { rs, o ->
+    private val rowMapperFlinkService: (rs: ResultSet, rowNum: Int) -> FlinkService = { rs, _ ->
         FlinkService(
             rs.getString(1),
             rs.getString(2)
@@ -20,7 +20,7 @@ class DictRepositoryImpl(
     }
 
     override fun graphList(): Set<Graph> {
-        return jdbcTemplate.query("""select distinct GRAPH_ID from DICT_ABSTRACT_GRAPH_NODE""") { rs, o ->
+        return jdbcTemplate.query("""select distinct GRAPH_ID from DICT_ABSTRACT_GRAPH_NODE""") { rs, _ ->
             Graph(rs.getString(1))
         }.toSet()
     }

@@ -1,6 +1,6 @@
 package ru.vood.configurationserver.repo.dto
 
-data class FlinkServiceDto(
-    val srv: FlinkServiceProfileDto,
+data class FlinkServiceTopics(
+    val srv: FlinkServiceProfile,
     val topics: Topics
 )
