@@ -30,6 +30,10 @@ class DictRepositoryImpl(
     }
 
     override fun serviceById(serviceId: String): FlinkService {
-        return jdbcTemplate.queryForObject("""select ID, MAIN_CLASS from DICT_SERVICE where ID = :1 """, rowMapperFlinkService,serviceId)!!
+        return jdbcTemplate.queryForObject(
+            """select ID, MAIN_CLASS from DICT_SERVICE where ID = :1 """,
+            rowMapperFlinkService,
+            serviceId
+        )!!
     }
 }

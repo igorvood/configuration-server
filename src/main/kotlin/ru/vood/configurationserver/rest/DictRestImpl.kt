@@ -16,6 +16,7 @@ class DictRestImpl(
     override fun graphList(): Set<Graph> {
         return dictRepository.graphList()
     }
+
     @GetMapping("/serviceList")
     override fun serviceList(): Set<FlinkService> {
         return dictRepository.serviceList()

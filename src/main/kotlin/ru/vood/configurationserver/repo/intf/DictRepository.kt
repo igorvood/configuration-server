@@ -9,5 +9,5 @@ interface DictRepository {
 
     fun serviceList(): Set<FlinkService>
 
-    fun serviceById(serviceId:String ): FlinkService
+    fun serviceById(serviceId: String): FlinkService
 }

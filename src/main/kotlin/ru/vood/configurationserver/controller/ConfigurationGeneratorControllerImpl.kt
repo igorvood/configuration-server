@@ -17,16 +17,18 @@ class ConfigurationGeneratorControllerImpl(
     val placeHoldersResolver: PlaceHoldersResolver
 ) : ConfigurationGeneratorControllerIntf {
     override fun generateEnvBody(serviceId: String, profileId: String, stand: String): String {
-        val property: List<EnvProperty> = configurationGeneratorRepositoryIntf.propertyByService(serviceId, profileId, stand)
+        val property: List<EnvProperty> =
+            configurationGeneratorRepositoryIntf.propertyByService(serviceId, profileId, stand)
         val serviceById = dictRepository.serviceById(serviceId)
-        val sdsa : List<PlaceHolder> = placeHoldersResolver.placeHolders(property, FlinkServiceProfile(serviceById, profileId))
+        val sdsa: List<PlaceHolder> =
+            placeHoldersResolver.placeHolders(property, FlinkServiceProfile(serviceById, profileId))
         val s = when (stand) {
             "NOTEBOOK" -> property
                 .joinToString(separator = "\n") { "${it.envPropertyName}=${it.propertyValue}" }
             else -> {
 
 
-                val groupedBy = property.groupBy { it.priority.toString()+"_"+it.typyProperty }
+                val groupedBy = property.groupBy { it.priority.toString() + "_" + it.typyProperty }
 
 
                 val propertiesEnvStr = groupedBy
