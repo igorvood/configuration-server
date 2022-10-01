@@ -4,8 +4,8 @@ create table dict_service_node
   constraint dict_service_node_service_id_fk foreign key(service_id) references dict_service(id),
   profile_id varchar2(255) not null,
   constraint dict_service_node_pk primary key (service_id, profile_id) using index tablespace t_idx,
-  node_type as ('flink_srv'),
-  id as(service_id||'~'||profile_id),
+  node_type as ('flink_srv') not null,
+  id as(service_id||'~'||profile_id)  not null,
   constraint dict_service_node_node_type_fk foreign key (node_type, id) references dict_abstract_graph_node(node_type, NODE_ID)
 )
 /

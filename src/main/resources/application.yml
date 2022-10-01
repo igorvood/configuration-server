@@ -5,8 +5,8 @@ spring:
     username: localdev
     password: localdev
   liquibase:
-#    enabled: true
-    enabled: false
+    enabled: true
+#    enabled: false
     change-log: liquibase/liquibase-outputChangeLog.xml
 server:
   port: 9090

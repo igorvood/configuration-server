@@ -2,7 +2,7 @@ create table dict_topic_node
 (
   id varchar2(512) not null,
   constraint dict_topic_node_pk primary key (id) using index tablespace t_idx,
-  node_type as ('topic'),
+  node_type as ('topic') not null,
   constraint dict_topic_node_node_type_fk foreign key (node_type, id) references dict_abstract_graph_node(node_type, NODE_ID),
   is_our number(1) default 1 not null,
   CNT_PARTITION number(2) default 1 not null,
@@ -15,7 +15,7 @@ create table dict_topic_node
       else producer_prop_grp
     end
   ),
-  prd_type as ('prd'),
+  prd_type as ('prd') not null,
   constraint dict_topic_node_producer_fk foreign key (prd_type, producer_prop_grp_ref) references dict_kafka_property_grp(type_read, id),
   consumer_prop_grp varchar2(256),
   consumer_prop_grp_ref as (
@@ -24,7 +24,7 @@ create table dict_topic_node
       else consumer_prop_grp
     end
   ),
-  cns_type as ('cns'),
+  cns_type as ('cns') not null,
   constraint dict_topic_node_consumer_fk foreign key (cns_type, consumer_prop_grp_ref) references dict_kafka_property_grp(type_read, id),
   dev_name varchar2(256) not null,
   constraint dict_act_state_dev_name_real_uk unique (dev_name) using index tablespace t_idx,
