@@ -16,8 +16,8 @@ class PlaceHoldersResolverImpl(
     private val holdersFuns = holderResolvers.map { it.placeHolderName to it }.toMap()
 
 
-    //  TODO  сюда прикрутить хвостовую рекурсию при случае
-    private fun extractNamesPlaceholder(propertyValue: String): List<String> {
+
+private tailrec fun extractNamesPlaceholder1(propertyValue: String, inListPlace: List<String> = listOf()): List<String> {
         val beginIndex = propertyValue.indexOf("\${")
         val endIndex = propertyValue.indexOf("}")
 
@@ -25,18 +25,21 @@ class PlaceHoldersResolverImpl(
             val substring = propertyValue.substring(beginIndex + 2, endIndex)
 
             val propertyValue1 = propertyValue.substring(endIndex + 1)
-            listOf(substring).plus(extractNamesPlaceholder(propertyValue1))
-        } else listOf()
+            val plus = inListPlace.plus(substring)
+            extractNamesPlaceholder1(propertyValue1, plus)
 
+        } else inListPlace
     }
+
 
     override fun placeHolders(
         property: List<EnvProperty>,
         flinkServiceProfile: FlinkServiceProfile
     ): List<PlaceHolder> {
-        val propertyWithPlaceHolder = property
+        val flatMap = property
             .filter { it.propertyValue.contains("\${") && it.propertyValue.contains("}") }
-            .flatMap { prop -> extractNamesPlaceholder(prop.propertyValue) }
+            .flatMap { prop -> extractNamesPlaceholder1(prop.propertyValue) }
+        val propertyWithPlaceHolder = flatMap
             .distinct()
             .flatMap { ph ->
                 val valuePlaceHolder =
