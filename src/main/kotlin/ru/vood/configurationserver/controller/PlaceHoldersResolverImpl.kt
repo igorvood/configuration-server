@@ -23,11 +23,9 @@ class PlaceHoldersResolverImpl(
 
         return if (beginIndex != -1 && endIndex != -1 && beginIndex < endIndex) {
             val substring = propertyValue.substring(beginIndex + 2, endIndex)
-
-            val propertyValue1 = propertyValue.substring(endIndex + 1)
+            val propertyName = propertyValue.substring(endIndex + 1)
             val plus = inListPlace.plus(substring)
-            extractNamesPlaceholder(propertyValue1, plus)
-
+            extractNamesPlaceholder(propertyName, plus)
         } else inListPlace
     }
 
