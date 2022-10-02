@@ -35,6 +35,10 @@ dependencies {
     implementation("org.hibernate:hibernate-core")
     implementation("io.arrow-kt:arrow-core:1.1.3")
 
+//    implementation("io.swagger.core.v3:swagger-annotations:2.1.6")
+//    implementation("io.swagger.codegen.v3:swagger-codegen-maven-plugin:3.0.24")
+//    implementation("org.springdoc:springdoc-openapi-ui:1.5.2")
+
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.oracle.database.jdbc:ojdbc8")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")

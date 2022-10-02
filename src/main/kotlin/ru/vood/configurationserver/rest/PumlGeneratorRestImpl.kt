@@ -9,7 +9,21 @@ import ru.vood.configurationserver.rest.intf.PumlGeneratorRestIntf
 class PumlGeneratorRestImpl(
     val pumlGeneratorControllerIntf: PumlGeneratorControllerIntf
 ) : PumlGeneratorRestIntf {
-
+//    @ApiResponses(
+//        value = [ApiResponse(
+//            responseCode = "200",
+//            description = "Формирует puml файл по всему графу",
+//            content = [Content(
+//                mediaType = "application/json",
+//                array = ArraySchema(
+//                    schema = Schema(
+//                        implementation = String::class
+//                    )
+//                )
+//            )]
+//        )]
+//    )
+//    @Operation(summary = "Формирует puml файл по всему графу", tags = ["plantUML"])
     @GetMapping("/pumlFileByGraph")
     override fun plantUMLNew(graphId: String): String {
 
