@@ -14,10 +14,10 @@ class PlaceHoldersResolverImpl(
 ) : PlaceHoldersResolver {
 
     private val holdersFuns = holderResolvers.map { it.placeHolderName to it }.toMap()
-
-
-
-private tailrec fun extractNamesPlaceholder1(propertyValue: String, inListPlace: List<String> = listOf()): List<String> {
+    private tailrec fun extractNamesPlaceholder(
+        propertyValue: String,
+        inListPlace: List<String> = listOf()
+    ): List<String> {
         val beginIndex = propertyValue.indexOf("\${")
         val endIndex = propertyValue.indexOf("}")
 
@@ -26,7 +26,7 @@ private tailrec fun extractNamesPlaceholder1(propertyValue: String, inListPlace:
 
             val propertyValue1 = propertyValue.substring(endIndex + 1)
             val plus = inListPlace.plus(substring)
-            extractNamesPlaceholder1(propertyValue1, plus)
+            extractNamesPlaceholder(propertyValue1, plus)
 
         } else inListPlace
     }
@@ -38,13 +38,14 @@ private tailrec fun extractNamesPlaceholder1(propertyValue: String, inListPlace:
     ): List<PlaceHolder> {
         val flatMap = property
             .filter { it.propertyValue.contains("\${") && it.propertyValue.contains("}") }
-            .flatMap { prop -> extractNamesPlaceholder1(prop.propertyValue) }
+            .flatMap { prop -> extractNamesPlaceholder(prop.propertyValue) }
         val propertyWithPlaceHolder = flatMap
             .distinct()
             .flatMap { ph ->
                 val valuePlaceHolder =
                     holdersFuns.get(ph)?.valuePlaceHolder(flinkServiceProfile)?.let { value -> PlaceHolder(ph, value) }
-                Either.fromNullable(valuePlaceHolder).fold({ listOf() }, { q -> listOf(q) })
+                val fold = Either.fromNullable(valuePlaceHolder).fold({ listOf() }, { q -> listOf(q) })
+                fold
             }
 
         return propertyWithPlaceHolder
