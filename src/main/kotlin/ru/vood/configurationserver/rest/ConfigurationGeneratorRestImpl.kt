@@ -21,9 +21,6 @@ class ConfigurationGeneratorRestImpl(
         @RequestParam
         stand: String
     ): String {
-//        serviceId=mdm-enrichment&profileId=way4&stand=DSO
-//        return configurationGeneratorControllerIntf.generateEnvBody("mdm-enrichment", "way4", "DSO")
         return configurationGeneratorControllerIntf.generateEnvBody(serviceId, profileId, stand)
-
     }
 }

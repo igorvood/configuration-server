@@ -9,7 +9,7 @@
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/profiles/mdm-enrichment/prof-auth.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/profiles/mdm-enrichment/prof-auth.sql"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/profiles/mdm-enrichment/prof-auth.sql" endDelimiter="/" />
     </changeSet>
 
 

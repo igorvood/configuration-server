@@ -6,7 +6,7 @@
 
 
 
-<!--    <include file="liquibase/release_001/task_001/graph_structure/data/profiles/mdm-enrichment/mdm-enrichment.xml"/>-->
+    <include file="liquibase/release_001/task_001/graph_structure/data/profiles/mdm-enrichment/mdm-enrichment.xml"/>
 
 
 </databaseChangeLog>
