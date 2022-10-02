@@ -6,6 +6,7 @@ plugins {
     id("org.asciidoctor.convert") version "1.5.8"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
+//    id("org.openapi.generator") version "5.3.0"
 }
 
 group = "ru.vood"
@@ -37,8 +38,8 @@ dependencies {
 
 //    implementation("io.swagger.core.v3:swagger-annotations:2.1.6")
 //    implementation("io.swagger.codegen.v3:swagger-codegen-maven-plugin:3.0.24")
-//    implementation("org.springdoc:springdoc-openapi-ui:1.5.2")
 
+    implementation("javax.validation:validation-api:2.0.1.Final")
     implementation("org.springdoc:springdoc-openapi-data-rest:1.6.0")
     implementation("org.springdoc:springdoc-openapi-ui:1.6.0")
     implementation("org.springdoc:springdoc-openapi-kotlin:1.6.0")
@@ -57,6 +58,27 @@ tasks.withType<KotlinCompile> {
         jvmTarget = "11"
     }
 }
+
+//val oasPackage = "com.baeldung.car"
+//val oasSpecLocation = "src/main/resources/car-spec.yaml"
+//val oasGenOutputDir = project.layout.buildDirectory.dir("generated-oas")
+//
+//
+//tasks.register("generateServer", org.openapitools.generator.gradle.plugin.tasks.GenerateTask::class) {
+//    input = project.file(oasSpecLocation).path
+//    outputDir.set(oasGenOutputDir.get().toString())
+//    modelPackage.set("$oasPackage.model")
+//    apiPackage.set("$oasPackage.api")
+//    packageName.set(oasPackage)
+//    generatorName.set("kotlin-spring")
+//    configOptions.set(
+//        mapOf(
+//            "dateLibrary" to "java8",
+//            "interfaceOnly" to "true",
+//            "useTags" to "true"
+//        )
+//    )
+//}
 
 tasks.withType<Test> {
     useJUnitPlatform()

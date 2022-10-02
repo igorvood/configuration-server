@@ -20,7 +20,7 @@ class ConfigurationGeneratorRepositoryIntfImpl(
             where SERVICE_ID = :1 and PROFILE_ID = :2 and STAND = :3
            order by PRIORITY, PROP_ID
         """.trimIndent(),
-            { rs, n ->
+            { rs, _ ->
                 EnvProperty(
                     envPropertyName = rs.getString(1),
                     propertyValue = rs.getString(2),
