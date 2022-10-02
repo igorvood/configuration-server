@@ -39,6 +39,11 @@ dependencies {
 //    implementation("io.swagger.codegen.v3:swagger-codegen-maven-plugin:3.0.24")
 //    implementation("org.springdoc:springdoc-openapi-ui:1.5.2")
 
+    implementation("org.springdoc:springdoc-openapi-data-rest:1.6.0")
+    implementation("org.springdoc:springdoc-openapi-ui:1.6.0")
+    implementation("org.springdoc:springdoc-openapi-kotlin:1.6.0")
+
+
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.oracle.database.jdbc:ojdbc8")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
