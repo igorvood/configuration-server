@@ -9,7 +9,7 @@ import ru.vood.configurationserver.rest.intf.PumlGeneratorRestIntf
 class PumlGeneratorRestImpl(
     val pumlGeneratorControllerIntf: PumlGeneratorControllerIntf
 ) : PumlGeneratorRestIntf {
-//    @ApiResponses(
+    //    @ApiResponses(
 //        value = [ApiResponse(
 //            responseCode = "200",
 //            description = "Формирует puml файл по всему графу",

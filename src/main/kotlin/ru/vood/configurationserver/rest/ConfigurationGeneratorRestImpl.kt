@@ -26,13 +26,13 @@ class ConfigurationGeneratorRestImpl(
         return configurationGeneratorControllerIntf.generateEnvBody(serviceId, profileId, stand)
     }
 
-    @GetMapping("/allProfilesEnvBodies", produces = [ MediaType.APPLICATION_JSON_VALUE] )
+    @GetMapping("/allProfilesEnvBodies", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun allServiceProfileByStand(
         @RequestParam
         serviceId: String,
         @RequestParam
         stand: String
     ): List<EviromentService> {
-        return configurationGeneratorControllerIntf.generateAllServiceProfile(serviceId,  stand)
+        return configurationGeneratorControllerIntf.generateAllServiceProfile(serviceId, stand)
     }
 }

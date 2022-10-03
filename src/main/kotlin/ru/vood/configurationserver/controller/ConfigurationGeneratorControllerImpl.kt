@@ -53,8 +53,8 @@ PROGRAMARGS=$propertiesEnvStr
 
     override fun generateAllServiceProfile(serviceId: String, stand: String): List<EviromentService> {
         val serviceProfile = dictRepository.serviceProfile(serviceId)
-        return   serviceProfile.map { s ->
-            EviromentService(s , generateEnvBody(s.serviceId.id, s.profileId, stand))
+        return serviceProfile.map { s ->
+            EviromentService(s, generateEnvBody(s.serviceId.id, s.profileId, stand))
         }
     }
 }

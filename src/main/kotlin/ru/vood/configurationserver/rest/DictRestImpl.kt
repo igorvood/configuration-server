@@ -2,7 +2,6 @@ package ru.vood.configurationserver.rest
 
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.bind.annotation.RestController
 import ru.vood.configurationserver.repo.dto.FlinkService
 import ru.vood.configurationserver.repo.dto.Graph
@@ -14,12 +13,12 @@ class DictRestImpl(
     private val dictRepository: DictRepository
 ) : DictRest {
 
-    @GetMapping("/graphList" , produces = [ MediaType.APPLICATION_JSON_VALUE] )
+    @GetMapping("/graphList", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun graphList(): Set<Graph> {
         return dictRepository.graphList()
     }
 
-    @GetMapping("/serviceList", produces = [ MediaType.APPLICATION_JSON_VALUE])
+    @GetMapping("/serviceList", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun serviceList(): Set<FlinkService> {
         return dictRepository.serviceList()
     }

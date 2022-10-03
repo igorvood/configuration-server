@@ -8,5 +8,6 @@ class ProfileResolverImpl : HolderResolver {
     override val placeHolderName: String
         get() = "PROFILE"
 
-    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile): String = flinkServiceProfile.serviceId.id+"_"+flinkServiceProfile.profileId
+    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile): String =
+        flinkServiceProfile.serviceId.id + "_" + flinkServiceProfile.profileId
 }

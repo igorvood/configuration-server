@@ -12,5 +12,5 @@ interface DictRepository {
 
     fun serviceById(serviceId: String): FlinkService
 
-    fun serviceProfile(serviceId: String) : Set<FlinkServiceProfile>
+    fun serviceProfile(serviceId: String): Set<FlinkServiceProfile>
 }
