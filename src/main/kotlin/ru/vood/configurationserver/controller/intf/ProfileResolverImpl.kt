@@ -9,5 +9,5 @@ class ProfileResolverImpl : HolderResolver {
         get() = "PROFILE"
 
     override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile): String =
-        flinkServiceProfile.serviceId.id + "_" + flinkServiceProfile.profileId
+        "${flinkServiceProfile.serviceId.id}_${flinkServiceProfile.profileId}"
 }
