@@ -5,6 +5,7 @@ import ru.vood.configurationserver.controller.dto.PlaceHolder
 import ru.vood.configurationserver.controller.intf.ConfigurationGeneratorControllerIntf
 import ru.vood.configurationserver.controller.intf.PlaceHoldersResolver
 import ru.vood.configurationserver.repo.dto.EnvProperty
+import ru.vood.configurationserver.repo.dto.EviromentService
 import ru.vood.configurationserver.repo.dto.FlinkServiceProfile
 import ru.vood.configurationserver.repo.intf.ConfigurationGeneratorRepositoryIntf
 import ru.vood.configurationserver.repo.intf.DictRepository
@@ -50,4 +51,10 @@ PROGRAMARGS=$propertiesEnvStr
         return s
     }
 
+    override fun generateAllServiceProfile(serviceId: String, stand: String): List<EviromentService> {
+        val serviceProfile = dictRepository.serviceProfile(serviceId)
+        return   serviceProfile.map { s ->
+            EviromentService(s , generateEnvBody(s.serviceId.id, s.profileId, stand))
+        }
+    }
 }

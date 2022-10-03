@@ -3,6 +3,7 @@ package ru.vood.configurationserver.repo
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.stereotype.Repository
 import ru.vood.configurationserver.repo.dto.FlinkService
+import ru.vood.configurationserver.repo.dto.FlinkServiceProfile
 import ru.vood.configurationserver.repo.dto.Graph
 import ru.vood.configurationserver.repo.intf.DictRepository
 import java.sql.ResultSet
@@ -35,5 +36,17 @@ class DictRepositoryImpl(
             rowMapperFlinkService,
             serviceId
         )!!
+    }
+
+    override fun serviceProfile(serviceId: String): Set<FlinkServiceProfile> {
+        return jdbcTemplate.query(
+            """select id, PROFILE_ID, MAIN_CLASS from dict_service_profile 
+               where ID = :1 
+            """,
+            { rs, _ -> FlinkServiceProfile(FlinkService(rs.getString(1), rs.getString(2)), rs.getString(3)) },
+            serviceId
+        ).toSet()
+
+
     }
 }
