@@ -1,5 +1,6 @@
 create or replace view KAFKA_PROP_VALUE_by_STAND
 as
+with t as (
 select GRP_ID,TYPE_PROP, PROP_ID, stand, property_val FROM DICT_KAFKA_PROP_VALUE
     UNPIVOT(
     property_val  -- unpivot_clause
@@ -14,6 +15,9 @@ select GRP_ID,TYPE_PROP, PROP_ID, stand, property_val FROM DICT_KAFKA_PROP_VALUE
         USED_P0_VAL AS 'P0'
         )
     )
+)
+select t.GRP_ID, t.TYPE_PROP, t.PROP_ID, t.stand, t.property_val  from t
+  join META_STAND s on s.ID = t.stand
 /
 comment on table KAFKA_PROP_VALUE_by_STAND is 'Значения свойств топиков в разрезе стендов.'
 /

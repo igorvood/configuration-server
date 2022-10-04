@@ -1,21 +1,8 @@
 create or replace view flink_property_by_stand as
-with stand as (
-    select COLUMN_VALUE stand
-    from table ( sys.ODCIVARCHAR2LIST(
-       'NOTEBOOK',
-       'NOTEBOOK_DSO',
-       'DSO',
-        'IFT',
-        'NT',
-        'REAL',
-        'P0'
-        )
-        )
-)
-select s.ID SERVICE_ID, DSN.PROFILE_ID, st.STAND, DFPV.PROP_ID, DFPV.PROP_VALUE from DICT_SERVICE s
+select s.ID SERVICE_ID, DSN.PROFILE_ID, st.ID STAND, DFPV.PROP_ID, DFPV.PROP_VALUE from DICT_SERVICE s
     join DICT_SERVICE_NODE DSN on s.ID = DSN.SERVICE_ID
     join DICT_FLINK_PROP_VALUE DFPV on DSN.SERVICE_ID = DFPV.SERVICE_ID and DSN.PROFILE_ID = DFPV.PROFILE_ID
-    cross join stand st
+    cross join META_STAND st
 /
 comment on table flink_property_by_stand is 'вьюха для update нод графов.'
 /
