@@ -9,6 +9,12 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0010.DICT_KAFKA_PROP.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0020.meta_stand_data.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0020.meta_stand_data.sql" endDelimiter="${sqlBatchDelimiter}"/>
+    </changeSet>
+
+
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0035.dict_kafka_property_grp.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0035.dict_kafka_property_grp.sql" endDelimiter="${sqlBatchDelimiter}"/>

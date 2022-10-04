@@ -4,6 +4,12 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/0050.meta_stand.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0050.meta_stand.sql" endDelimiter="${sqlBatchDelimiter}"/>
+    </changeSet>
+
     <changeSet id="liquibase/release_001/task_001/graph_structure/0100.dict_abstract_graph_node.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0100.dict_abstract_graph_node.sql" endDelimiter="${sqlBatchDelimiter}"/>
