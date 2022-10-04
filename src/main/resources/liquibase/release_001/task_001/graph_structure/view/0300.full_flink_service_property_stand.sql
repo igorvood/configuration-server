@@ -15,10 +15,6 @@ select priority, service_id, profile_id, stand, prop_id, prop_value, type_proper
 -- where STAND = 'DSO' and SERVICE_ID = 'mdm-enrichment' and PROFILE_ID = 'way4'
 -- order by 1, 6
 /
-select k.service_id, k.profile_id, k.stand, k.prop_id, k.PROPERTY_VAL from kafka_property_by_sevice k
-where STAND = 'DSO' and SERVICE_ID = 'mdm-enrichment' and PROFILE_ID = 'way4'
-/
-
 comment on table full_flink_service_property_stand is 'вьюха значения всех свойств сервиса.'
 /
 comment on column full_flink_service_property_stand.priority is 'приоритет для группировки.'
