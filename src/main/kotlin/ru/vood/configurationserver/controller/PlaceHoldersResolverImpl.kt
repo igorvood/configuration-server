@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service
 import ru.vood.configurationserver.controller.dto.PlaceHolder
 import ru.vood.configurationserver.controller.intf.HolderResolver
 import ru.vood.configurationserver.controller.intf.PlaceHoldersResolver
+import ru.vood.configurationserver.controller.intf.extractNamesPlaceholder
 import ru.vood.configurationserver.repo.dto.EnvProperty
 import ru.vood.configurationserver.repo.dto.FlinkServiceProfile
 
@@ -14,22 +15,6 @@ class PlaceHoldersResolverImpl(
 ) : PlaceHoldersResolver {
 
     private val holdersFuns = holderResolvers.map { it.placeHolderName to it }.toMap()
-    private tailrec fun extractNamesPlaceholder(
-        propertyValue: String,
-        inListPlace: List<String> = listOf()
-    ): List<String> {
-        val beginIndex = propertyValue.indexOf("\${")
-        val endIndex = propertyValue.indexOf("}")
-
-        return if (beginIndex != -1 && endIndex != -1 && beginIndex < endIndex) {
-            val substring = propertyValue.substring(beginIndex + 2, endIndex)
-            val propertyName = propertyValue.substring(endIndex + 1)
-            val plus = inListPlace.plus(substring)
-            extractNamesPlaceholder(propertyName, plus)
-        } else inListPlace
-    }
-
-
     override fun placeHolders(
         property: List<EnvProperty>,
         flinkServiceProfile: FlinkServiceProfile
