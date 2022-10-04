@@ -11,7 +11,7 @@ with
             select 10 priority, q.service_id, q.profile_id, q.stand, q.prop_id, q.prop_value, 'topic_name'
             from SERVICE_TOPIC_NAME_BY_STAND q
         )
-select * from al
+select priority, service_id, profile_id, stand, prop_id, prop_value, type_property from al
 -- where STAND = 'DSO' and SERVICE_ID = 'mdm-enrichment' and PROFILE_ID = 'way4'
 -- order by 1, 6
 /
