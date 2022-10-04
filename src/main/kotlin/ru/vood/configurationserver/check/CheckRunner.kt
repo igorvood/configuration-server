@@ -13,9 +13,9 @@ class CheckRunner(
 
         checks.forEach { ch ->
 
-            ch.check
+            ch.check()
         }
 
-        TODO("Not yet implemented")
+
     }
 }
