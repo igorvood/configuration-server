@@ -6,49 +6,49 @@
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0010.DICT_KAFKA_PROP.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0010.DICT_KAFKA_PROP.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0010.DICT_KAFKA_PROP.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0035.dict_kafka_property_grp.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0035.dict_kafka_property_grp.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0035.dict_kafka_property_grp.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0040.DICT_KAFKA_PROP_VALUE.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0040.DICT_KAFKA_PROP_VALUE.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0040.DICT_KAFKA_PROP_VALUE.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0100.nodes.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0100.nodes.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0100.nodes.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0200.dict_topic_ins.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0200.dict_topic_ins.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0200.dict_topic_ins.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0210.dict_sevice_ins.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0210.dict_sevice_ins.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0210.dict_sevice_ins.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0220.dict_arrow.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0220.dict_arrow.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0220.dict_arrow.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0230.META_PROPERTY_FUNCTION_data.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0230.META_PROPERTY_FUNCTION_data.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0230.META_PROPERTY_FUNCTION_data.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0240.DICT_FLINK_PROP_VALUE_data.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0240.DICT_FLINK_PROP_VALUE_data.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0240.DICT_FLINK_PROP_VALUE_data.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
 

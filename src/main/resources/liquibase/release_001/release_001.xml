@@ -7,7 +7,7 @@
 
     <changeSet id="dropAll2.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/dropAll2.sql" endDelimiter="/"/>
+        <sqlFile path="liquibase/release_001/dropAll2.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
     <include file="liquibase/release_001/task_001/task_001_structure.xml"/>
