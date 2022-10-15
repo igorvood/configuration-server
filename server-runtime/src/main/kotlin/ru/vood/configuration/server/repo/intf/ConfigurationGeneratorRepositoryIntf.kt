@@ -9,4 +9,5 @@ interface ConfigurationGeneratorRepositoryIntf {
         profileId: String,
         stand: String,
     ): List<EnvProperty>
+
 }
