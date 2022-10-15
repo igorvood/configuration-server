@@ -3,12 +3,12 @@ package ru.vood.configuration.server.check
 import org.slf4j.LoggerFactory
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.stereotype.Service
-import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
 import ru.vood.configuration.server.controller.intf.extractNamesPlaceholder
+import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
 
 @Service
 class PlaceHolderCheck(
-    val holderResolvers :List<HolderResolver>,
+    val holderResolvers: List<HolderResolver>,
     private val jdbcTemplate: JdbcOperations
 ) : CheckService {
 
@@ -20,11 +20,13 @@ class PlaceHolderCheck(
             .flatMap { e -> e.value.map { e.key to it } }
             .groupBy { it.second }
             .map { it.key to it.value.map { cl -> cl.first }.toSet() }
-            .filter { it.second.size>1 }
-            .map { "Place holder "+it.first+" resolve in several class "+ it.second.map { cl ->  cl.name }
-                .joinToString (", ") }
+            .filter { it.second.size > 1 }
+            .map {
+                "Place holder " + it.first + " resolve in several class " + it.second.map { cl -> cl.name }
+                    .joinToString(", ")
+            }
 
-        require(revert.isEmpty()){revert}
+        require(revert.isEmpty()) { revert }
 
 
         val phFun = holderResolvers.flatMap { it.placeHolderName }
@@ -40,7 +42,7 @@ class PlaceHolderCheck(
 
         val factNotInPhFun = factPhR.minus(phFun).sorted()
 
-        require(factNotInPhFun.isEmpty()){"${factNotInPhFun.size} place holders without function $factNotInPhFun"}
+        require(factNotInPhFun.isEmpty()) { "${factNotInPhFun.size} place holders without function $factNotInPhFun" }
 
     }
 }

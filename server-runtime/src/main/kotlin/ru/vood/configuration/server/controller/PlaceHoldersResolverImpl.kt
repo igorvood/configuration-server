@@ -3,9 +3,9 @@ package ru.vood.configuration.server.controller
 import arrow.core.Either
 import org.springframework.stereotype.Service
 import ru.vood.configuration.server.controller.dto.PlaceHolder
+import ru.vood.configuration.server.controller.intf.extractNamesPlaceholder
 import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
 import ru.vood.configuration.server.controller.placeholder.intf.PlaceHoldersResolver
-import ru.vood.configuration.server.controller.intf.extractNamesPlaceholder
 import ru.vood.configuration.server.repo.dto.EnvProperty
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 
@@ -14,7 +14,7 @@ class PlaceHoldersResolverImpl(
     holderResolvers: List<HolderResolver>
 ) : PlaceHoldersResolver {
 
-    private val holdersFuns = holderResolvers.flatMap { f-> f.placeHolderName.map { n-> n to f  } }.toMap()
+    private val holdersFuns = holderResolvers.flatMap { f -> f.placeHolderName.map { n -> n to f } }.toMap()
     override fun placeHolders(
         property: List<EnvProperty>,
         flinkServiceProfile: FlinkServiceProfile
@@ -26,7 +26,8 @@ class PlaceHoldersResolverImpl(
             .distinct()
             .flatMap { ph ->
                 val valuePlaceHolder =
-                    holdersFuns.get(ph)?.valuePlaceHolder(flinkServiceProfile, ph)?.let { value -> PlaceHolder(ph, value) }
+                    holdersFuns.get(ph)?.valuePlaceHolder(flinkServiceProfile, ph)
+                        ?.let { value -> PlaceHolder(ph, value) }
                 val fold = Either.fromNullable(valuePlaceHolder).fold({ listOf() }, { q -> listOf(q) })
                 fold
             }

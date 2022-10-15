@@ -5,9 +5,10 @@ import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 
 @Service
-class NotResolvablePalaceHolders  : HolderResolver {
+class NotResolvablePalaceHolders : HolderResolver {
     override val placeHolderName: Set<String>
-        get() = setOf("IFT_KAFKA_SSL_KEY_PASSWORD",
+        get() = setOf(
+            "IFT_KAFKA_SSL_KEY_PASSWORD",
             "P0_KAFKA_SSL_TRUSTSTORE_PASSWORD",
             "DSO_KAFKA_SSL_KEY_PASSWORD",
             "REAL_KAFKA_SSL_TRUSTSTORE_PASSWORD",
@@ -24,5 +25,5 @@ class NotResolvablePalaceHolders  : HolderResolver {
             "P0_KAFKA_SSL_KEYSTORE_PASSWORD",
         )
 
-    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String = "\${"+ph+"}"
+    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String = "\${" + ph + "}"
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service
 @Service
 class CheckRunner(
     val checks: List<CheckService>
-): CommandLineRunner {
+) : CommandLineRunner {
 
     override fun run(vararg args: String?) {
 
