@@ -1,6 +1,7 @@
-package ru.vood.configuration.server.controller.intf
+package ru.vood.configuration.server.controller.placeholder
 
 import org.springframework.stereotype.Service
+import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 
 @Service

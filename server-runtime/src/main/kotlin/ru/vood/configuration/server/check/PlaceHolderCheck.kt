@@ -3,7 +3,7 @@ package ru.vood.configuration.server.check
 import org.slf4j.LoggerFactory
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.stereotype.Service
-import ru.vood.configuration.server.controller.intf.HolderResolver
+import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
 import ru.vood.configuration.server.controller.intf.extractNamesPlaceholder
 
 @Service
@@ -14,10 +14,13 @@ class PlaceHolderCheck(
 
     private val logger = LoggerFactory.getLogger(PlaceHolderCheck::class.java)
     override fun check() {
-        val phFun = holderResolvers.flatMap { it.placeHolderName }
-        val factPh = jdbcTemplate.query("""select PROP_VALUE from PLACEHOLDER""", { rs, _ -> rs.getString(1) })
 
-        val factPhR = factPh.flatMap { extractNamesPlaceholder(it) }
+
+
+        val phFun = holderResolvers.flatMap { it.placeHolderName }
+        val factPh = jdbcTemplate.query("""select distinct PROP_VALUE from PLACEHOLDER""", { rs, _ -> rs.getString(1) })
+
+        val factPhR = factPh.flatMap { extractNamesPlaceholder(it) }.toSet()
 
         val phFunNotInFact = phFun.minus(factPhR)
 

@@ -3,7 +3,7 @@ package ru.vood.configuration.server.controller
 import org.springframework.stereotype.Service
 import ru.vood.configuration.server.controller.dto.PlaceHolder
 import ru.vood.configuration.server.controller.intf.ConfigurationGeneratorControllerIntf
-import ru.vood.configuration.server.controller.intf.PlaceHoldersResolver
+import ru.vood.configuration.server.controller.placeholder.intf.PlaceHoldersResolver
 import ru.vood.configuration.server.repo.dto.EnvProperty
 import ru.vood.configuration.server.repo.dto.EviromentService
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile

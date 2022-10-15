@@ -1,4 +1,4 @@
-package ru.vood.configuration.server.controller.intf
+package ru.vood.configuration.server.controller.placeholder.intf
 
 import ru.vood.configuration.server.controller.dto.PlaceHolder
 import ru.vood.configuration.server.repo.dto.EnvProperty
