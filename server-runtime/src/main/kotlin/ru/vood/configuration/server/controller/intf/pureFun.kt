@@ -17,22 +17,22 @@ tailrec fun extractNamesPlaceholder(
     } else inListPlace
 }
 
- tailrec fun replaceDifficultPlaceHolders(
+tailrec fun replaceDifficultPlaceHolders(
     propertyValue: String,
     placeHolders: List<PlaceHolder>
-): String{
+): String {
 
     val extractNamesPlaceholder = extractNamesPlaceholder(propertyValue)
 
     return if (extractNamesPlaceholder.isEmpty())
         propertyValue
-    else{
+    else {
         val filter = placeHolders.filter { it.placeHolderName == extractNamesPlaceholder.get(0) }.first()
         val replace = propertyValue.replace("\${" + filter.placeHolderName + "}", filter.placeHolderValue)
-        if (replace==propertyValue)
+        if (replace == propertyValue)
             propertyValue
         else
-            replaceDifficultPlaceHolders(replace,placeHolders)
+            replaceDifficultPlaceHolders(replace, placeHolders)
     }
 
 
