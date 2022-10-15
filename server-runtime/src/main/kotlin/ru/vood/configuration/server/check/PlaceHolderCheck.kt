@@ -30,7 +30,8 @@ class PlaceHolderCheck(
 
 
         val phFun = holderResolvers.flatMap { it.placeHolderName }
-        val factPh = jdbcTemplate.query("""select distinct PROP_VALUE from all_PLACEHOLDER""", { rs, _ -> rs.getString(1) })
+        val factPh =
+            jdbcTemplate.query("""select distinct PROP_VALUE from all_PLACEHOLDER""", { rs, _ -> rs.getString(1) })
 
         val factPhR = factPh.flatMap { extractNamesPlaceholder(it) }.toSet()
 

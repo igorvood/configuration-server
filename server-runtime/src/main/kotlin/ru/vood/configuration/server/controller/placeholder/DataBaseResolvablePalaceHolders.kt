@@ -10,7 +10,7 @@ class DataBaseResolvablePalaceHolders(
     private val dictRepository: DictRepository
 ) : HolderResolver {
     override val placeHolderName: Set<String>
-        get() =            dictRepository.dbPlaceHolders().map { it.id }.toSet()
+        get() = dictRepository.dbPlaceHolders().map { it.id }.toSet()
 
     override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String = "\${" + ph + "}"
 }

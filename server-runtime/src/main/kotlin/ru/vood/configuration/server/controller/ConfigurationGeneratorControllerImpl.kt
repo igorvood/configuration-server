@@ -40,7 +40,7 @@ class ConfigurationGeneratorControllerImpl(
                     .sortedBy { it.key }
                     .map { entry ->
                         entry.value
-                            .joinToString(separator = "`\n") { envPrp-> "`\"--${serviceId}.${envPrp.envPropertyName} ${envPrp.propertyValue}  \"" }
+                            .joinToString(separator = "`\n") { envPrp -> "`\"--${serviceId}.${envPrp.envPropertyName} ${envPrp.propertyValue}  \"" }
                     }
                     .joinToString(separator = "\n\n")
 
