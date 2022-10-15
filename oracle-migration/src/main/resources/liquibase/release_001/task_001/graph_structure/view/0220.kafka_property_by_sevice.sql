@@ -1,9 +1,9 @@
 create or replace view kafka_property_by_sevice
 as
 with srv as (
-  select TOPIC_ID, DKPV.PROP_ID, DKPV.PROP_VALUE, sn.SERVICE_ID, PROFILE_ID,  STAND, sn.TYPE_PROP, TOPIC_NAME, GRP_PROP, sn.PROPERTY_KEY
+  select TOPIC_ID, DKPV.PROP_ID, DKPV.PROP_VALUE, sn.SERVICE_ID, PROFILE_ID,  STAND, sn.DERRECTION TYPE_PROP,  TOPIC_NAME, GRP_PROP, sn.PROPERTY_KEY
   from kafka_topic_by_service sn
-    join DICT_KAFKA_PROPERTY_GRP kpg on (kpg.TYPE_READ, kpg.ID) = ((sn.TYPE_PROP, sn.GRP_PROP))
+    join DICT_KAFKA_PROPERTY_GRP kpg on (kpg.TYPE_READ, kpg.ID) = ((sn.DERRECTION, sn.GRP_PROP))
     join DICT_KAFKA_PROP_VALUE DKPV on kpg.TYPE_READ = DKPV.TYPE_PROP and kpg.ID = DKPV.GRP_ID
 )
 select
