@@ -14,7 +14,7 @@ class PlaceHolderCheck(
 
     private val logger = LoggerFactory.getLogger(PlaceHolderCheck::class.java)
     override fun check() {
-        val phFun = holderResolvers.map { it.placeHolderName }
+        val phFun = holderResolvers.flatMap { it.placeHolderName }
         val factPh = jdbcTemplate.query("""select PROP_VALUE from PLACEHOLDER""", { rs, _ -> rs.getString(1) })
 
         val factPhR = factPh.flatMap { extractNamesPlaceholder(it) }
@@ -25,10 +25,9 @@ class PlaceHolderCheck(
             logger.info("'$it' found function without place holders ")
         }
 
+        val factNotInPhFun = factPhR.minus(phFun).sorted()
 
-        val factNotInPhFun = factPhR.minus(phFun)
-
-        require(factNotInPhFun.size==0){"place holders without function $factNotInPhFun"}
+        require(factNotInPhFun.isEmpty()){"${factNotInPhFun.size} place holders without function $factNotInPhFun"}
 
     }
 }

@@ -6,5 +6,5 @@ interface HolderResolver {
 
     val placeHolderName: Set<String>
 
-    fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile): String
+    fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String
 }

@@ -26,7 +26,7 @@ class PlaceHoldersResolverImpl(
             .distinct()
             .flatMap { ph ->
                 val valuePlaceHolder =
-                    holdersFuns.get(ph)?.valuePlaceHolder(flinkServiceProfile)?.let { value -> PlaceHolder(ph, value) }
+                    holdersFuns.get(ph)?.valuePlaceHolder(flinkServiceProfile, ph)?.let { value -> PlaceHolder(ph, value) }
                 val fold = Either.fromNullable(valuePlaceHolder).fold({ listOf() }, { q -> listOf(q) })
                 fold
             }
