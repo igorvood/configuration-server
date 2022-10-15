@@ -5,10 +5,10 @@ import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 
 @Service
-class ProfileResolverImpl : HolderResolver {
+class ServiceResolverImpl : HolderResolver {
     override val placeHolderName: Set<String>
-        get() = setOf("PROFILE", "PROFILE_NAME")
+        get() = setOf("SERVICE_NAME")
 
     override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String =
-        flinkServiceProfile.profileId
+        flinkServiceProfile.serviceId.id
 }
