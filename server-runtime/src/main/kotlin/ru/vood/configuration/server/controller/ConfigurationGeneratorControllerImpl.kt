@@ -25,7 +25,7 @@ class ConfigurationGeneratorControllerImpl(
         val placeHolders: List<PlaceHolder> =
             placeHoldersResolver.placeHolders(property, FlinkServiceProfile(serviceById, profileId))
         val s = when (stand) {
-            "NOTEBOOK" ->
+            "NOTEBOOK", "NOTEBOOK_DSO" ->
                 propertyFileGenerator.gererate(serviceById, property, placeHolders)
             else -> {
 
