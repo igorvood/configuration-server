@@ -5,13 +5,10 @@ import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 
 @Service
-class UsersResolvablePalaceHolders : HolderResolver {
+class ParallelismResolverImpl: HolderResolver {
     override val placeHolderName: Set<String>
-        get() = setOf(
-            "BOOTSTRAP_SERVERS",
-            "KEYSTORE_LOCATION",
-            "TRUSTSTORE_LOCATION",
-        )
+        get() = setOf("PARALLELISM")
 
-    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String = "\${" + ph + "}"
+    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String =        8.toString()
+
 }

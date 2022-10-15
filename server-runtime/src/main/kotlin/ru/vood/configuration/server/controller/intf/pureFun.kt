@@ -1,5 +1,7 @@
 package ru.vood.configuration.server.controller.intf
 
+import ru.vood.configuration.server.controller.dto.PlaceHolder
+
 tailrec fun extractNamesPlaceholder(
     propertyValue: String,
     inListPlace: List<String> = listOf()
@@ -13,4 +15,25 @@ tailrec fun extractNamesPlaceholder(
         val plus = inListPlace.plus(substring)
         extractNamesPlaceholder(propertyName, plus)
     } else inListPlace
+}
+
+ tailrec fun replaceDifficultPlaceHolders(
+    propertyValue: String,
+    placeHolders: List<PlaceHolder>
+): String{
+
+    val extractNamesPlaceholder = extractNamesPlaceholder(propertyValue)
+
+    return if (extractNamesPlaceholder.isEmpty())
+        propertyValue
+    else{
+        val filter = placeHolders.filter { it.placeHolderName == extractNamesPlaceholder.get(0) }.first()
+        val replace = propertyValue.replace("\${" + filter.placeHolderName + "}", filter.placeHolderValue)
+        if (replace==propertyValue)
+            propertyValue
+        else
+            replaceDifficultPlaceHolders(replace,placeHolders)
+    }
+
+
 }
