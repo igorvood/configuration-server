@@ -60,6 +60,16 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0410.dict_flink_prop_value.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/0450.dict_place_holder.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0450.dict_place_holder.sql" endDelimiter="${sqlBatchDelimiter}"/>
+    </changeSet>
+
+    <changeSet id="liquibase/release_001/task_001/graph_structure/0460.dict_place_holder_by_service.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0460.dict_place_holder_by_service.sql" endDelimiter="${sqlBatchDelimiter}"/>
+    </changeSet>
+
     <include file="liquibase/release_001/task_001/graph_structure/view/graph_structure.xml"/>
     <include file="liquibase/release_001/task_001/graph_structure/pck/graph_structure.xml"/>
     <include file="liquibase/release_001/task_001/graph_structure/data/graph_structure.xml"/>
