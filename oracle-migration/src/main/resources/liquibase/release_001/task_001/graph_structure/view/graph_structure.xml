@@ -59,5 +59,11 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0310.all_placeholder.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/view/0320.resolvable_placeholder.sql" author="vood" runAlways="true">
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0320.resolvable_placeholder.sql" endDelimiter="${sqlBatchDelimiter}"/>
+    </changeSet>
+
+
 
 </databaseChangeLog>
