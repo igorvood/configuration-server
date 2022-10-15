@@ -2,6 +2,7 @@ package ru.vood.configuration.server.repo
 
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.stereotype.Repository
+import ru.vood.configuration.server.repo.dto.DataBasePlaceHolder
 import ru.vood.configuration.server.repo.dto.FlinkService
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 import ru.vood.configuration.server.repo.dto.Graph
@@ -46,7 +47,14 @@ class DictRepositoryImpl(
             { rs, _ -> FlinkServiceProfile(FlinkService(rs.getString(1), rs.getString(2)), rs.getString(3)) },
             serviceId
         ).toSet()
+    }
 
+    override fun dbPlaceHolders(): Set<DataBasePlaceHolder> {
+        return jdbcTemplate.query(
+            """select id, DESCRIPTION, DEFAULT_VALUE from DICT_PLACE_HOLDER 
+            """,
+            { rs, _ -> DataBasePlaceHolder(rs.getString(1), rs.getString(2), rs.getString(3)) }
 
+        ).toSet()
     }
 }
