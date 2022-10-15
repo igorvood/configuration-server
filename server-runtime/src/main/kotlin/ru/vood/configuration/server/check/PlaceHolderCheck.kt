@@ -14,7 +14,7 @@ class PlaceHolderCheck(
 
     private val logger = LoggerFactory.getLogger(PlaceHolderCheck::class.java)
     override fun check() {
-        val classAndPlaceholders = holderResolvers.map { it.javaClass to it.placeHolderName }.toMap()
+        val classAndPlaceholders = holderResolvers.associate { it.javaClass to it.placeHolderName }
         val revert = classAndPlaceholders
             .entries
             .flatMap { e -> e.value.map { e.key to it } }
