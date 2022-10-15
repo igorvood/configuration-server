@@ -38,9 +38,9 @@ class ConfigurationGeneratorControllerImpl(
                 val propertiesEnvStr = groupedBy
                     .entries
                     .sortedBy { it.key }
-                    .map {
-                        it.value
-                            .joinToString(separator = "`\n") { "`\"--${serviceId}.${it.envPropertyName} ${it.propertyValue}  \"" }
+                    .map { entry ->
+                        entry.value
+                            .joinToString(separator = "`\n") { envPrp-> "`\"--${serviceId}.${envPrp.envPropertyName} ${envPrp.propertyValue}  \"" }
                     }
                     .joinToString(separator = "\n\n")
 
