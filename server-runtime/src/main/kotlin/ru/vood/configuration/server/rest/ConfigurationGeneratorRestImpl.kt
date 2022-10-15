@@ -5,9 +5,9 @@ import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-import ru.vood.configurationserver.controller.intf.ConfigurationGeneratorControllerIntf
-import ru.vood.configurationserver.repo.dto.EviromentService
-import ru.vood.configurationserver.rest.intf.ConfigurationGeneratorRestIntf
+import ru.vood.configuration.server.controller.intf.ConfigurationGeneratorControllerIntf
+import ru.vood.configuration.server.repo.dto.EviromentService
+import ru.vood.configuration.server.rest.intf.ConfigurationGeneratorRestIntf
 
 @RestController
 class ConfigurationGeneratorRestImpl(

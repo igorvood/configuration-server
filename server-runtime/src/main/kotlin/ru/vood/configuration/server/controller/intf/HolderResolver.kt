@@ -1,6 +1,6 @@
 package ru.vood.configuration.server.controller.intf
 
-import ru.vood.configurationserver.repo.dto.FlinkServiceProfile
+import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 
 interface HolderResolver {
 

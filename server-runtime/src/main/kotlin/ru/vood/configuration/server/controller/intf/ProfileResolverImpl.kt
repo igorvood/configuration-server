@@ -1,7 +1,7 @@
 package ru.vood.configuration.server.controller.intf
 
 import org.springframework.stereotype.Service
-import ru.vood.configurationserver.repo.dto.FlinkServiceProfile
+import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 
 @Service
 class ProfileResolverImpl : HolderResolver {

@@ -2,12 +2,12 @@ package ru.vood.configuration.server.controller
 
 import arrow.core.Either
 import org.springframework.stereotype.Service
-import ru.vood.configurationserver.controller.dto.PlaceHolder
-import ru.vood.configurationserver.controller.intf.HolderResolver
-import ru.vood.configurationserver.controller.intf.PlaceHoldersResolver
-import ru.vood.configurationserver.controller.intf.extractNamesPlaceholder
-import ru.vood.configurationserver.repo.dto.EnvProperty
-import ru.vood.configurationserver.repo.dto.FlinkServiceProfile
+import ru.vood.configuration.server.controller.dto.PlaceHolder
+import ru.vood.configuration.server.controller.intf.HolderResolver
+import ru.vood.configuration.server.controller.intf.PlaceHoldersResolver
+import ru.vood.configuration.server.controller.intf.extractNamesPlaceholder
+import ru.vood.configuration.server.repo.dto.EnvProperty
+import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 
 @Service
 class PlaceHoldersResolverImpl(

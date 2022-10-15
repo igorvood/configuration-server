@@ -1,6 +1,6 @@
 package ru.vood.configuration.server.repo.intf
 
-import ru.vood.configurationserver.repo.dto.EnvProperty
+import ru.vood.configuration.server.repo.dto.EnvProperty
 
 interface ConfigurationGeneratorRepositoryIntf {
 

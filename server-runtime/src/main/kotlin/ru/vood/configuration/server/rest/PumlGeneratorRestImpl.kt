@@ -2,8 +2,8 @@ package ru.vood.configuration.server.rest
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
-import ru.vood.configurationserver.controller.intf.PumlGeneratorControllerIntf
-import ru.vood.configurationserver.rest.intf.PumlGeneratorRestIntf
+import ru.vood.configuration.server.controller.intf.PumlGeneratorControllerIntf
+import ru.vood.configuration.server.rest.intf.PumlGeneratorRestIntf
 
 @RestController
 class PumlGeneratorRestImpl(

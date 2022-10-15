@@ -3,10 +3,10 @@ package ru.vood.configuration.server.rest
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
-import ru.vood.configurationserver.repo.dto.FlinkService
-import ru.vood.configurationserver.repo.dto.Graph
-import ru.vood.configurationserver.repo.intf.DictRepository
-import ru.vood.configurationserver.rest.intf.DictRest
+import ru.vood.configuration.server.repo.dto.FlinkService
+import ru.vood.configuration.server.repo.dto.Graph
+import ru.vood.configuration.server.repo.intf.DictRepository
+import ru.vood.configuration.server.rest.intf.DictRest
 
 @RestController
 class DictRestImpl(

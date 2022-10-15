@@ -2,8 +2,8 @@ package ru.vood.configuration.server.repo
 
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.stereotype.Service
-import ru.vood.configurationserver.repo.dto.EnvProperty
-import ru.vood.configurationserver.repo.intf.ConfigurationGeneratorRepositoryIntf
+import ru.vood.configuration.server.repo.dto.EnvProperty
+import ru.vood.configuration.server.repo.intf.ConfigurationGeneratorRepositoryIntf
 
 @Service
 class ConfigurationGeneratorRepositoryIntfImpl(

@@ -1,8 +1,8 @@
 package ru.vood.configuration.server.controller
 
 import org.springframework.stereotype.Service
-import ru.vood.configurationserver.controller.intf.PumlGeneratorControllerIntf
-import ru.vood.configurationserver.repo.intf.PumlGeneratorRepositoryIntf
+import ru.vood.configuration.server.controller.intf.PumlGeneratorControllerIntf
+import ru.vood.configuration.server.repo.intf.PumlGeneratorRepositoryIntf
 
 @Service
 class PumlGeneratorControllerImpl(

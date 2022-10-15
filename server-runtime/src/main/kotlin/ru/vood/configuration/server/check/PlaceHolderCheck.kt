@@ -3,8 +3,8 @@ package ru.vood.configuration.server.check
 import org.slf4j.LoggerFactory
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.stereotype.Service
-import ru.vood.configurationserver.controller.intf.HolderResolver
-import ru.vood.configurationserver.controller.intf.extractNamesPlaceholder
+import ru.vood.configuration.server.controller.intf.HolderResolver
+import ru.vood.configuration.server.controller.intf.extractNamesPlaceholder
 
 @Service
 class PlaceHolderCheck(

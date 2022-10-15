@@ -1,14 +1,14 @@
 package ru.vood.configuration.server.controller
 
 import org.springframework.stereotype.Service
-import ru.vood.configurationserver.controller.dto.PlaceHolder
-import ru.vood.configurationserver.controller.intf.ConfigurationGeneratorControllerIntf
-import ru.vood.configurationserver.controller.intf.PlaceHoldersResolver
-import ru.vood.configurationserver.repo.dto.EnvProperty
-import ru.vood.configurationserver.repo.dto.EviromentService
-import ru.vood.configurationserver.repo.dto.FlinkServiceProfile
-import ru.vood.configurationserver.repo.intf.ConfigurationGeneratorRepositoryIntf
-import ru.vood.configurationserver.repo.intf.DictRepository
+import ru.vood.configuration.server.controller.dto.PlaceHolder
+import ru.vood.configuration.server.controller.intf.ConfigurationGeneratorControllerIntf
+import ru.vood.configuration.server.controller.intf.PlaceHoldersResolver
+import ru.vood.configuration.server.repo.dto.EnvProperty
+import ru.vood.configuration.server.repo.dto.EviromentService
+import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
+import ru.vood.configuration.server.repo.intf.ConfigurationGeneratorRepositoryIntf
+import ru.vood.configuration.server.repo.intf.DictRepository
 
 
 @Service

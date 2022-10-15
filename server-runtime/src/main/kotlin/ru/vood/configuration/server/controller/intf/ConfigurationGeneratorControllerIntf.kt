@@ -1,6 +1,6 @@
 package ru.vood.configuration.server.controller.intf
 
-import ru.vood.configurationserver.repo.dto.EviromentService
+import ru.vood.configuration.server.repo.dto.EviromentService
 
 interface ConfigurationGeneratorControllerIntf {
 

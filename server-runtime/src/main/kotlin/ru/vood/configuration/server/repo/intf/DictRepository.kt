@@ -1,8 +1,8 @@
 package ru.vood.configuration.server.repo.intf
 
-import ru.vood.configurationserver.repo.dto.FlinkService
-import ru.vood.configurationserver.repo.dto.FlinkServiceProfile
-import ru.vood.configurationserver.repo.dto.Graph
+import ru.vood.configuration.server.repo.dto.FlinkService
+import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
+import ru.vood.configuration.server.repo.dto.Graph
 
 interface DictRepository {
 

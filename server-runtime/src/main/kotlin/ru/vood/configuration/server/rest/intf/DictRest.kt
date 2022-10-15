@@ -1,7 +1,7 @@
 package ru.vood.configuration.server.rest.intf
 
-import ru.vood.configurationserver.repo.dto.FlinkService
-import ru.vood.configurationserver.repo.dto.Graph
+import ru.vood.configuration.server.repo.dto.FlinkService
+import ru.vood.configuration.server.repo.dto.Graph
 
 interface DictRest {
 
