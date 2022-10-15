@@ -25,7 +25,7 @@ class ConfigurationGeneratorRepositoryIntfImpl(
                     envPropertyName = rs.getString(1),
                     propertyValue = rs.getString(2),
                     priority = rs.getInt(3),
-                    typyProperty = rs.getString(4),
+                    typeProperty = rs.getString(4),
                 )
             }, serviceId, profileId, stand
         )

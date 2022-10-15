@@ -15,22 +15,23 @@ import ru.vood.configuration.server.repo.intf.DictRepository
 class ConfigurationGeneratorControllerImpl(
     val configurationGeneratorRepositoryIntf: ConfigurationGeneratorRepositoryIntf,
     val dictRepository: DictRepository,
-    val placeHoldersResolver: PlaceHoldersResolver
+    val placeHoldersResolver: PlaceHoldersResolver,
+    val propertyFileGenerator: PropertyFileGenerator
 ) : ConfigurationGeneratorControllerIntf {
     override fun generateEnvBody(serviceId: String, profileId: String, stand: String): String {
         val property: List<EnvProperty> =
             configurationGeneratorRepositoryIntf.propertyByService(serviceId, profileId, stand)
         val serviceById = dictRepository.serviceById(serviceId)
-        val plaseHolders: List<PlaceHolder> =
+        val placeHolders: List<PlaceHolder> =
             placeHoldersResolver.placeHolders(property, FlinkServiceProfile(serviceById, profileId))
         val s = when (stand) {
-            "NOTEBOOK" -> property
-                .joinToString(separator = "\n") { "${it.envPropertyName}=${it.propertyValue}" }
+            "NOTEBOOK" ->
+                propertyFileGenerator.gererate(serviceById, property, placeHolders)
             else -> {
 
                 val plaseHoldersStr =
-                    plaseHolders.map { it.placeHolderName + "=" + it.placeHolderValue }.joinToString("\n")
-                val groupedBy = property.groupBy { it.priority.toString() + "_" + it.typyProperty }
+                    placeHolders.map { it.placeHolderName + "=" + it.placeHolderValue }.joinToString("\n")
+                val groupedBy = property.groupBy { it.priority.toString() + "_" + it.typeProperty }
                 val propertiesEnvStr = groupedBy
                     .entries
                     .sortedBy { it.key }

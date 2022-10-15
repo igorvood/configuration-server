@@ -2,13 +2,14 @@ package ru.vood.configurationserver.controller
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import ru.vood.configurationserver.controller.dto.PlaceHolder
-import ru.vood.configurationserver.controller.intf.HolderResolver
-import ru.vood.configurationserver.controller.intf.PlaceHoldersResolver
+import ru.vood.configuration.server.controller.PlaceHoldersResolverImpl
+import ru.vood.configuration.server.controller.dto.PlaceHolder
+import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
+import ru.vood.configuration.server.controller.placeholder.intf.PlaceHoldersResolver
 
-import ru.vood.configurationserver.repo.dto.EnvProperty
-import ru.vood.configurationserver.repo.dto.FlinkService
-import ru.vood.configurationserver.repo.dto.FlinkServiceProfile
+import ru.vood.configuration.server.repo.dto.EnvProperty
+import ru.vood.configuration.server.repo.dto.FlinkService
+import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 
 internal class PlaceHolderResolverImplTest {
 
@@ -43,10 +44,11 @@ internal class PlaceHolderResolverImplTest {
     }
 
     class HolderResolverTest : HolderResolver {
+        override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String = "PlaceHolder_2_value"
+
         override val placeHolderName: Set<String>
             get() = setOf("PlaceHolder_2")
 
-        override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile): String = "PlaceHolder_2_value"
     }
 
 }
