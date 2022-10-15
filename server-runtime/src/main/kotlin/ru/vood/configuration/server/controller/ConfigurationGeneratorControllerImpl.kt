@@ -30,7 +30,7 @@ class ConfigurationGeneratorControllerImpl(
                 propertyFileGenerator.gererate(serviceById, property, placeHolders)
             else -> {
 
-                val plaseHoldersStr =
+                val placeHoldersStr =
                     placeHolders
                         .filter { extractNamesPlaceholder(it.placeHolderValue).isEmpty() }
                         .map { it.placeHolderName + "=" + it.placeHolderValue }.joinToString("\n")
@@ -45,7 +45,7 @@ class ConfigurationGeneratorControllerImpl(
                     .joinToString(separator = "\n\n")
 
                 """
-$plaseHoldersStr                    
+$placeHoldersStr                    
 MAIN_CLASS=${serviceById.mainClass}
                     
 PROGRAMARGS=$propertiesEnvStr
