@@ -21,5 +21,5 @@ comment on column dict_place_holder_by_service.profile_id is 'Идетифика
 /
 comment on column dict_place_holder_by_service.stand_id is 'Идетификатор стенда.'
 /
-comment on column dict_place_holder_by_service.value is 'Значение по умолчанию.'
+comment on column dict_place_holder_by_service.value is 'Значение перекрывающее значение по умолчанию из dict_place_holder.'
 /
