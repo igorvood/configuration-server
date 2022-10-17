@@ -14,7 +14,7 @@ create table dict_arrow
   property_key varchar2(256) not null
 )
 /
-comment on table dict_arrow is 'Справочник групп настроек для консьюмера топиков.'
+comment on table dict_arrow is 'Справочник связей сервисов и топиков.'
 /
 comment on column dict_arrow.beg_node_type is 'Тип ноды начала стрелки .'
 /
@@ -26,5 +26,5 @@ comment on column dict_arrow.end_node_id is 'Идентификатор ноды
 /
 comment on column dict_arrow.graph_id is 'Идентификатор графа.'
 /
-comment on column dict_arrow.property_key is 'ключ для свойства для указания имени топика.'
+comment on column dict_arrow.property_key is 'Ключ для свойства для указания имени топика в настройках.'
 /

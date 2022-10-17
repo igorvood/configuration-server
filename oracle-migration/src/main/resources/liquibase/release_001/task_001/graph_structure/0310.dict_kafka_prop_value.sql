@@ -22,23 +22,23 @@ create table dict_kafka_prop_value
     used_p0_val as (nvl(p0_val, prop_value))
 )
 /
-comment on table dict_kafka_prop_value is 'Справочник групп настроек для консьюмера топиков.'
+comment on table dict_kafka_prop_value is 'Справочник групп настроек для топиков.'
 /
 comment on column dict_kafka_prop_value.grp_id is 'Идентификатор группы свойств'
 /
-comment on column dict_kafka_prop_value.type_prop is 'Тип группы свойств.'
+comment on column dict_kafka_prop_value.type_prop is 'Тип группы свойств prd - продьюссер, cns-консьюмер.'
 /
 comment on column dict_kafka_prop_value.prop_id is 'Идентификатор свойства.'
 /
 comment on column dict_kafka_prop_value.prop_value is 'Значение свойства.'
 /
-comment on column dict_kafka_prop_value.notebook_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.notebook_val is 'Значения для стенда notebook пусто - будет использоваться зн по умолчанию из prop_value.'
 /
-comment on column dict_kafka_prop_value.used_notebook_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.used_notebook_val is 'Используемое значения для стенда notebook.'
 /
-comment on column dict_kafka_prop_value.notebook_dso_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.notebook_dso_val is 'Значения для стенда notebook_dso пусто - будет использоваться зн по умолчанию из prop_value.'
 /
-comment on column dict_kafka_prop_value.used_notebook_dso_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.used_notebook_dso_val is 'Используемое значения для стенда notebook_dso.'
 /
 comment on column dict_kafka_prop_value.ift_val is 'Идентификатор группы продьюсера.'
 /

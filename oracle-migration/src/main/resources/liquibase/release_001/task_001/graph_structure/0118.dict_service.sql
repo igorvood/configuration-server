@@ -8,7 +8,7 @@ create table dict_service
 /
 comment on table dict_service is 'Справочник групп настроек для консьюмера топиков.'
 /
-comment on column dict_service.id is 'Идентификатор ноды.'
+comment on column dict_service.id is 'Идентификатор сервиса.'
 /
 comment on column dict_service.main_class is 'Класс запуска.'
 /

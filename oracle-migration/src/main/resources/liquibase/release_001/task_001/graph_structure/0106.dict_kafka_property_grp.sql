@@ -8,11 +8,11 @@ create table dict_kafka_property_grp
 
 )
 /
-comment on table dict_kafka_property_grp is 'Справочник групп настроек продьюсера для кафки.'
+comment on table dict_kafka_property_grp is 'Справочник групп настроек для кафки.'
 /
 comment on column dict_kafka_property_grp.description is 'Описание.'
 /
 comment on column dict_kafka_property_grp.id is 'Идентификатор группы настроек.'
 /
-comment on column dict_kafka_property_grp.type_read is 'Тип обращения.'
+comment on column dict_kafka_property_grp.type_read is 'Тип обращения prd - продьюссер, cns - консьюмер.'
 /

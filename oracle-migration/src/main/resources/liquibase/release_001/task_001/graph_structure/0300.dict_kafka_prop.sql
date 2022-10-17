@@ -8,7 +8,7 @@ create table dict_kafka_prop
 /
 comment on table dict_kafka_prop is 'Справочник групп настроек для консьюмера топиков.'
 /
-comment on column dict_kafka_prop.type_prop is 'Тип группы свойств.'
+comment on column dict_kafka_prop.type_prop is 'Тип группы свойств prd - продьюссер, cns-консьюмер.'
 /
 comment on column dict_kafka_prop.prop_id is 'Идентификатор свойства.'
 /
