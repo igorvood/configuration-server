@@ -40,19 +40,19 @@ comment on column dict_kafka_prop_value.notebook_dso_val is 'Значения д
 /
 comment on column dict_kafka_prop_value.used_notebook_dso_val is 'Используемое значения для стенда notebook_dso.'
 /
-comment on column dict_kafka_prop_value.ift_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.ift_val is 'Значения для стенда ift пусто - будет использоваться зн по умолчанию из prop_value.'
 /
-comment on column dict_kafka_prop_value.used_ift_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.used_ift_val is 'Используемое значения для стенда ift.'
 /
-comment on column dict_kafka_prop_value.nt_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.nt_val is 'Значения для стенда nt пусто - будет использоваться зн по умолчанию из prop_value.'
 /
-comment on column dict_kafka_prop_value.used_nt_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.used_nt_val is 'Используемое значения для стенда nt.'
 /
-comment on column dict_kafka_prop_value.real_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.real_val is 'Значения для стенда real пусто - будет использоваться зн по умолчанию из prop_value.'
 /
-comment on column dict_kafka_prop_value.used_real_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.used_real_val is 'Используемое значения для стенда real.'
 /
-comment on column dict_kafka_prop_value.p0_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.p0_val is 'Значения для стенда p0 пусто - будет использоваться зн по умолчанию из prop_value.'
 /
-comment on column dict_kafka_prop_value.used_p0_val is 'Идентификатор группы продьюсера.'
+comment on column dict_kafka_prop_value.used_p0_val is 'Используемое значения для стенда po.'
 /
