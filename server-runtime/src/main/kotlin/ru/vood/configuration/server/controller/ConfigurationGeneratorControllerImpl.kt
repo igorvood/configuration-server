@@ -35,6 +35,7 @@ class ConfigurationGeneratorControllerImpl(
                         .filter { extractNamesPlaceholder(it.placeHolderValue).isEmpty() }
                         .map { it.placeHolderName + "=" + it.placeHolderValue }.joinToString("\n")
                 val groupedBy = property.groupBy { it.priority.toString() + "_" + it.typeProperty }
+
                 val propertiesEnvStr = groupedBy
                     .entries
                     .sortedBy { it.key }
