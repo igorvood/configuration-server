@@ -7,7 +7,8 @@ create table dict_place_holder_by_service
     constraint dict_place_holder_by_service_pk primary key (service_id, profile_id, place_holder_id) using index tablespace t_idx compress 1,
     value varchar2(256) not null,
     constraint dict_place_holder_by_service_srv_fk foreign key (service_id, profile_id) references DICT_SERVICE_NODE(SERVICE_ID, PROFILE_ID),
-    constraint dict_place_holder_by_service_ph_fk foreign key (place_holder_id) references dict_place_holder(ID)
+    constraint dict_place_holder_by_service_ph_fk foreign key (place_holder_id) references dict_place_holder(ID),
+    constraint dict_place_holder_by_service_stand_fk foreign key (stand_id) references META_STAND(ID)
 )
 /
 comment on table dict_place_holder_by_service is 'Справочник плейсхолдеров.'
