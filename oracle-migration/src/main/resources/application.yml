@@ -8,7 +8,7 @@ spring:
     enabled: true
 #    enabled: false
     change-log: liquibase/liquibase-outputChangeLog.xml
-
+    drop-first: true
   jpa:
     properties:
       javax:
