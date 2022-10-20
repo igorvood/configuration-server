@@ -5,6 +5,9 @@ plugins {
     id("io.spring.dependency-management") version "1.0.14.RELEASE"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
+
+    id("org.liquibase.gradle") version "2.0.4"
+
 }
 
 group = "ru.vood.configuration.server"
@@ -13,7 +16,11 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenCentral()
+    dependencies {
+        implementation("org.liquibase:liquibase-gradle-plugin:1.1.1")
+    }
 }
+
 
 dependencies {
 //    implementation("org.springframework.boot:spring-boot-starter-web")
@@ -26,6 +33,8 @@ dependencies {
     runtimeOnly("com.oracle.database.jdbc:ojdbc8")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+
 }
 
 tasks.withType<KotlinCompile> {
