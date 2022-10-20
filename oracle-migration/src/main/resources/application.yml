@@ -8,6 +8,16 @@ spring:
     enabled: true
 #    enabled: false
     change-log: liquibase/liquibase-outputChangeLog.xml
+
+  jpa:
+    properties:
+      javax:
+        persistence:
+          schema-generation:
+            create-source: metadata
+            scripts:
+              action: update
+              create-target: update.sql
 server:
   port: 9090
 
@@ -19,3 +29,5 @@ logging:
 #springdoc:
 #  api-docs:
 #    path:/api-docs
+
+
