@@ -1,7 +1,6 @@
-
+DO $$
 
 begin
-
 INSERT INTO DICT_KAFKA_PROP_VALUE (GRP_ID, TYPE_PROP, PROP_ID, PROP_VALUE, NOTEBOOK_VAL, NOTEBOOK_DSO_VAL, IFT_VAL, NT_VAL, REAL_VAL, P0_VAL) VALUES ('consumer_default', 'cns', 'bootstrap.servers', '${BOOTSTRAP_SERVERS}', '172.20.219.153:9092,172.20.219.153:9091', null, null, null, null, null);
 INSERT INTO DICT_KAFKA_PROP_VALUE (GRP_ID, TYPE_PROP, PROP_ID, PROP_VALUE, NOTEBOOK_VAL, NOTEBOOK_DSO_VAL, IFT_VAL, NT_VAL, REAL_VAL, P0_VAL) VALUES ('producer_default', 'prd', 'bootstrap.servers', '${BOOTSTRAP_SERVERS}', '172.20.219.153:9092,172.20.219.153:9091', null, null, null, null, null);
 INSERT INTO DICT_KAFKA_PROP_VALUE (GRP_ID, TYPE_PROP, PROP_ID, PROP_VALUE, NOTEBOOK_VAL, NOTEBOOK_DSO_VAL, IFT_VAL, NT_VAL, REAL_VAL, P0_VAL) VALUES ('consumer_default', 'cns', 'security.protocol', 'SSL', 'PLAINTEXT', null, null, null, null, null);
@@ -33,5 +32,9 @@ INSERT INTO DICT_KAFKA_PROP_VALUE (GRP_ID, TYPE_PROP, PROP_ID, PROP_VALUE) VALUE
 INSERT INTO DICT_KAFKA_PROP_VALUE (GRP_ID, TYPE_PROP, PROP_ID, PROP_VALUE) VALUES ('producer_default', 'prd', 'max.block.ms', '90000');
 INSERT INTO DICT_KAFKA_PROP_VALUE (GRP_ID, TYPE_PROP, PROP_ID, PROP_VALUE) VALUES ('producer_default', 'prd', 'retries', '1');
 INSERT INTO DICT_KAFKA_PROP_VALUE (GRP_ID, TYPE_PROP, PROP_ID, PROP_VALUE) VALUES ('producer_default', 'prd', 'transaction.timeout.ms', '30000');
+
 end;
+$$;
+/
+commit;
 /
