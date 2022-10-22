@@ -43,6 +43,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
 
+    testImplementation("com.ninja-squad:springmockk:3.1.1")
+
 
 }
 

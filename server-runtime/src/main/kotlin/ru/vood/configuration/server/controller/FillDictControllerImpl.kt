@@ -42,16 +42,18 @@ class FillDictControllerImpl(
         profileId: String,
         propString: String
     ) {
-        propString
+        val split1 = propString
             .replace("`\"--", "")
             .replace("\"--", "")
             .replace(" \"`", "")
             .replace(" \"", "")
             .split("\n")
+            .filter { it!="" }
+        split1
             .map { propKeyVal ->
                 val split = propKeyVal.split(" ")
                 assert(split.size == 2) { "not compatible string '$propKeyVal'" }
-                val key = split[0]
+                val key = split[0].substring(split[0].indexOf(".")+1)
                 val value = split[1]
                 key to value
             }
