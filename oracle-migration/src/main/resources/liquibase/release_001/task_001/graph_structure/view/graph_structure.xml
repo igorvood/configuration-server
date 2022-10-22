@@ -19,7 +19,7 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0300.full_flink_service_property_stand.sql" endDelimiter="${sqlBatchDelimiter}"/>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0310.all_placeholder.sql" endDelimiter="${sqlBatchDelimiter}"/>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0320.resolvable_placeholder.sql" endDelimiter="${sqlBatchDelimiter}"/>
-
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0500.ck_env_prop_unique.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
 
