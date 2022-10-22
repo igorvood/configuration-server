@@ -24,7 +24,8 @@ class FillDictRestImpl(
         graphId: String,
         serviceId: String,
         mainClass: String,
-        profileId: String,): Unit {
+        profileId: String,
+    ): Unit {
         fillDictController.dictServiceInsert(graphId, serviceId, profileId, mainClass)
     }
 
@@ -34,7 +35,8 @@ class FillDictRestImpl(
         graphId: String,
         serviceId: String,
         mainClass: String,
-        @RequestBody profileIds: List<String>): Unit {
+        @RequestBody profileIds: List<String>
+    ): Unit {
         profileIds.forEach { fillDictController.dictServiceInsert(graphId, serviceId, it, mainClass) }
     }
 
@@ -96,19 +98,29 @@ class FillDictRestImpl(
     @Operation(summary = "Создание связи топика и сервиса", tags = ["Заполнение таблиц. Связи"])
     @PutMapping("/dictArrowInsertList", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun dictArrowInsertList(
-    graphId: String,
-    serviceId: String,
-    profileId: String,
-    @RequestBody  topics: List<TopicWithDirection>
+        graphId: String,
+        serviceId: String,
+        profileId: String,
+        @RequestBody topics: List<TopicWithDirection>
 
     ) {
-    topics.forEach {
-        fillDictController.dictArrowInsert(it.directionEnum, graphId, serviceId, profileId, it.topicName, it.propertyKey)
+        topics.forEach {
+            fillDictController.dictArrowInsert(
+                it.directionEnum,
+                graphId,
+                serviceId,
+                profileId,
+                it.topicName,
+                it.propertyKey
+            )
+        }
+
     }
 
-}
-
-    @Operation(summary = "Создание настроек сервиса, вытаскиваются из текста", tags = ["Заполнение таблиц. Свойства сервиса"])
+    @Operation(
+        summary = "Создание настроек сервиса, вытаскиваются из текста",
+        tags = ["Заполнение таблиц. Свойства сервиса"]
+    )
     @PutMapping("/flinkPropertyInsertByText", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun flinkPropertyInsertByText(
         serviceId: String,
