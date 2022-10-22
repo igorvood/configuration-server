@@ -85,13 +85,28 @@ class FillDictRestImpl(
     @Operation(summary = "Создание связи топика и сервиса", tags = ["Заполнение таблиц. Связи"])
     @PutMapping("/arrowInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun dictArrowInsert(
-        directionEnum: DirectionEnum,
         graphId: String,
         serviceId: String,
         profileId: String,
+        directionEnum: DirectionEnum,
         topicName: String,
         propertyKey: String
     ) = fillDictController.dictArrowInsert(directionEnum, graphId, serviceId, profileId, topicName, propertyKey)
+
+    @Operation(summary = "Создание связи топика и сервиса", tags = ["Заполнение таблиц. Связи"])
+    @PutMapping("/dictArrowInsertList", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun dictArrowInsertList(
+    graphId: String,
+    serviceId: String,
+    profileId: String,
+    @RequestBody  topics: List<TopicWithDirection>
+
+    ) {
+    topics.forEach {
+        fillDictController.dictArrowInsert(it.directionEnum, graphId, serviceId, profileId, it.topicName, it.propertyKey)
+    }
+
+}
 
     @Operation(summary = "Создание настроек сервиса, вытаскиваются из текста", tags = ["Заполнение таблиц. Свойства сервиса"])
     @PutMapping("/flinkPropertyInsertByText", produces = [MediaType.APPLICATION_JSON_VALUE])
