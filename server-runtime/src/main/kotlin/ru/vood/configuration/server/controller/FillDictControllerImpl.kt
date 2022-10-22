@@ -3,6 +3,7 @@ package ru.vood.configuration.server.controller
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
+import ru.vood.configuration.server.check.CheckRunner
 import ru.vood.configuration.server.check.CheckService
 import ru.vood.configuration.server.controller.intf.FillDictController
 import ru.vood.configuration.server.repo.dto.*
@@ -12,13 +13,13 @@ import ru.vood.configuration.server.repo.intf.FillDictRepository
 @Transactional(propagation = Propagation.REQUIRES_NEW)
 class FillDictControllerImpl(
     val fillDictRepository: FillDictRepository,
-    val checkService: CheckService
+    val checkService: CheckRunner
 ) : FillDictController {
     override fun dictServiceInsert(graphId: String, serviceId: String, profileId: String, mainClass: String) {
         val graphFlinkServiceProfile =
             GraphFlinkServiceProfile(graphId, FlinkServiceProfile(FlinkService(serviceId, mainClass), profileId))
         fillDictRepository.dictServiceInsert(graphFlinkServiceProfile)
-        checkService.check()
+        checkService.checkAll()
     }
 
 
@@ -26,7 +27,7 @@ class FillDictControllerImpl(
         topics.forEach {
             fillDictRepository.dictTopicInsert(it.graphId, it.topicName)
         }
-        checkService.check()
+        checkService.checkAll()
     }
 
     override fun dictArrowInsert(
@@ -38,7 +39,7 @@ class FillDictControllerImpl(
         propertyKey: String
     ): Unit {
         fillDictRepository.dictArrowInsert(directionEnum, graphId, serviceId, profileId, topicName, propertyKey)
-        checkService.check()
+        checkService.checkAll()
     }
 
 
@@ -86,7 +87,7 @@ class FillDictControllerImpl(
         propsAndVal.forEach { keyVal ->
             fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, keyVal)
         }
-        checkService.check()
+        checkService.checkAll()
     }
 
 }

@@ -11,6 +11,13 @@ class CheckRunner(
 
     override fun run(vararg args: String?) {
 
+        checkAll()
+
+
+    }
+
+    fun checkAll(){
+
         checks.forEach { ch ->
 
             ch.check()
