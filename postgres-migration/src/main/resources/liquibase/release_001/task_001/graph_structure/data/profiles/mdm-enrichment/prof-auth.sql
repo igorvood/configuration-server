@@ -1,4 +1,5 @@
-create or replace function enrich()    returns  varchar
+create or replace function enrich()
+    returns  varchar
     language plpgsql
 as $$
     declare
