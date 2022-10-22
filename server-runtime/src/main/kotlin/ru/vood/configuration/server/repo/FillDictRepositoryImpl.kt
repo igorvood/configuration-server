@@ -4,6 +4,7 @@ import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.jdbc.core.PreparedStatementCallback
 import org.springframework.jdbc.core.PreparedStatementCreator
 import org.springframework.stereotype.Repository
+import ru.vood.configuration.server.repo.dto.Direction
 import ru.vood.configuration.server.repo.dto.GraphFlinkServiceProfile
 import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.intf.FillDictRepository

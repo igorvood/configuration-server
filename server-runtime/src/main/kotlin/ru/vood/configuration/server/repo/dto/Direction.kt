@@ -1,4 +1,4 @@
-package ru.vood.configuration.server.repo
+package ru.vood.configuration.server.repo.dto
 
 enum class Direction(
     val nodeTypeBegin: String,

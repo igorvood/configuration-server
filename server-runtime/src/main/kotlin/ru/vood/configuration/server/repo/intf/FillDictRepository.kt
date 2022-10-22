@@ -1,6 +1,6 @@
 package ru.vood.configuration.server.repo.intf
 
-import ru.vood.configuration.server.repo.Direction
+import ru.vood.configuration.server.repo.dto.Direction
 import ru.vood.configuration.server.repo.dto.GraphFlinkServiceProfile
 import ru.vood.configuration.server.repo.dto.PropertyPut
 

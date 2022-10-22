@@ -1,7 +1,7 @@
 package ru.vood.configuration.server.rest.intf
 
 import org.springframework.web.bind.annotation.RequestBody
-import ru.vood.configuration.server.repo.Direction
+import ru.vood.configuration.server.repo.dto.Direction
 import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.dto.TopicPut
 

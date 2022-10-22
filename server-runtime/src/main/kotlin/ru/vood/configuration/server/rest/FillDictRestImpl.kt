@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import ru.vood.configuration.server.controller.intf.FillDictController
-import ru.vood.configuration.server.repo.Direction
+import ru.vood.configuration.server.repo.dto.Direction
 import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.dto.TopicPut
 import ru.vood.configuration.server.rest.intf.FillDictRest
