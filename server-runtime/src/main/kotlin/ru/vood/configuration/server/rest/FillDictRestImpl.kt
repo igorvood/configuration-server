@@ -48,4 +48,11 @@ class FillDictRestImpl(
         propertyKey: String
     ) = fillDictController.dictArrowInsert(direction, graphId, serviceId, profileId, topicName, propertyKey)
 
+    @GetMapping("/flinkPropertyInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun dictFlinkPropertyInsert(
+        serviceId: String,
+        profileId: String,
+        propString: String
+    ) = fillDictController.dictFlinkPropertyInsert(serviceId, profileId, propString)
+
 }
