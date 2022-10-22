@@ -14,9 +14,9 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0110.dict_service_ins.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
-    <changeSet id="liquibase/release_001/task_001/graph_structure/view/0200.topic_name_by_stand.sql" author="vood" runAlways="true">
+    <changeSet id="liquibase/release_001/task_001/graph_structure/view/0200.rep_topic_name_by_stand.sql" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0200.topic_name_by_stand.sql" endDelimiter="${sqlBatchDelimiter}"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/view/0200.rep_topic_name_by_stand.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
     <changeSet id="liquibase/release_001/task_001/graph_structure/view/0204.dict_service_profile.sql" author="vood" runAlways="true">

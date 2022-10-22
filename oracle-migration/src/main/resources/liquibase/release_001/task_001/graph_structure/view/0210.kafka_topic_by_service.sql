@@ -32,7 +32,7 @@ select
     nvl(tn.PRODUCER_PROP_GRP_REF, tn1.CONSUMER_PROP_GRP_REF) grp_prop,
     PROPERTY_KEY
 from all_topic al
-  join TOPIC_NAME_BY_STAND tns on tns.TOPIC_ID=al.topic
+  join rep_TOPIC_NAME_BY_STAND tns on tns.TOPIC_ID=al.topic
   left join DICT_TOPIC_NODE tn on (tn.ID, tn.PRD_TYPE) = ((al.topic, al.derrection))
   left join DICT_TOPIC_NODE tn1 on (tn1.ID, tn1.CNS_TYPE) = ((al.topic, al.derrection))
 -- where SERVICE_ID = 'mdm-enrichment' and PROFILE_ID = 'way4'

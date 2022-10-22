@@ -14,7 +14,7 @@ from DICT_ARROW da
     left join DICT_SERVICE_NODE serv_end on DAGN_end.NODE_TYPE = serv_end.NODE_TYPE and DAGN_end.NODE_ID = serv_end.ID
     left join DICT_TOPIC_NODE DTN_beg on DAGN_beg.NODE_TYPE = DTN_beg.NODE_TYPE and DAGN_beg.NODE_ID = DTN_beg.ID
     left join DICT_TOPIC_NODE DTN_end on DAGN_end.NODE_TYPE = DTN_end.NODE_TYPE and DAGN_end.NODE_ID = DTN_end.ID
-    join TOPIC_NAME_BY_STAND TNBS on TNBS.TOPIC_ID = nvl(DTN_beg.ID, DTN_end.ID)
+    join rep_TOPIC_NAME_BY_STAND TNBS on TNBS.TOPIC_ID = nvl(DTN_beg.ID, DTN_end.ID)
 /
 comment on table service_topic_name_by_stand is 'Имена топиков в разрезе стендов и сервисов.'
 /
