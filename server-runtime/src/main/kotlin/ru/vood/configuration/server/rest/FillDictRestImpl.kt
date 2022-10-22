@@ -24,7 +24,10 @@ class FillDictRestImpl(
         fillDictController.dictServiceInsert(graphId, serviceId, profileId, mainClass)
     }
 
-    @Operation(summary = "Создание сервиса с профилем, альтернативный способ, Посмотрим что больше понравится Девопс", tags = ["Заполнение таблиц"])
+    @Operation(
+        summary = "Создание сервиса с профилем, альтернативный способ, Посмотрим что больше понравится Девопс",
+        tags = ["Заполнение таблиц"]
+    )
     @PutMapping(
         "/serviceInsertPath/{graphId}/{serviceId}/{profileId}/{mainClass}",
         produces = [MediaType.APPLICATION_JSON_VALUE]
@@ -48,7 +51,7 @@ class FillDictRestImpl(
     @Operation(summary = "Создание топиков", tags = ["Заполнение таблиц"])
     @PutMapping("/topicInsertList", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun dictTopicListInsert(
-    @RequestBody topics: List<TopicPut>
+        @RequestBody topics: List<TopicPut>
     ) {
         fillDictController.dictTopicInsertList(topics)
     }

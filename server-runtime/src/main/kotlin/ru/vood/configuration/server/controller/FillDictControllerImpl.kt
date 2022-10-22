@@ -5,7 +5,6 @@ import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 import ru.vood.configuration.server.check.CheckService
 import ru.vood.configuration.server.controller.intf.FillDictController
-import ru.vood.configuration.server.repo.dto.DirectionEnum
 import ru.vood.configuration.server.repo.dto.*
 import ru.vood.configuration.server.repo.intf.FillDictRepository
 

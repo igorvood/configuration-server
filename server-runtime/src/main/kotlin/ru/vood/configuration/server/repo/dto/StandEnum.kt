@@ -1,8 +1,6 @@
 package ru.vood.configuration.server.repo.dto
 
-enum class StandEnum(
-) {
-
+enum class StandEnum {
     NOTEBOOK,
     NOTEBOOK_DSO,
     DSO,
@@ -10,7 +8,5 @@ enum class StandEnum(
     NT,
     REAL,
     P0,
-
-
 
 }
