@@ -17,4 +17,6 @@ interface FillDictRepository {
         topicName: String,
         propertyKey: String
     )
+
+    fun dictFlinkPropertyInsert(serviceId: String, profileId: String, propId: String, propValue: String)
 }

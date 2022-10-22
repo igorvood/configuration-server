@@ -68,7 +68,7 @@ class FillDictRepositoryImpl(
             val cs: CallableStatement = con.prepareCall(
                 """
                 insert into DICT_ARROW(GRAPH_ID, BEG_NODE_TYPE, BEG_NODE_ID, END_NODE_TYPE, END_NODE_ID, PROPERTY_KEY)
-                values (GRAPH_ID, BEG_NODE_TYPE, BEG_NODE_ID, END_NODE_TYPE, END_NODE_ID, PROPERTY_KEY)
+                values (?, ?, ?, ?, ?, ?)
                 """
             )
             cs.setString(1, graphId)
@@ -83,6 +83,33 @@ class FillDictRepositoryImpl(
             1
         })
     }
+
+    override fun dictFlinkPropertyInsert(
+        serviceId: String,
+        profileId: String,
+        propId: String,
+        propValue: String,
+    ){
+        jdbcTemplate.execute(PreparedStatementCreator { con ->
+            val cs: CallableStatement = con.prepareCall(
+                """
+                insert into DICT_FLINK_PROP_VALUE(SERVICE_ID, PROFILE_ID, PROP_ID, PROP_VALUE, IS_FUNCTION)
+                values (?, ?, ?, ?, ?)
+                """
+            )
+            cs.setString(1, serviceId)
+            cs.setString(2, profileId)
+            cs.setString(3, propId)
+            cs.setString(4, propValue)
+            cs.setInt(5, 0)
+            cs
+        }, PreparedStatementCallback { ps ->
+            ps.execute()
+            1
+        })
+
+    }
+
 
 
 }

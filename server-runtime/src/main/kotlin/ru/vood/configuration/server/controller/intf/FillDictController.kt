@@ -16,4 +16,6 @@ interface FillDictController {
         topicName: String,
         propertyKey: String
     )
+
+    fun dictFlinkPropertyInsert(serviceId: String, profileId: String, propString: String)
 }
