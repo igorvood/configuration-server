@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
 import ru.vood.configuration.server.controller.intf.FillDictController
+import ru.vood.configuration.server.repo.Direction
 import ru.vood.configuration.server.rest.intf.FillDictRest
 
 
@@ -36,5 +37,15 @@ class FillDictRestImpl(
     override fun dictTopicInsert(graphId: String, topicName: String){
         fillDictController.dictTopicInsert( graphId, topicName)
     }
+
+    @GetMapping("/arrowInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun dictArrowInsert(
+        direction: Direction,
+        graphId: String,
+        serviceId: String,
+        profileId: String,
+        topicName: String,
+        propertyKey: String
+    ) = fillDictController.dictArrowInsert(direction, graphId, serviceId, profileId, topicName, propertyKey)
 
 }

@@ -15,9 +15,11 @@ class FillDictRepositoryImpl(
 
     override fun dictServiceInsert(graphFlinkServiceProfile: GraphFlinkServiceProfile) {
         jdbcTemplate.execute(PreparedStatementCreator { con ->
-            val cs: CallableStatement = con.prepareCall("""
+            val cs: CallableStatement = con.prepareCall(
+                """
                 insert into DICT_SERVICE_INS(GRAPH_ID, SERVICE_ID, PROFILE_ID, MAIN_CLASS)
-                values (?, ?, ?, ?)""")
+                values (?, ?, ?, ?)"""
+            )
             cs.setString(1, graphFlinkServiceProfile.graphId)
             cs.setString(2, graphFlinkServiceProfile.flinkServiceProfile.serviceId.id)
             cs.setString(3, graphFlinkServiceProfile.flinkServiceProfile.profileId)
@@ -31,9 +33,11 @@ class FillDictRepositoryImpl(
 
     override fun dictTopicInsert(graphId: String, topicName: String) {
         jdbcTemplate.execute(PreparedStatementCreator { con ->
-            val cs: CallableStatement = con.prepareCall("""
+            val cs: CallableStatement = con.prepareCall(
+                """
                 insert into dict_topic_ins(GRAPH_ID, NODE_ID)
-                values (?, ?)""")
+                values (?, ?)"""
+            )
             cs.setString(1, graphId)
             cs.setString(2, topicName)
             cs
@@ -43,6 +47,42 @@ class FillDictRepositoryImpl(
         })
     }
 
+    override fun dictArrowInsert(
+        direction: Direction,
+        graphId: String,
+        serviceId: String,
+        profileId: String,
+        topicName: String,
+        propertyKey: String
+    ) {
+        val beginNode = if (direction == Direction.IN) {
+            topicName
+        } else "$serviceId~$profileId"
+
+        val endNode = if (direction == Direction.IN) {
+            "$serviceId~$profileId"
+        } else topicName
+
+
+        jdbcTemplate.execute(PreparedStatementCreator { con ->
+            val cs: CallableStatement = con.prepareCall(
+                """
+                insert into DICT_ARROW(GRAPH_ID, BEG_NODE_TYPE, BEG_NODE_ID, END_NODE_TYPE, END_NODE_ID, PROPERTY_KEY)
+                values (GRAPH_ID, BEG_NODE_TYPE, BEG_NODE_ID, END_NODE_TYPE, END_NODE_ID, PROPERTY_KEY)
+                """
+            )
+            cs.setString(1, graphId)
+            cs.setString(2, direction.nodeTypeBegin)
+            cs.setString(3, beginNode)
+            cs.setString(4, direction.nodeTypeEnd)
+            cs.setString(5, endNode)
+            cs.setString(6, propertyKey)
+            cs
+        }, PreparedStatementCallback { ps ->
+            ps.execute()
+            1
+        })
+    }
 
 
 }
