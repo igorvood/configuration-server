@@ -3,9 +3,8 @@ package ru.vood.configuration.server.controller
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
 import io.mockk.verifyAll
-import org.junit.jupiter.api.Test
-
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -46,20 +45,33 @@ internal class FillDictControllerImplTest {
 
     @Test
     fun getFillDictRepository() {
-        every { fillDictRepository.dictFlinkPropertyInsert(any(), any(),any()) } returns Unit
+        every { fillDictRepository.dictFlinkPropertyInsert(any(), any(), any()) } returns Unit
         every { checkService.check() } returns Unit
 
         val serviceId = "serviceId"
         val profileId = "ProfileId"
         fillDictController.flinkPropertyInsertByText(
-            serviceId, profileId, """`"--mdm-enrichment.enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a05.toFieldName account_num "`
+            serviceId,
+            profileId,
+            """`"--mdm-enrichment.enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a05.toFieldName account_num "`
 `"--mdm-enrichment.enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a06.fromFieldName is_virtual_card_flg "`
 """
         )
 
         verifyAll {
-            fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, PropertyPut("enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a05.toFieldName", "account_num"))
-            fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, PropertyPut("enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a06.fromFieldName", "is_virtual_card_flg" ))
+            fillDictRepository.dictFlinkPropertyInsert(
+                serviceId,
+                profileId,
+                PropertyPut("enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a05.toFieldName", "account_num")
+            )
+            fillDictRepository.dictFlinkPropertyInsert(
+                serviceId,
+                profileId,
+                PropertyPut(
+                    "enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a06.fromFieldName",
+                    "is_virtual_card_flg"
+                )
+            )
         }
 
     }

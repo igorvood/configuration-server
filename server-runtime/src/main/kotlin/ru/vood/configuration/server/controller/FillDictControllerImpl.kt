@@ -87,7 +87,7 @@ class FillDictControllerImpl(
         propsAndVal: List<PropertyPut>
     ) {
         propsAndVal.forEach { keyVal ->
-            fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId,keyVal)
+            fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, keyVal)
         }
         checkService.check()
     }

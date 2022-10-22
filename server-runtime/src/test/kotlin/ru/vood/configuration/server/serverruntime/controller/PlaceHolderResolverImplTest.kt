@@ -44,7 +44,8 @@ internal class PlaceHolderResolverImplTest {
     }
 
     class HolderResolverTest : HolderResolver {
-        override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String = "PlaceHolder_2_value"
+        override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String =
+            "PlaceHolder_2_value"
 
         override val placeHolderName: Set<String>
             get() = setOf("PlaceHolder_2")

@@ -89,7 +89,7 @@ class FillDictRepositoryImpl(
         serviceId: String,
         profileId: String,
         propertyPut: PropertyPut,
-    ){
+    ) {
         jdbcTemplate.execute(PreparedStatementCreator { con ->
             val cs: CallableStatement = con.prepareCall(
                 """
@@ -109,7 +109,6 @@ class FillDictRepositoryImpl(
         })
 
     }
-
 
 
 }

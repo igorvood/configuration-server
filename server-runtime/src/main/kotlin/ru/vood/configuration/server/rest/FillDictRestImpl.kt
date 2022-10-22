@@ -36,8 +36,8 @@ class FillDictRestImpl(
 
 
     @PutMapping("/topicInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
-    override fun dictTopicInsert(graphId: String, topicName: String){
-        fillDictController.dictTopicInsert( graphId, topicName)
+    override fun dictTopicInsert(graphId: String, topicName: String) {
+        fillDictController.dictTopicInsert(graphId, topicName)
     }
 
     @PutMapping("/arrowInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
@@ -63,13 +63,13 @@ class FillDictRestImpl(
         profileId: String,
         propId: String,
         propValue: String,
-    ) = fillDictController.flinkPropertyInsertByList(serviceId, profileId, listOf(PropertyPut(propId , propValue)))
+    ) = fillDictController.flinkPropertyInsertByList(serviceId, profileId, listOf(PropertyPut(propId, propValue)))
 
     @PutMapping("/flinkPropertyInsertList", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun flinkPropertyInsertList(
         serviceId: String,
         profileId: String,
-        @RequestBody    props: List<PropertyPut>,
+        @RequestBody props: List<PropertyPut>,
 
-    ) = fillDictController.flinkPropertyInsertByList(serviceId, profileId, props)
+        ) = fillDictController.flinkPropertyInsertByList(serviceId, profileId, props)
 }
