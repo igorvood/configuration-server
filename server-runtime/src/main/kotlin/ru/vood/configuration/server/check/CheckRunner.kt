@@ -16,7 +16,7 @@ class CheckRunner(
 
     }
 
-    fun checkAll(){
+    fun checkAll() {
 
         checks.forEach { ch ->
 
