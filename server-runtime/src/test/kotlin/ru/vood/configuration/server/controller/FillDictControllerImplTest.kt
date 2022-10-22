@@ -1,31 +1,29 @@
 package ru.vood.configuration.server.controller
 
-import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
+import io.mockk.mockk
 import io.mockk.verifyAll
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.junit.jupiter.SpringExtension
 import ru.vood.configuration.server.check.CheckService
 import ru.vood.configuration.server.controller.intf.FillDictController
 import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.intf.FillDictRepository
 
-@ExtendWith(SpringExtension::class)
-@SpringBootTest
 internal class FillDictControllerImplTest {
 
-    @MockkBean(relaxed = true)
-    private lateinit var fillDictRepository: FillDictRepository
 
-    @MockkBean(relaxed = true)
-    private lateinit var checkService: CheckService
+    private var fillDictRepository: FillDictRepository = mockk(relaxed = true)
 
-    @Autowired
+
+    private var checkService: CheckService = mockk(relaxed = true)
+
     private lateinit var fillDictController: FillDictController
+
+    @BeforeEach
+    fun init() {
+        fillDictController = FillDictControllerImpl(fillDictRepository, checkService)
+    }
 
     @Test
     fun dictServiceInsert() {
