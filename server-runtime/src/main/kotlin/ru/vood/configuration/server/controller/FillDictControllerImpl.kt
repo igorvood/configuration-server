@@ -44,7 +44,7 @@ class FillDictControllerImpl(
     }
 
 
-    override fun dictFlinkPropertyInsert(
+    override fun flinkPropertyInsertByText(
         serviceId: String,
         profileId: String,
         propString: String
@@ -58,7 +58,7 @@ class FillDictControllerImpl(
             .split("\n")
 
             .filter { it != "" }
-        val map = split1
+        val map: List<Pair<String, String>> = split1
             .map { propKeyVal ->
                 val split = propKeyVal.trim().split(" ")
                 assert(split.size == 2) { "not compatible string '$propKeyVal'" }
@@ -77,10 +77,17 @@ class FillDictControllerImpl(
 
         assert(dublicate.isEmpty()) { "dublicate keys $dublicate" }
 
-        map
-            .forEach { keyVal ->
-                fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, keyVal.first, keyVal.second)
-            }
+        flinkPropertyInsertByList(serviceId, profileId, map)
+    }
+
+    override fun flinkPropertyInsertByList(
+        serviceId: String,
+        profileId: String,
+        propsAndVal: List<Pair<String, String>>
+    ) {
+        propsAndVal.forEach { keyVal ->
+            fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, keyVal.first, keyVal.second)
+        }
         checkService.check()
     }
 

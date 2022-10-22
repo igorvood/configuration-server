@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import ru.vood.configuration.server.check.CheckService
@@ -51,7 +50,7 @@ internal class FillDictControllerImplTest {
 
         val serviceId = "serviceId"
         val profileId = "ProfileId"
-        fillDictController.dictFlinkPropertyInsert(
+        fillDictController.flinkPropertyInsertByText(
             serviceId, profileId, """`"--mdm-enrichment.enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a05.toFieldName account_num "`
 `"--mdm-enrichment.enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a06.fromFieldName is_virtual_card_flg "`
 """

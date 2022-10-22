@@ -1,7 +1,6 @@
 package ru.vood.configuration.server.rest
 
 import org.springframework.http.MediaType
-import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -50,11 +49,26 @@ class FillDictRestImpl(
         propertyKey: String
     ) = fillDictController.dictArrowInsert(direction, graphId, serviceId, profileId, topicName, propertyKey)
 
-    @PutMapping("/flinkPropertyInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
-    override fun dictFlinkPropertyInsert(
+    @PutMapping("/flinkPropertyInsertByText", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun flinkPropertyInsertByText(
         serviceId: String,
         profileId: String,
         @RequestBody propString: String
-    ) = fillDictController.dictFlinkPropertyInsert(serviceId, profileId, propString)
+    ) = fillDictController.flinkPropertyInsertByText(serviceId, profileId, propString)
 
+    @PutMapping("/flinkPropertyInsertSingleProperty", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun flinkPropertyInsertSingleProperty(
+        serviceId: String,
+        profileId: String,
+        propId: String,
+        propValue: String,
+    ) = fillDictController.flinkPropertyInsertByList(serviceId, profileId, listOf(propId to propValue))
+
+    @PutMapping("/flinkPropertyInsertList", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun flinkPropertyInsertList(
+        serviceId: String,
+        profileId: String,
+        @RequestBody    props: List<Pair<String, String>>,
+
+    ) = fillDictController.flinkPropertyInsertByList(serviceId, profileId, props)
 }

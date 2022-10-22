@@ -17,5 +17,6 @@ interface FillDictController {
         propertyKey: String
     )
 
-    fun dictFlinkPropertyInsert(serviceId: String, profileId: String, propString: String)
+    fun flinkPropertyInsertByText(serviceId: String, profileId: String, propString: String)
+    fun flinkPropertyInsertByList(serviceId: String, profileId: String, propsAndVal: List<Pair<String, String>>)
 }
