@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import ru.vood.configuration.server.controller.intf.FillDictController
-import ru.vood.configuration.server.repo.dto.Direction
+import ru.vood.configuration.server.repo.dto.DirectionEnum
 import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.dto.TopicPut
 import ru.vood.configuration.server.rest.intf.FillDictRest
@@ -57,13 +57,13 @@ class FillDictRestImpl(
     @Operation(summary = "Создание связи топика и сервиса", tags = ["Заполнение таблиц"])
     @PutMapping("/arrowInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun dictArrowInsert(
-        direction: Direction,
+        directionEnum: DirectionEnum,
         graphId: String,
         serviceId: String,
         profileId: String,
         topicName: String,
         propertyKey: String
-    ) = fillDictController.dictArrowInsert(direction, graphId, serviceId, profileId, topicName, propertyKey)
+    ) = fillDictController.dictArrowInsert(directionEnum, graphId, serviceId, profileId, topicName, propertyKey)
 
     @Operation(summary = "Создание настроек сервиса, вытаскиваются из текста", tags = ["Заполнение таблиц"])
     @PutMapping("/flinkPropertyInsertByText", produces = [MediaType.APPLICATION_JSON_VALUE])

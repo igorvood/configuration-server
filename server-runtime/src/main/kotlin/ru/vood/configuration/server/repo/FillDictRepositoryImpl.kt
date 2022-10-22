@@ -4,7 +4,7 @@ import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.jdbc.core.PreparedStatementCallback
 import org.springframework.jdbc.core.PreparedStatementCreator
 import org.springframework.stereotype.Repository
-import ru.vood.configuration.server.repo.dto.Direction
+import ru.vood.configuration.server.repo.dto.DirectionEnum
 import ru.vood.configuration.server.repo.dto.GraphFlinkServiceProfile
 import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.intf.FillDictRepository
@@ -50,18 +50,18 @@ class FillDictRepositoryImpl(
     }
 
     override fun dictArrowInsert(
-        direction: Direction,
+        directionEnum: DirectionEnum,
         graphId: String,
         serviceId: String,
         profileId: String,
         topicName: String,
         propertyKey: String
     ) {
-        val beginNode = if (direction == Direction.IN) {
+        val beginNode = if (directionEnum == DirectionEnum.IN) {
             topicName
         } else "$serviceId~$profileId"
 
-        val endNode = if (direction == Direction.IN) {
+        val endNode = if (directionEnum == DirectionEnum.IN) {
             "$serviceId~$profileId"
         } else topicName
 
@@ -74,9 +74,9 @@ class FillDictRepositoryImpl(
                 """
             )
             cs.setString(1, graphId)
-            cs.setString(2, direction.nodeTypeBegin)
+            cs.setString(2, directionEnum.nodeTypeBegin)
             cs.setString(3, beginNode)
-            cs.setString(4, direction.nodeTypeEnd)
+            cs.setString(4, directionEnum.nodeTypeEnd)
             cs.setString(5, endNode)
             cs.setString(6, propertyKey)
             cs

@@ -1,6 +1,6 @@
 package ru.vood.configuration.server.repo.intf
 
-import ru.vood.configuration.server.repo.dto.Direction
+import ru.vood.configuration.server.repo.dto.DirectionEnum
 import ru.vood.configuration.server.repo.dto.GraphFlinkServiceProfile
 import ru.vood.configuration.server.repo.dto.PropertyPut
 
@@ -11,7 +11,7 @@ interface FillDictRepository {
 
     fun dictTopicInsert(graphId: String, topicName: String)
     fun dictArrowInsert(
-        direction: Direction,
+        directionEnum: DirectionEnum,
         graphId: String,
         serviceId: String,
         profileId: String,

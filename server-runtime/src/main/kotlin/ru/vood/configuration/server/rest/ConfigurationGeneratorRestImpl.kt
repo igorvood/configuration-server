@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import ru.vood.configuration.server.controller.intf.ConfigurationGeneratorControllerIntf
 import ru.vood.configuration.server.repo.dto.EviromentService
+import ru.vood.configuration.server.repo.dto.StandEnum
 import ru.vood.configuration.server.rest.intf.ConfigurationGeneratorRestIntf
 
 @RestController
@@ -22,7 +23,7 @@ class ConfigurationGeneratorRestImpl(
         @RequestParam
         profileId: String,
         @RequestParam
-        stand: String
+        stand: StandEnum
     ): String {
         return configurationGeneratorControllerIntf.generateEnvBody(serviceId, profileId, stand)
     }

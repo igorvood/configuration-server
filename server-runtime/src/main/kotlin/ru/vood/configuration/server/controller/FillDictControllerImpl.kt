@@ -5,7 +5,7 @@ import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 import ru.vood.configuration.server.check.CheckService
 import ru.vood.configuration.server.controller.intf.FillDictController
-import ru.vood.configuration.server.repo.dto.Direction
+import ru.vood.configuration.server.repo.dto.DirectionEnum
 import ru.vood.configuration.server.repo.dto.*
 import ru.vood.configuration.server.repo.intf.FillDictRepository
 
@@ -31,14 +31,14 @@ class FillDictControllerImpl(
     }
 
     override fun dictArrowInsert(
-        direction: Direction,
+        directionEnum: DirectionEnum,
         graphId: String,
         serviceId: String,
         profileId: String,
         topicName: String,
         propertyKey: String
     ): Unit {
-        fillDictRepository.dictArrowInsert(direction, graphId, serviceId, profileId, topicName, propertyKey)
+        fillDictRepository.dictArrowInsert(directionEnum, graphId, serviceId, profileId, topicName, propertyKey)
         checkService.check()
     }
 

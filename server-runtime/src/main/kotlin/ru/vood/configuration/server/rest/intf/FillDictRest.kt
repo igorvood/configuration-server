@@ -1,7 +1,7 @@
 package ru.vood.configuration.server.rest.intf
 
 import org.springframework.web.bind.annotation.RequestBody
-import ru.vood.configuration.server.repo.dto.Direction
+import ru.vood.configuration.server.repo.dto.DirectionEnum
 import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.dto.TopicPut
 
@@ -13,7 +13,7 @@ interface FillDictRest {
 
     fun dictTopicInsert(graphId: String, topicName: String)
     fun dictArrowInsert(
-        direction: Direction,
+        directionEnum: DirectionEnum,
         graphId: String,
         serviceId: String,
         profileId: String,
