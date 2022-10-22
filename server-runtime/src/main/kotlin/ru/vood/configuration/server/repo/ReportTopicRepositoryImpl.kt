@@ -13,21 +13,22 @@ class ReportTopicRepositoryImpl(
     override fun topicsByStand(standEnum: StandEnum): List<String> {
         return jdbcTemplate.query("""select TOPIC_NAME 
                                     from REP_TOPIC_NAME_BY_STAND
-                                    where USED =1 and STAND = :1"""
-        ) { rs, w -> rs.getString(1) }
+                                    where USED =1 and STAND = :1""",
+                { rs, _ -> rs.getString(1) }, standEnum.name
+        )
     }
 
     override fun usedTopics(): List<String> {
         return jdbcTemplate.query("""select TOPIC_ID 
                                     from REP_TOPIC_USE
                                     where USED = 1"""
-        ) { rs, w -> rs.getString(1) }
+        ) { rs, _ -> rs.getString(1) }
     }
 
     override fun unUsedTopics(): List<String> {
         return jdbcTemplate.query("""select TOPIC_ID 
                                     from REP_TOPIC_USE
                                     where USED = 0"""
-        ) { rs, w -> rs.getString(1) }
+        ) { rs, _ -> rs.getString(1) }
     }
 }
