@@ -9,6 +9,7 @@ import ru.vood.configuration.server.repo.Direction
 import ru.vood.configuration.server.repo.dto.FlinkService
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 import ru.vood.configuration.server.repo.dto.GraphFlinkServiceProfile
+import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.intf.FillDictRepository
 
 @Service
@@ -58,17 +59,17 @@ class FillDictControllerImpl(
             .split("\n")
 
             .filter { it != "" }
-        val map: List<Pair<String, String>> = split1
+        val map = split1
             .map { propKeyVal ->
                 val split = propKeyVal.trim().split(" ")
                 assert(split.size == 2) { "not compatible string '$propKeyVal'" }
                 val key = split[0].substring(split[0].indexOf(".") + 1)
                 val value = split[1]
                 key to value
-            }
+            }.map { PropertyPut(it.first, it.second) }
 
         val map1 = map
-            .map { it.first }
+            .map { it.name }
             .groupBy { it }
             .filter { it.value.size != 1 }
             .map { it.key }
@@ -83,10 +84,10 @@ class FillDictControllerImpl(
     override fun flinkPropertyInsertByList(
         serviceId: String,
         profileId: String,
-        propsAndVal: List<Pair<String, String>>
+        propsAndVal: List<PropertyPut>
     ) {
         propsAndVal.forEach { keyVal ->
-            fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, keyVal.first, keyVal.second)
+            fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId,keyVal)
         }
         checkService.check()
     }

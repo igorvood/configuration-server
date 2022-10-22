@@ -2,6 +2,7 @@ package ru.vood.configuration.server.repo.intf
 
 import ru.vood.configuration.server.repo.Direction
 import ru.vood.configuration.server.repo.dto.GraphFlinkServiceProfile
+import ru.vood.configuration.server.repo.dto.PropertyPut
 
 interface FillDictRepository {
 
@@ -18,5 +19,5 @@ interface FillDictRepository {
         propertyKey: String
     )
 
-    fun dictFlinkPropertyInsert(serviceId: String, profileId: String, propId: String, propValue: String)
+    fun dictFlinkPropertyInsert(serviceId: String, profileId: String, propertyPut: PropertyPut)
 }

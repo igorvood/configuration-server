@@ -1,6 +1,7 @@
 package ru.vood.configuration.server.controller.intf
 
 import ru.vood.configuration.server.repo.Direction
+import ru.vood.configuration.server.repo.dto.PropertyPut
 
 interface FillDictController {
 
@@ -18,5 +19,5 @@ interface FillDictController {
     )
 
     fun flinkPropertyInsertByText(serviceId: String, profileId: String, propString: String)
-    fun flinkPropertyInsertByList(serviceId: String, profileId: String, propsAndVal: List<Pair<String, String>>)
+    fun flinkPropertyInsertByList(serviceId: String, profileId: String, propsAndVal: List<PropertyPut>)
 }

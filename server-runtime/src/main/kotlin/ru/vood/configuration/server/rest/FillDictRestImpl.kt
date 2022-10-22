@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import ru.vood.configuration.server.controller.intf.FillDictController
 import ru.vood.configuration.server.repo.Direction
+import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.rest.intf.FillDictRest
 
 
@@ -62,13 +63,13 @@ class FillDictRestImpl(
         profileId: String,
         propId: String,
         propValue: String,
-    ) = fillDictController.flinkPropertyInsertByList(serviceId, profileId, listOf(propId to propValue))
+    ) = fillDictController.flinkPropertyInsertByList(serviceId, profileId, listOf(PropertyPut(propId , propValue)))
 
     @PutMapping("/flinkPropertyInsertList", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun flinkPropertyInsertList(
         serviceId: String,
         profileId: String,
-        @RequestBody    props: List<Pair<String, String>>,
+        @RequestBody    props: List<PropertyPut>,
 
     ) = fillDictController.flinkPropertyInsertByList(serviceId, profileId, props)
 }

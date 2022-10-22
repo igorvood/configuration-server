@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import ru.vood.configuration.server.check.CheckService
 import ru.vood.configuration.server.controller.intf.FillDictController
+import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.intf.FillDictRepository
 
 @ExtendWith(SpringExtension::class)
@@ -45,7 +46,7 @@ internal class FillDictControllerImplTest {
 
     @Test
     fun getFillDictRepository() {
-        every { fillDictRepository.dictFlinkPropertyInsert(any(),any(),any(),any() ) } returns Unit
+        every { fillDictRepository.dictFlinkPropertyInsert(any(), any(),any()) } returns Unit
         every { checkService.check() } returns Unit
 
         val serviceId = "serviceId"
@@ -57,8 +58,8 @@ internal class FillDictControllerImplTest {
         )
 
         verifyAll {
-            fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, "enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a05.toFieldName", "account_num")
-            fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, "enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a06.fromFieldName", "is_virtual_card_flg")
+            fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, PropertyPut("enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a05.toFieldName", "account_num"))
+            fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, PropertyPut("enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a06.fromFieldName", "is_virtual_card_flg" ))
         }
 
     }

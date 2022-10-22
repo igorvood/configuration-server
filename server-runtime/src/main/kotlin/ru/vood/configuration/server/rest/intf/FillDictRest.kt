@@ -1,7 +1,7 @@
 package ru.vood.configuration.server.rest.intf
 
-import org.springframework.web.bind.annotation.GetMapping
 import ru.vood.configuration.server.repo.Direction
+import ru.vood.configuration.server.repo.dto.PropertyPut
 
 interface FillDictRest {
 
@@ -21,5 +21,5 @@ interface FillDictRest {
 
     fun flinkPropertyInsertByText(serviceId: String, profileId: String, propString: String)
     fun flinkPropertyInsertSingleProperty(serviceId: String, profileId: String, propId: String, propValue: String)
-   fun flinkPropertyInsertList(serviceId: String, profileId: String, props: List<Pair<String, String>>)
+    fun flinkPropertyInsertList(serviceId: String, profileId: String, props: List<PropertyPut>)
 }

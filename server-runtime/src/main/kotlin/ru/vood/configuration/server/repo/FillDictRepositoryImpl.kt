@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.PreparedStatementCallback
 import org.springframework.jdbc.core.PreparedStatementCreator
 import org.springframework.stereotype.Repository
 import ru.vood.configuration.server.repo.dto.GraphFlinkServiceProfile
+import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.intf.FillDictRepository
 import java.sql.CallableStatement
 
@@ -87,8 +88,7 @@ class FillDictRepositoryImpl(
     override fun dictFlinkPropertyInsert(
         serviceId: String,
         profileId: String,
-        propId: String,
-        propValue: String,
+        propertyPut: PropertyPut,
     ){
         jdbcTemplate.execute(PreparedStatementCreator { con ->
             val cs: CallableStatement = con.prepareCall(
@@ -99,8 +99,8 @@ class FillDictRepositoryImpl(
             )
             cs.setString(1, serviceId)
             cs.setString(2, profileId)
-            cs.setString(3, propId)
-            cs.setString(4, propValue)
+            cs.setString(3, propertyPut.name)
+            cs.setString(4, propertyPut.value)
             cs.setInt(5, 0)
             cs
         }, PreparedStatementCallback { ps ->
