@@ -7,4 +7,6 @@ interface FillDictRest {
     fun dictServiceInsert(graphId: String, serviceId: String, profileId: String, mainClass: String)
 
     fun dictServiceInsertPath(graphId: String, serviceId: String, profileId: String, mainClass: String)
+    @GetMapping(produces = { "application/json" }, value = { "/serviceInsert" })
+    fun dictTopicInsert(graphId: String, topicName: String)
 }

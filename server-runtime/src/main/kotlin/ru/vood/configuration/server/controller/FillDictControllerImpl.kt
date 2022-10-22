@@ -16,4 +16,10 @@ class FillDictControllerImpl(
             GraphFlinkServiceProfile(graphId, FlinkServiceProfile(FlinkService(serviceId, mainClass), profileId))
         fillDictRepository.dictServiceInsert(graphFlinkServiceProfile)
     }
+
+
+
+    override fun dictTopicInsert(graphId: String, topicName: String){
+        fillDictRepository.dictTopicInsert( graphId, topicName)
+    }
 }

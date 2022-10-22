@@ -44,8 +44,5 @@ class FillDictRepositoryImpl(
     }
 
 
-//    insert into dict_topic_ins(GRAPH_ID, NODE_ID)
-//    select p_graph_id, topic_name from  p_topics;
-
 
 }

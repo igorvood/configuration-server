@@ -19,7 +19,7 @@ class FillDictRestImpl(
     }
 
     @GetMapping(
-        "/api/employees/{graphId}/{serviceId}/{profileId}/{mainClass}",
+        "/serviceInsertPath/{graphId}/{serviceId}/{profileId}/{mainClass}",
         produces = [MediaType.APPLICATION_JSON_VALUE]
     )
     override fun dictServiceInsertPath(
@@ -30,4 +30,11 @@ class FillDictRestImpl(
     ): Unit {
         dictServiceInsert(graphId, serviceId, profileId, mainClass)
     }
+
+
+    @GetMapping("/topicInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun dictTopicInsert(graphId: String, topicName: String){
+        fillDictController.dictTopicInsert( graphId, topicName)
+    }
+
 }
