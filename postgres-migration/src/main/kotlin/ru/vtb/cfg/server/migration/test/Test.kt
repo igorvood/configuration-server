@@ -9,7 +9,7 @@ class Test(
     val jdbcTemplate: JdbcTemplate
 ) : CommandLineRunner{
     override fun run(vararg args: String?) {
-        val queryForObject = jdbcTemplate.queryForObject("select 1 from dual", {q,w->q.getString(1)})
+        val queryForObject = jdbcTemplate.queryForObject("select 1 from dual") { q, _ -> q.getString(1) }
 
         println(queryForObject)
 
