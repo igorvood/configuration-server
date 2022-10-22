@@ -3,6 +3,7 @@ package ru.vood.configuration.server.controller
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
+import ru.vood.configuration.server.check.CheckService
 import ru.vood.configuration.server.controller.intf.FillDictController
 import ru.vood.configuration.server.repo.Direction
 import ru.vood.configuration.server.repo.dto.FlinkService
@@ -11,18 +12,22 @@ import ru.vood.configuration.server.repo.dto.GraphFlinkServiceProfile
 import ru.vood.configuration.server.repo.intf.FillDictRepository
 
 @Service
+@Transactional(propagation = Propagation.REQUIRES_NEW)
 class FillDictControllerImpl(
-    val fillDictRepository: FillDictRepository
+    val fillDictRepository: FillDictRepository,
+    val checkService: CheckService
 ) : FillDictController {
     override fun dictServiceInsert(graphId: String, serviceId: String, profileId: String, mainClass: String) {
         val graphFlinkServiceProfile =
             GraphFlinkServiceProfile(graphId, FlinkServiceProfile(FlinkService(serviceId, mainClass), profileId))
         fillDictRepository.dictServiceInsert(graphFlinkServiceProfile)
+        checkService.check()
     }
 
 
     override fun dictTopicInsert(graphId: String, topicName: String) {
         fillDictRepository.dictTopicInsert(graphId, topicName)
+        checkService.check()
     }
 
 
@@ -33,10 +38,12 @@ class FillDictControllerImpl(
         profileId: String,
         topicName: String,
         propertyKey: String
-    ) = fillDictRepository.dictArrowInsert(direction, graphId, serviceId, profileId, topicName, propertyKey)
+    ): Unit {
+        fillDictRepository.dictArrowInsert(direction, graphId, serviceId, profileId, topicName, propertyKey)
+        checkService.check()
+    }
 
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
     override fun dictFlinkPropertyInsert(
         serviceId: String,
         profileId: String,
@@ -50,7 +57,7 @@ class FillDictControllerImpl(
             .trim()
             .split("\n")
 
-            .filter { it!="" }
+            .filter { it != "" }
         val map = split1
             .map { propKeyVal ->
                 val split = propKeyVal.trim().split(" ")
@@ -63,17 +70,18 @@ class FillDictControllerImpl(
         val map1 = map
             .map { it.first }
             .groupBy { it }
-            .filter { it.value.size!=1 }
+            .filter { it.value.size != 1 }
             .map { it.key }
         val dublicate = map1
             .joinToString(",")
 
-        assert(dublicate.isEmpty()){"dublicate keys $dublicate"}
+        assert(dublicate.isEmpty()) { "dublicate keys $dublicate" }
 
         map
             .forEach { keyVal ->
                 fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, keyVal.first, keyVal.second)
             }
+        checkService.check()
     }
 
 }

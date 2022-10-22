@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit.jupiter.SpringExtension
+import ru.vood.configuration.server.check.CheckService
 import ru.vood.configuration.server.controller.intf.FillDictController
 import ru.vood.configuration.server.repo.intf.FillDictRepository
 
@@ -20,6 +21,9 @@ internal class FillDictControllerImplTest {
 
     @MockkBean(relaxed = true)
     private lateinit var fillDictRepository: FillDictRepository
+
+    @MockkBean(relaxed = true)
+    private lateinit var checkService: CheckService
 
     @Autowired
     private lateinit var fillDictController: FillDictController
@@ -43,6 +47,7 @@ internal class FillDictControllerImplTest {
     @Test
     fun getFillDictRepository() {
         every { fillDictRepository.dictFlinkPropertyInsert(any(),any(),any(),any() ) } returns Unit
+        every { checkService.check() } returns Unit
 
         val serviceId = "serviceId"
         val profileId = "ProfileId"
