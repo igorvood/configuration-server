@@ -2,13 +2,13 @@ package ru.vood.configuration.server.controller.intf
 
 import ru.vood.configuration.server.repo.Direction
 import ru.vood.configuration.server.repo.dto.PropertyPut
+import ru.vood.configuration.server.repo.dto.TopicPut
 
 interface FillDictController {
 
     fun dictServiceInsert(graphId: String, serviceId: String, profileId: String, mainClass: String)
+    fun dictTopicInsertList(topics: List<TopicPut>)
 
-
-    fun dictTopicInsert(graphId: String, topicName: String)
     fun dictArrowInsert(
         direction: Direction,
         graphId: String,

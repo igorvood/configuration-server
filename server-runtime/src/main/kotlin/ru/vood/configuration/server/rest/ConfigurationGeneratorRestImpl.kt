@@ -1,5 +1,6 @@
 package ru.vood.configuration.server.rest
 
+import io.swagger.v3.oas.annotations.Operation
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -13,6 +14,7 @@ class ConfigurationGeneratorRestImpl(
     val configurationGeneratorControllerIntf: ConfigurationGeneratorControllerIntf,
 ) : ConfigurationGeneratorRestIntf {
 
+    @Operation(summary = "Настройки по профилю сервиса ", tags = ["Генерация"])
     @GetMapping("/envBody")
     override fun generateEnvBody(
         @RequestParam
@@ -25,6 +27,7 @@ class ConfigurationGeneratorRestImpl(
         return configurationGeneratorControllerIntf.generateEnvBody(serviceId, profileId, stand)
     }
 
+    @Operation(summary = "Настройки сервиса, по всем его профилям", tags = ["Генерация"])
     @GetMapping("/allProfilesEnvBodies", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun allServiceProfileByStand(
         @RequestParam

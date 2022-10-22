@@ -1,5 +1,6 @@
 package ru.vood.configuration.server.rest
 
+import io.swagger.v3.oas.annotations.Operation
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 import ru.vood.configuration.server.controller.intf.PumlGeneratorControllerIntf
@@ -23,7 +24,7 @@ class PumlGeneratorRestImpl(
 //            )]
 //        )]
 //    )
-//    @Operation(summary = "Формирует puml файл по всему графу", tags = ["plantUML"])
+    @Operation(summary = "Формирует puml файл по всему графу", tags = ["plantUML"])
     @GetMapping("/pumlFileByGraph")
     override fun plantUMLNew(graphId: String): String {
 

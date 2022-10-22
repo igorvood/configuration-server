@@ -6,10 +6,7 @@ import org.springframework.transaction.annotation.Transactional
 import ru.vood.configuration.server.check.CheckService
 import ru.vood.configuration.server.controller.intf.FillDictController
 import ru.vood.configuration.server.repo.Direction
-import ru.vood.configuration.server.repo.dto.FlinkService
-import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
-import ru.vood.configuration.server.repo.dto.GraphFlinkServiceProfile
-import ru.vood.configuration.server.repo.dto.PropertyPut
+import ru.vood.configuration.server.repo.dto.*
 import ru.vood.configuration.server.repo.intf.FillDictRepository
 
 @Service
@@ -26,11 +23,12 @@ class FillDictControllerImpl(
     }
 
 
-    override fun dictTopicInsert(graphId: String, topicName: String) {
-        fillDictRepository.dictTopicInsert(graphId, topicName)
+    override fun dictTopicInsertList(topics: List<TopicPut>) {
+        topics.forEach {
+            fillDictRepository.dictTopicInsert(it.graphId, it.topicName)
+        }
         checkService.check()
     }
-
 
     override fun dictArrowInsert(
         direction: Direction,
