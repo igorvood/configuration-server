@@ -47,16 +47,30 @@ class FillDictControllerImpl(
             .replace("\"--", "")
             .replace(" \"`", "")
             .replace(" \"", "")
+            .trim()
             .split("\n")
+
             .filter { it!="" }
-        split1
+        val map = split1
             .map { propKeyVal ->
-                val split = propKeyVal.split(" ")
+                val split = propKeyVal.trim().split(" ")
                 assert(split.size == 2) { "not compatible string '$propKeyVal'" }
-                val key = split[0].substring(split[0].indexOf(".")+1)
+                val key = split[0].substring(split[0].indexOf(".") + 1)
                 val value = split[1]
                 key to value
             }
+
+        val map1 = map
+            .map { it.first }
+            .groupBy { it }
+            .filter { it.value.size!=1 }
+            .map { it.key }
+        val dublicate = map1
+            .joinToString(",")
+
+        assert(dublicate.isEmpty()){"dublicate keys $dublicate"}
+
+        map
             .forEach { keyVal ->
                 fillDictRepository.dictFlinkPropertyInsert(serviceId, profileId, keyVal.first, keyVal.second)
             }

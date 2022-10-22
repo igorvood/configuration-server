@@ -3,6 +3,8 @@ package ru.vood.configuration.server.rest
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import ru.vood.configuration.server.controller.intf.FillDictController
 import ru.vood.configuration.server.repo.Direction
@@ -14,12 +16,12 @@ class FillDictRestImpl(
     val fillDictController: FillDictController
 ) : FillDictRest {
 
-    @GetMapping("/serviceInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
+    @PutMapping("/serviceInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun dictServiceInsert(graphId: String, serviceId: String, profileId: String, mainClass: String): Unit {
         fillDictController.dictServiceInsert(graphId, serviceId, profileId, mainClass)
     }
 
-    @GetMapping(
+    @PutMapping(
         "/serviceInsertPath/{graphId}/{serviceId}/{profileId}/{mainClass}",
         produces = [MediaType.APPLICATION_JSON_VALUE]
     )
@@ -33,12 +35,12 @@ class FillDictRestImpl(
     }
 
 
-    @GetMapping("/topicInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
+    @PutMapping("/topicInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun dictTopicInsert(graphId: String, topicName: String){
         fillDictController.dictTopicInsert( graphId, topicName)
     }
 
-    @GetMapping("/arrowInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
+    @PutMapping("/arrowInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun dictArrowInsert(
         direction: Direction,
         graphId: String,
@@ -48,11 +50,11 @@ class FillDictRestImpl(
         propertyKey: String
     ) = fillDictController.dictArrowInsert(direction, graphId, serviceId, profileId, topicName, propertyKey)
 
-    @GetMapping("/flinkPropertyInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
+    @PutMapping("/flinkPropertyInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun dictFlinkPropertyInsert(
         serviceId: String,
         profileId: String,
-        propString: String
+        @RequestBody propString: String
     ) = fillDictController.dictFlinkPropertyInsert(serviceId, profileId, propString)
 
 }
