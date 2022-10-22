@@ -7,7 +7,8 @@ import ru.vood.configuration.server.repo.dto.TopicPut
 
 interface FillDictRest {
 
-    fun dictServiceInsert(graphId: String, serviceId: String, profileId: String, mainClass: String)
+    fun dictServiceInsert(graphId: String, serviceId: String, mainClass: String,
+                          profileId: String,)
 
     fun dictServiceInsertPath(graphId: String, serviceId: String, profileId: String, mainClass: String)
 
@@ -25,4 +26,11 @@ interface FillDictRest {
     fun flinkPropertyInsertSingleProperty(serviceId: String, profileId: String, propId: String, propValue: String)
     fun flinkPropertyInsertList(serviceId: String, profileId: String, props: List<PropertyPut>)
     fun dictTopicListInsert(@RequestBody topics: List<TopicPut>)
+    fun topicInsertListGraph(graphId: String, @RequestBody topics: List<String>)
+    fun dictServiceInsertList(
+        graphId: String,
+        serviceId: String,
+        mainClass: String,
+        @RequestBody profileIds: List<String>
+    )
 }

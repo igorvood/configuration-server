@@ -18,15 +18,30 @@ class FillDictRestImpl(
     val fillDictController: FillDictController
 ) : FillDictRest {
 
-    @Operation(summary = "Создание сервиса с профилем", tags = ["Заполнение таблиц"])
+    @Operation(summary = "Создание сервиса с профилем", tags = ["Заполнение таблиц. Сервис."])
     @PutMapping("/serviceInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
-    override fun dictServiceInsert(graphId: String, serviceId: String, profileId: String, mainClass: String): Unit {
+    override fun dictServiceInsert(
+        graphId: String,
+        serviceId: String,
+        mainClass: String,
+        profileId: String,): Unit {
         fillDictController.dictServiceInsert(graphId, serviceId, profileId, mainClass)
     }
 
+    @Operation(summary = "Создание сервиса с профилем", tags = ["Заполнение таблиц. Сервис."])
+    @PutMapping("/dictServiceInsertList", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun dictServiceInsertList(
+        graphId: String,
+        serviceId: String,
+        mainClass: String,
+        @RequestBody profileIds: List<String>): Unit {
+        profileIds.forEach { fillDictController.dictServiceInsert(graphId, serviceId, it, mainClass) }
+    }
+
+
     @Operation(
         summary = "Создание сервиса с профилем, альтернативный способ, Посмотрим что больше понравится Девопс",
-        tags = ["Заполнение таблиц"]
+        tags = ["Заполнение таблиц. Сервис."]
     )
     @PutMapping(
         "/serviceInsertPath/{graphId}/{serviceId}/{profileId}/{mainClass}",
@@ -42,13 +57,13 @@ class FillDictRestImpl(
     }
 
 
-    @Operation(summary = "Создание топика", tags = ["Заполнение таблиц"])
+    @Operation(summary = "Создание топика", tags = ["Заполнение таблиц. Топик"])
     @PutMapping("/topicInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun dictTopicInsert(graphId: String, topicName: String) {
         fillDictController.dictTopicInsertList(listOf(TopicPut(graphId, topicName)))
     }
 
-    @Operation(summary = "Создание топиков", tags = ["Заполнение таблиц"])
+    @Operation(summary = "Создание топиков", tags = ["Заполнение таблиц. Топик"])
     @PutMapping("/topicInsertList", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun dictTopicListInsert(
         @RequestBody topics: List<TopicPut>
@@ -56,8 +71,18 @@ class FillDictRestImpl(
         fillDictController.dictTopicInsertList(topics)
     }
 
+    @Operation(summary = "Создание топиков", tags = ["Заполнение таблиц. Топик"])
+    @PutMapping("/topicInsertListGraph", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun topicInsertListGraph(
+        graphId: String,
+        @RequestBody topics: List<String>
+    ) {
 
-    @Operation(summary = "Создание связи топика и сервиса", tags = ["Заполнение таблиц"])
+        fillDictController.dictTopicInsertList(topics.map { TopicPut(graphId, it) })
+    }
+
+
+    @Operation(summary = "Создание связи топика и сервиса", tags = ["Заполнение таблиц. Связи"])
     @PutMapping("/arrowInsert", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun dictArrowInsert(
         directionEnum: DirectionEnum,
@@ -68,7 +93,7 @@ class FillDictRestImpl(
         propertyKey: String
     ) = fillDictController.dictArrowInsert(directionEnum, graphId, serviceId, profileId, topicName, propertyKey)
 
-    @Operation(summary = "Создание настроек сервиса, вытаскиваются из текста", tags = ["Заполнение таблиц"])
+    @Operation(summary = "Создание настроек сервиса, вытаскиваются из текста", tags = ["Заполнение таблиц. Свойства сервиса"])
     @PutMapping("/flinkPropertyInsertByText", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun flinkPropertyInsertByText(
         serviceId: String,
@@ -76,7 +101,7 @@ class FillDictRestImpl(
         @RequestBody propString: String
     ) = fillDictController.flinkPropertyInsertByText(serviceId, profileId, propString)
 
-    @Operation(summary = "Создание настройки сервиса", tags = ["Заполнение таблиц"])
+    @Operation(summary = "Создание настройки сервиса", tags = ["Заполнение таблиц. Свойства сервиса"])
     @PutMapping("/flinkPropertyInsertSingleProperty", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun flinkPropertyInsertSingleProperty(
         serviceId: String,
@@ -85,7 +110,7 @@ class FillDictRestImpl(
         propValue: String,
     ) = fillDictController.flinkPropertyInsertByList(serviceId, profileId, listOf(PropertyPut(propId, propValue)))
 
-    @Operation(summary = "Создание настроек  сервиса из списка", tags = ["Заполнение таблиц"])
+    @Operation(summary = "Создание настроек  сервиса из списка", tags = ["Заполнение таблиц. Свойства сервиса"])
     @PutMapping("/flinkPropertyInsertList", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun flinkPropertyInsertList(
         serviceId: String,

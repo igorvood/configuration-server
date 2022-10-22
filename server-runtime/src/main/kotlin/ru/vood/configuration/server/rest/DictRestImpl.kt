@@ -14,13 +14,13 @@ class DictRestImpl(
     private val dictRepository: DictRepository
 ) : DictRest {
 
-    @Operation(summary = "Список графов", tags = ["получение информации"])
+    @Operation(summary = "Список графов", tags = ["Отчеты."])
     @GetMapping("/graphList", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun graphList(): Set<Graph> {
         return dictRepository.graphList()
     }
 
-    @Operation(summary = "Список вервисов", tags = ["получение информации"])
+    @Operation(summary = "Список вервисов", tags = ["Отчеты."])
     @GetMapping("/serviceList", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun serviceList(): Set<FlinkService> {
         return dictRepository.serviceList()
