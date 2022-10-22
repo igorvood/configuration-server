@@ -22,7 +22,7 @@ data class Topic(
 
 }
 
-data class FlinkService(val name: String) : GraphNode {
+data class FlinkName(val name: String) : GraphNode {
     override val alias: String
         get() = name
             .replace("-", "_")
