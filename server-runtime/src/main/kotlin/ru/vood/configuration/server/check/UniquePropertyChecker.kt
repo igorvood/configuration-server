@@ -19,7 +19,7 @@ class UniquePropertyChecker(
                     PropertyCheckerDto(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),)
                 })
 
-        // TODO не читабельный текс об ощибке, сделать читабельнее
+        // TODO не читабельный текс об ошибке, сделать читабельнее
         if (query.isNotEmpty())
             throw IllegalStateException("dublicate property key $query")
 
