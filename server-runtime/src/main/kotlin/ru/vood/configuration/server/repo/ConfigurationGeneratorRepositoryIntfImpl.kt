@@ -3,6 +3,7 @@ package ru.vood.configuration.server.repo
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.stereotype.Service
 import ru.vood.configuration.server.repo.dto.EnvProperty
+import ru.vood.configuration.server.repo.dto.StandEnum
 import ru.vood.configuration.server.repo.intf.ConfigurationGeneratorRepositoryIntf
 
 @Service
@@ -12,7 +13,7 @@ class ConfigurationGeneratorRepositoryIntfImpl(
     override fun propertyByService(
         serviceId: String,
         profileId: String,
-        stand: String
+        stand: StandEnum
     ): List<EnvProperty> {
         val query = jdbcTemplate.query(
             """

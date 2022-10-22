@@ -34,7 +34,7 @@ class ConfigurationGeneratorRestImpl(
         @RequestParam
         serviceId: String,
         @RequestParam
-        stand: String
+        stand: StandEnum
     ): List<EviromentService> {
         return configurationGeneratorControllerIntf.generateAllServiceProfile(serviceId, stand)
     }
