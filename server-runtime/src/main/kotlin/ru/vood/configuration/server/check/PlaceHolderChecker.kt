@@ -7,12 +7,12 @@ import ru.vood.configuration.server.controller.intf.extractNamesPlaceholder
 import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
 
 @Service
-class PlaceHolderCheck(
+class PlaceHolderChecker(
     val holderResolvers: List<HolderResolver>,
     private val jdbcTemplate: JdbcOperations
 ) : CheckService {
 
-    private val logger = LoggerFactory.getLogger(PlaceHolderCheck::class.java)
+    private val logger = LoggerFactory.getLogger(PlaceHolderChecker::class.java)
     override fun check() {
         val classAndPlaceholders = holderResolvers.associate { it.javaClass to it.placeHolderName }
         val revert = classAndPlaceholders
