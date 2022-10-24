@@ -9,6 +9,8 @@ interface FillDictController {
     fun dictServiceInsert(graphId: String, serviceId: String, profileId: String, mainClass: String)
     fun dictTopicInsertList(topics: List<TopicPut>)
 
+    fun topicInsertListGraphProp(graphId: String, propFile: String)
+
     fun dictArrowInsert(
         directionEnum: DirectionEnum,
         graphId: String,
@@ -18,6 +20,8 @@ interface FillDictController {
         propertyKey: String
     )
 
-    fun flinkPropertyInsertByText(serviceId: String, profileId: String, propString: String)
+    fun flinkPropertyInsertByTextEnv(serviceId: String, profileId: String, propString: String)
     fun flinkPropertyInsertByList(serviceId: String, profileId: String, propsAndVal: List<PropertyPut>)
+    fun flinkPropertyInsertByTextProp(serviceId: String, profileId: String, propString: String)
+
 }
