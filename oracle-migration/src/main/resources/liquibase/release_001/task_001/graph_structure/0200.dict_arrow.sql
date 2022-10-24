@@ -34,5 +34,5 @@ comment on column dict_arrow.graph_id is 'Идентификатор графа.
 /
 comment on column dict_arrow.property_key is 'Ключ для свойства для указания имени топика в настройках.'
 /
-comment on column dict_arrow.flink_srv is 'Ключ для свойства для указания имени топика в настройках.'
+comment on column dict_arrow.flink_srv is 'Имя сервиса.'
 /
