@@ -79,8 +79,16 @@ class FillDictRestImpl(
         graphId: String,
         @RequestBody topics: List<String>
     ) {
-
         fillDictController.dictTopicInsertList(topics.map { TopicPut(graphId, it) })
+    }
+
+    @Operation(summary = "Создание топиков", tags = ["Заполнение таблиц. Топик"])
+    @PutMapping("/topicInsertListGraphProp", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun topicInsertListGraphProp(
+        graphId: String,
+        @RequestBody propFile: String
+    ) {
+        fillDictController.topicInsertListGraphProp(graphId, propFile)
     }
 
 

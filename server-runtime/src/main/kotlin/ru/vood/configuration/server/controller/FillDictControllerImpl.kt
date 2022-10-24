@@ -7,6 +7,7 @@ import ru.vood.configuration.server.check.CheckRunner
 import ru.vood.configuration.server.controller.intf.FillDictController
 import ru.vood.configuration.server.repo.dto.*
 import ru.vood.configuration.server.repo.intf.FillDictRepository
+import java.util.*
 
 @Service
 @Transactional(propagation = Propagation.REQUIRES_NEW)
@@ -27,6 +28,13 @@ class FillDictControllerImpl(
             fillDictRepository.dictTopicInsert(it.graphId, it.topicName)
         }
         checkService.checkAll()
+    }
+
+    override fun topicInsertListGraphProp(graphId: String, propFile: String) {
+        val parsedProperty = parseProperty(propFile, ",")
+            .filter { it.name.lowercase(Locale.getDefault()).contains("topic") }
+            .map { TopicPut(graphId, it.value) }
+        dictTopicInsertList(parsedProperty)
     }
 
     override fun dictArrowInsert(
@@ -64,6 +72,15 @@ class FillDictControllerImpl(
         profileId: String,
         propString: String
     ) {
+        val parsedProperty = parseProperty(propString, delimiters)
+
+        flinkPropertyInsertByList(serviceId, profileId, parsedProperty)
+    }
+
+    private fun parseProperty(
+        propString: String,
+        delimiters: String
+    ): List<PropertyPut> {
         val split1 = propString
             .replace("`\"--", "")
             .replace("\"--", "")
@@ -73,7 +90,7 @@ class FillDictControllerImpl(
             .split("\n")
 
             .filter { it != "" }
-        val map = split1
+        val parsedProperty = split1
             .map { propKeyVal ->
 
                 val split = propKeyVal.trim().split(delimiters)
@@ -83,7 +100,7 @@ class FillDictControllerImpl(
                 key to value
             }.map { PropertyPut(it.first, it.second) }
 
-        val map1 = map
+        val map1 = parsedProperty
             .map { it.name }
             .groupBy { it }
             .filter { it.value.size != 1 }
@@ -92,8 +109,7 @@ class FillDictControllerImpl(
             .joinToString(",")
 
         assert(dublicate.isEmpty()) { "dublicate keys $dublicate" }
-
-        flinkPropertyInsertByList(serviceId, profileId, map)
+        return parsedProperty
     }
 
     override fun flinkPropertyInsertByList(

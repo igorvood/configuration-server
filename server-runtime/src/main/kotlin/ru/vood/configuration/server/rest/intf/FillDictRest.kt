@@ -45,4 +45,5 @@ interface FillDictRest {
     )
 
     fun flinkPropertyInsertByTextProp(serviceId: String, profileId: String, propString: String)
+    fun topicInsertListGraphProp(graphId: String,  propFile: String)
 }
