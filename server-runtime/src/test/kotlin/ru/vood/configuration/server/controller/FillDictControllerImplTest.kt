@@ -6,7 +6,6 @@ import io.mockk.verifyAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import ru.vood.configuration.server.check.CheckRunner
-import ru.vood.configuration.server.check.CheckService
 import ru.vood.configuration.server.controller.intf.FillDictController
 import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.intf.FillDictRepository
@@ -49,7 +48,7 @@ internal class FillDictControllerImplTest {
 
         val serviceId = "serviceId"
         val profileId = "ProfileId"
-        fillDictController.flinkPropertyInsertByText(
+        fillDictController.flinkPropertyInsertByTextEnv(
             serviceId,
             profileId,
             """`"--mdm-enrichment.enrichOne.GlobalIdEnrichProperty${'$'}.fieldsList.a05.toFieldName account_num "`

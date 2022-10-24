@@ -42,7 +42,24 @@ class FillDictControllerImpl(
     }
 
 
-    override fun flinkPropertyInsertByText(
+    override fun flinkPropertyInsertByTextEnv(
+        serviceId: String,
+        profileId: String,
+        propString: String
+    ) {
+        insert(" ", serviceId, profileId, propString)
+    }
+
+    override fun flinkPropertyInsertByTextProp(
+        serviceId: String,
+        profileId: String,
+        propString: String
+    ) {
+        insert("=", serviceId, profileId, propString)
+    }
+
+    private fun insert(
+        delimiters: String,
         serviceId: String,
         profileId: String,
         propString: String
@@ -58,7 +75,8 @@ class FillDictControllerImpl(
             .filter { it != "" }
         val map = split1
             .map { propKeyVal ->
-                val split = propKeyVal.trim().split(" ")
+
+                val split = propKeyVal.trim().split(delimiters)
                 assert(split.size == 2) { "not compatible string '$propKeyVal'" }
                 val key = split[0].substring(split[0].indexOf(".") + 1)
                 val value = split[1]

@@ -118,15 +118,27 @@ class FillDictRestImpl(
     }
 
     @Operation(
-        summary = "Создание настроек сервиса, вытаскиваются из текста",
+        summary = "Создание настроек сервиса, вытаскиваются из текста ENV свойств",
         tags = ["Заполнение таблиц. Свойства сервиса"]
     )
-    @PutMapping("/flinkPropertyInsertByText", produces = [MediaType.APPLICATION_JSON_VALUE])
-    override fun flinkPropertyInsertByText(
+    @PutMapping("/flinkPropertyInsertByTextEnv", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun flinkPropertyInsertByTextEnv(
         serviceId: String,
         profileId: String,
         @RequestBody propString: String
-    ) = fillDictController.flinkPropertyInsertByText(serviceId, profileId, propString)
+    ) = fillDictController.flinkPropertyInsertByTextEnv(serviceId, profileId, propString)
+
+    @Operation(
+        summary = "Создание настроек сервиса, вытаскиваются из текста PROP свойств",
+        tags = ["Заполнение таблиц. Свойства сервиса"]
+    )
+    @PutMapping("/flinkPropertyInsertByTextProp", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun flinkPropertyInsertByTextProp(
+        serviceId: String,
+        profileId: String,
+        @RequestBody propString: String
+    ) = fillDictController.flinkPropertyInsertByTextProp(serviceId, profileId, propString)
+
 
     @Operation(summary = "Создание настройки сервиса", tags = ["Заполнение таблиц. Свойства сервиса"])
     @PutMapping("/flinkPropertyInsertSingleProperty", produces = [MediaType.APPLICATION_JSON_VALUE])
