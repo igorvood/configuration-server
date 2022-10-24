@@ -5,6 +5,7 @@ import io.mockk.mockk
 import io.mockk.verifyAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import ru.vood.configuration.server.check.CheckRunner
 import ru.vood.configuration.server.check.CheckService
 import ru.vood.configuration.server.controller.intf.FillDictController
 import ru.vood.configuration.server.repo.dto.PropertyPut
@@ -16,7 +17,7 @@ internal class FillDictControllerImplTest {
     private var fillDictRepository: FillDictRepository = mockk(relaxed = true)
 
 
-    private var checkService: CheckService = mockk(relaxed = true)
+    private var checkService: CheckRunner = mockk(relaxed = true)
 
     private lateinit var fillDictController: FillDictController
 
@@ -44,7 +45,7 @@ internal class FillDictControllerImplTest {
     @Test
     fun getFillDictRepository() {
         every { fillDictRepository.dictFlinkPropertyInsert(any(), any(), any()) } returns Unit
-        every { checkService.check() } returns Unit
+        every { checkService.checkAll() } returns Unit
 
         val serviceId = "serviceId"
         val profileId = "ProfileId"
