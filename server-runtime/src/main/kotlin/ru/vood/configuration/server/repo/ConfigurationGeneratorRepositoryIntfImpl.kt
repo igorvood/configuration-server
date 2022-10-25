@@ -28,7 +28,7 @@ class ConfigurationGeneratorRepositoryIntfImpl(
                     priority = rs.getInt(3),
                     typeProperty = rs.getString(4),
                 )
-            }, serviceId, profileId, stand
+            }, serviceId, profileId, stand.name
         )
         return query
 
