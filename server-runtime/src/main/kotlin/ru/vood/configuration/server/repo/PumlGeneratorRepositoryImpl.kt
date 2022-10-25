@@ -18,7 +18,7 @@ class PumlGeneratorRepositoryImpl(
             """
             select BEG_NODE_TYPE, BEG_NODE_ID, END_NODE_TYPE, END_NODE_ID 
             from DICT_ARROW
-            where GRAPH_ID = :1
+            where GRAPH_ID = ?
             """,
             { rs, _ ->
                 Arrow(
@@ -41,7 +41,7 @@ class PumlGeneratorRepositoryImpl(
         val queryForObject = jdbcTemplate.queryForObject(
             """
             select ID, IS_OUR, CNT_PARTITION from dict_topic_node
-            where ID = :1
+            where ID = ?
         """, { rs, _ ->
                 Topic(
                     rs.getString(1), rs.getBoolean(2), rs.getInt(3)

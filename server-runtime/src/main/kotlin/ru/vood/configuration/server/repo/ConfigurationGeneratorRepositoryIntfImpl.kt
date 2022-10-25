@@ -18,7 +18,7 @@ class ConfigurationGeneratorRepositoryIntfImpl(
         val query = jdbcTemplate.query(
             """
            select PROP_ID, PROP_VALUE, PRIORITY, type_property from full_flink_service_property_stand
-            where SERVICE_ID = :1 and PROFILE_ID = :2 and STAND = :3
+            where SERVICE_ID = ? and PROFILE_ID = ? and STAND = ?
            order by PRIORITY, PROP_ID
         """.trimIndent(),
             { rs, _ ->

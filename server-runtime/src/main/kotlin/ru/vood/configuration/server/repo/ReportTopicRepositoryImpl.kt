@@ -14,7 +14,7 @@ class ReportTopicRepositoryImpl(
         return jdbcTemplate.query(
             """select TOPIC_NAME 
                                     from REP_TOPIC_NAME_BY_STAND
-                                    where USED =1 and STAND = :1""",
+                                    where USED = 1 and STAND = ?""",
             { rs, _ -> rs.getString(1) }, standEnum.name
         )
     }

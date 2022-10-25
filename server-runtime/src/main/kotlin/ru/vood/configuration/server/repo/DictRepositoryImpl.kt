@@ -33,7 +33,7 @@ class DictRepositoryImpl(
 
     override fun serviceById(serviceId: String): FlinkService {
         return jdbcTemplate.queryForObject(
-            """select ID, MAIN_CLASS from DICT_SERVICE where ID = :1 """,
+            """select ID, MAIN_CLASS from DICT_SERVICE where ID = ? """,
             rowMapperFlinkService,
             serviceId
         )!!
@@ -42,7 +42,7 @@ class DictRepositoryImpl(
     override fun serviceProfile(serviceId: String): Set<FlinkServiceProfile> {
         return jdbcTemplate.query(
             """select id, PROFILE_ID, MAIN_CLASS from dict_service_profile 
-               where ID = :1 
+               where ID = ? 
             """,
             { rs, _ -> FlinkServiceProfile(FlinkService(rs.getString(1), rs.getString(2)), rs.getString(3)) },
             serviceId
