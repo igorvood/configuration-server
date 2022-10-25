@@ -15,7 +15,6 @@ data class Topic(
 
     override fun pamlUmlText(): String {
         val color = if (isOur) "Green" else "Red"
-//        return """$alias [label="{<f0> $alias |<f1> partitionCnt_$cntPartition\n\n\n}" shape=box color=$color];"""
         return """$alias [label="$alias" shape=box color=$color];"""
 
     }
