@@ -27,9 +27,7 @@ class PumlGeneratorRestImpl(
     @Operation(summary = "Формирует puml файл по всему графу", tags = ["plantUML"])
     @GetMapping("/pumlFileByGraph")
     override fun plantUMLNew(graphId: String): String {
-
         return pumlGeneratorControllerIntf.generatePumlByGraphId(graphId)
-//        return pumlGeneratorControllerIntf.generatePumlByGraphId("graph_1")
     }
 
 }
