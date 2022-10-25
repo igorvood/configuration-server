@@ -1,25 +1,13 @@
 create or replace view rep_topic_name_by_stand
 as
 with t as (
-select id topic_id, stand, topic_name FROM DICT_TOPIC_NODE
-    UNPIVOT(
-    topic_name  -- unpivot_clause
-    FOR stand --  unpivot_for_clause
-    IN ( -- unpivot_in_clause
-        DEV_NAME AS 'NOTEBOOK',
-        DEV_NAME AS 'NOTEBOOK_DSO',
-        DEV_NAME AS 'DSO',
-        IFT_NAME_REAL AS 'IFT',
-        NT_NAME_REAL AS 'NT',
-        REAL_NAME_REAL AS 'REAL',
-        p0_NAME_REAL AS 'P0'
-        )
-    )
-
+select tn.id topic_id, nvl(DTPBS.STAND_ID, st.ID) as STAND, nvl(DTPBS.TOPIC_NAME, replace(tn.id, 'dev_', st.REPLACMENT_FOR_TOPIC_NAME))  topic_name
+FROM DICT_TOPIC_NODE tn
+   cross join META_STAND st
+   left join DICT_TOPIC_PARAMS_BY_STAND DTPBS on tn.ID = DTPBS.NODE_ID and st.ID = DTPBS.STAND_ID
 )
 select t.topic_id, t.topic_name, t.stand, tu.USED
 from t
-  join META_STAND s on s.ID = t.stand
   join rep_topic_use tu on tu.TOPIC_ID = t.topic_id
 
 /
