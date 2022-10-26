@@ -7,7 +7,7 @@ with a as (
 )
 select a.SERVICE_ID, a.PROFILE_ID, a.PROP_ID, s.TYPE_PROPERTY, a.STAND
 from a
-  join FULL_FLINK_SERVICE_PROPERTY_STAND s on (a.SERVICE_ID, a.PROFILE_ID, a.PROP_ID) = ((s.SERVICE_ID, s.PROFILE_ID, s.PROP_ID))
+  join FULL_FLINK_SERVICE_PROPERTY_STAND s on (a.SERVICE_ID, a.PROFILE_ID, a.PROP_ID, a.STAND) = ((s.SERVICE_ID, s.PROFILE_ID, s.PROP_ID, s.STAND))
 group by a.SERVICE_ID, a.PROFILE_ID, a.PROP_ID, s.TYPE_PROPERTY, a.STAND
 /
 comment on table ck_env_prop_unique is 'Проверка уникальности ключей пропертей.'
