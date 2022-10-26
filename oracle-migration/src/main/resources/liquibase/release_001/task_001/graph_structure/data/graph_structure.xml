@@ -25,6 +25,11 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0040.DICT_KAFKA_PROP_VALUE_data.sql" endDelimiter="${sqlBatchDelimiter}"/>
     </changeSet>
 
+    <changeSet id="liquibase/release_001/task_001/graph_structure/data/0045.DICT_KAFKA_PROP_VALUE_BY_STAND_data.sql" author="vood" runAlways="true" >
+        <validCheckSum>any</validCheckSum>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0045.DICT_KAFKA_PROP_VALUE_BY_STAND_data.sql" endDelimiter="${sqlBatchDelimiter}"/>
+    </changeSet>
+
     <changeSet id="liquibase/release_001/task_001/graph_structure/data/0200.dict_topic_ins.sql" author="vood" runAlways="true" >
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/data/0200.dict_topic_ins.sql" endDelimiter="${sqlBatchDelimiter}"/>

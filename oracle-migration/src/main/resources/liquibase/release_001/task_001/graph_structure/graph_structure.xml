@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
 
-    <changeSet id="liquibase/release_001/task_001/graph_structure/0050.meta_stand.sql" author="vood" runAlways="true">
+    <changeSet id="liquibase/release_001/task_001/graph_structure/table" author="vood" runAlways="true">
         <validCheckSum>any</validCheckSum>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0050.meta_stand.sql" endDelimiter="${sqlBatchDelimiter}"/>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0100.dict_abstract_graph_node.sql" endDelimiter="${sqlBatchDelimiter}"/>
@@ -18,6 +18,7 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0200.dict_arrow.sql" endDelimiter="${sqlBatchDelimiter}"/>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0300.dict_kafka_prop.sql" endDelimiter="${sqlBatchDelimiter}"/>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0310.dict_kafka_prop_value.sql" endDelimiter="${sqlBatchDelimiter}"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0320.dict_kafka_prop_value_by_stand.sql" endDelimiter="${sqlBatchDelimiter}"/>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0400.meta_property_function.sql" endDelimiter="${sqlBatchDelimiter}"/>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0410.dict_flink_prop_value.sql" endDelimiter="${sqlBatchDelimiter}"/>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0450.dict_place_holder.sql" endDelimiter="${sqlBatchDelimiter}"/>

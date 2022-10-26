@@ -1,23 +1,11 @@
 create or replace view KAFKA_PROP_VALUE_by_STAND
 as
 with t as (
-select GRP_ID,TYPE_PROP, PROP_ID, stand, property_val FROM DICT_KAFKA_PROP_VALUE
-    UNPIVOT(
-    property_val  -- unpivot_clause
-    FOR stand --  unpivot_for_clause
-    IN ( -- unpivot_in_clause
-        USED_NOTEBOOK_VAL AS 'NOTEBOOK',
-        USED_NOTEBOOK_DSO_VAL AS 'NOTEBOOK_DSO',
-        PROP_VALUE AS 'DSO',
-        USED_IFT_VAL AS 'IFT',
-        USED_NT_VAL AS 'NT',
-        USED_REAL_VAL AS 'REAL',
-        USED_P0_VAL AS 'P0'
-        )
-    )
+select KPV.GRP_ID, KPV.TYPE_PROP, KPV.PROP_ID, KPVBS.STAND_ID stand, nvl(KPVBS.PROP_VALUE, KPV.PROP_VALUE) property_val
+FROM DICT_KAFKA_PROP_VALUE KPV
+  left join DICT_KAFKA_PROP_VALUE_BY_STAND KPVBS on KPV.TYPE_PROP = KPVBS.TYPE_PROP and KPV.GRP_ID = KPVBS.GRP_ID and KPV.PROP_ID = KPVBS.PROP_ID
 )
 select t.GRP_ID, t.TYPE_PROP, t.PROP_ID, t.stand, t.property_val  from t
-  join META_STAND s on s.ID = t.stand
 /
 comment on table KAFKA_PROP_VALUE_by_STAND is 'Значения свойств топиков в разрезе стендов.'
 /
