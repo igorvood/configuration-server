@@ -22,8 +22,8 @@ class PlaceHoldersResolverImpl(
         val flatMap = property
             .filter { it.propertyValue.contains("\${") && it.propertyValue.contains("}") }
             .flatMap { prop -> extractNamesPlaceholder(prop.propertyValue) }
+            .toSet()
         val propertyWithPlaceHolder = flatMap
-            .distinct()
             .flatMap { ph ->
                 val valuePlaceHolder =
                     holdersFuns.get(ph)?.valuePlaceHolder(flinkServiceProfile, ph)

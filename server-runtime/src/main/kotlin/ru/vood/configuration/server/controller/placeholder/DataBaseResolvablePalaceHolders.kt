@@ -12,5 +12,8 @@ class DataBaseResolvablePalaceHolders(
     override val placeHolderName: Set<String>
         get() = dictRepository.dbPlaceHolders().map { it.id }.toSet()
 
-    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String = "\${" + ph + "}"
+    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String {
+        println(ph)
+        return "\${$ph}"
+    }
 }
