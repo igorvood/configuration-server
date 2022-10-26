@@ -26,12 +26,13 @@ class PlaceHolderRepositoryImpl(
         placeHolderName: String
     ): String {
 
-        val queryForObject = jdbcTemplate.queryForObject("""
+        val queryForObject = jdbcTemplate.queryForObject(
+            """
             select PLACEHOLDER_VALUE from RESOLVABLE_PLACEHOLDER
             where SERVICE_ID = ? and PROFILE_ID = ? and STAND = ? and PLACEHOLDER_ID = ?
         """, { rs, r ->
-            rs.getString(1)
-        }, serviceId, profileId, stand.name, placeHolderName
+                rs.getString(1)
+            }, serviceId, profileId, stand.name, placeHolderName
         )!!
         return queryForObject
     }

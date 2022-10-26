@@ -1,6 +1,7 @@
 package ru.vood.configuration.server.repo.intf
 
-import ru.vood.configuration.server.repo.dto.*
+import ru.vood.configuration.server.repo.dto.DataBasePlaceHolder
+import ru.vood.configuration.server.repo.dto.StandEnum
 
 interface PlaceHolderRepository {
 
@@ -10,7 +11,8 @@ interface PlaceHolderRepository {
         serviceId: String,
         profileId: String,
         stand: StandEnum,
-        placeHolderName: String): String
+        placeHolderName: String
+    ): String
 
 
 }

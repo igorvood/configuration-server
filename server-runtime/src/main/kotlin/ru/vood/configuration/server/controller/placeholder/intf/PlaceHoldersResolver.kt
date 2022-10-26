@@ -7,6 +7,10 @@ import ru.vood.configuration.server.repo.dto.StandEnum
 
 interface PlaceHoldersResolver {
 
-    fun placeHolders(property: List<EnvProperty>, flinkServiceProfile: FlinkServiceProfile, stand: StandEnum): List<PlaceHolder>
+    fun placeHolders(
+        property: List<EnvProperty>,
+        flinkServiceProfile: FlinkServiceProfile,
+        stand: StandEnum
+    ): List<PlaceHolder>
 
 }

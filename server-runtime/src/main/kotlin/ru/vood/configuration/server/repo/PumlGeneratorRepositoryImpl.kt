@@ -2,7 +2,6 @@ package ru.vood.configuration.server.repo
 
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.stereotype.Repository
-import org.springframework.stereotype.Service
 import ru.vood.configuration.server.controller.dto.Arrow
 import ru.vood.configuration.server.controller.dto.FlinkName
 import ru.vood.configuration.server.controller.dto.GraphNode

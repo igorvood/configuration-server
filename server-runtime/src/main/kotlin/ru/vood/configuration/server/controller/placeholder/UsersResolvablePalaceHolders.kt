@@ -14,5 +14,6 @@ class UsersResolvablePalaceHolders : HolderResolver {
             "TRUSTSTORE_LOCATION",
         )
 
-    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String, stand: StandEnum): String = "\${" + ph + "}"
+    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String, stand: StandEnum): String =
+        "\${" + ph + "}"
 }

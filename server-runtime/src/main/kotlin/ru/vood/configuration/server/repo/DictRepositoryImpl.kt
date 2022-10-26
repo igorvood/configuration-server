@@ -2,7 +2,6 @@ package ru.vood.configuration.server.repo
 
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.stereotype.Repository
-import ru.vood.configuration.server.repo.dto.DataBasePlaceHolder
 import ru.vood.configuration.server.repo.dto.FlinkService
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 import ru.vood.configuration.server.repo.dto.Graph

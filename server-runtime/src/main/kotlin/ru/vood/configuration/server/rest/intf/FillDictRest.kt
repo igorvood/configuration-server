@@ -1,6 +1,5 @@
 package ru.vood.configuration.server.rest.intf
 
-import org.springframework.web.bind.annotation.RequestBody
 import ru.vood.configuration.server.repo.dto.DirectionEnum
 import ru.vood.configuration.server.repo.dto.PropertyPut
 import ru.vood.configuration.server.repo.dto.TopicPut
@@ -45,5 +44,5 @@ interface FillDictRest {
     )
 
     fun flinkPropertyInsertByTextProp(serviceId: String, profileId: String, propString: String)
-    fun topicInsertListGraphProp(graphId: String,  propFile: String)
+    fun topicInsertListGraphProp(graphId: String, propFile: String)
 }
