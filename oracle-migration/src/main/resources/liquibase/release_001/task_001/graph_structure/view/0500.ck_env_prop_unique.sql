@@ -2,7 +2,6 @@ create or replace view ck_env_prop_unique as
 with a as (
     select SERVICE_ID, PROFILE_ID, PROP_ID, count(1)
     from FULL_FLINK_SERVICE_PROPERTY_STAND
-    where SERVICE_ID = 'Filter' and STAND = 'DSO'
     having  count(1)>1
     group by SERVICE_ID, PROFILE_ID, PROP_ID
 )
