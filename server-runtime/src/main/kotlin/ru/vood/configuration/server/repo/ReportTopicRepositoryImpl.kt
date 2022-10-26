@@ -1,11 +1,12 @@
 package ru.vood.configuration.server.repo
 
 import org.springframework.jdbc.core.JdbcOperations
+import org.springframework.stereotype.Repository
 import org.springframework.stereotype.Service
 import ru.vood.configuration.server.repo.dto.StandEnum
 import ru.vood.configuration.server.repo.intf.ReportTopicRepository
 
-@Service
+@Repository
 class ReportTopicRepositoryImpl(
     private val jdbcTemplate: JdbcOperations
 ) : ReportTopicRepository {

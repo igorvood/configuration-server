@@ -1,6 +1,7 @@
 package ru.vood.configuration.server.repo
 
 import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.stereotype.Repository
 import org.springframework.stereotype.Service
 import ru.vood.configuration.server.controller.dto.Arrow
 import ru.vood.configuration.server.controller.dto.FlinkName
@@ -8,7 +9,7 @@ import ru.vood.configuration.server.controller.dto.GraphNode
 import ru.vood.configuration.server.controller.dto.Topic
 import ru.vood.configuration.server.repo.intf.PumlGeneratorRepositoryIntf
 
-@Service
+@Repository
 class PumlGeneratorRepositoryImpl(
     private val jdbcTemplate: JdbcTemplate
 ) : PumlGeneratorRepositoryIntf {

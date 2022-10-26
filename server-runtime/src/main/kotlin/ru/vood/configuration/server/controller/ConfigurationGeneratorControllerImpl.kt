@@ -25,7 +25,7 @@ class ConfigurationGeneratorControllerImpl(
             configurationGeneratorRepositoryIntf.propertyByService(serviceId, profileId, stand)
         val serviceById = dictRepository.serviceById(serviceId)
         val placeHolders: List<PlaceHolder> =
-            placeHoldersResolver.placeHolders(property, FlinkServiceProfile(serviceById, profileId))
+            placeHoldersResolver.placeHolders(property, FlinkServiceProfile(serviceById, profileId), stand)
         val s = when (stand) {
             StandEnum.NOTEBOOK, StandEnum.NOTEBOOK_DSO ->
                 propertyFileGenerator.gererate(serviceById, property, placeHolders)

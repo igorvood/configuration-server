@@ -1,12 +1,13 @@
 package ru.vood.configuration.server.repo
 
 import org.springframework.jdbc.core.JdbcOperations
+import org.springframework.stereotype.Repository
 import org.springframework.stereotype.Service
 import ru.vood.configuration.server.repo.dto.EnvProperty
 import ru.vood.configuration.server.repo.dto.StandEnum
 import ru.vood.configuration.server.repo.intf.ConfigurationGeneratorRepositoryIntf
 
-@Service
+@Repository
 class ConfigurationGeneratorRepositoryIntfImpl(
     private val jdbcTemplate: JdbcOperations
 ) : ConfigurationGeneratorRepositoryIntf {

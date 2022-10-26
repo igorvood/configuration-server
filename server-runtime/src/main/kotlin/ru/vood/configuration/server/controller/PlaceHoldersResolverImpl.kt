@@ -8,6 +8,7 @@ import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
 import ru.vood.configuration.server.controller.placeholder.intf.PlaceHoldersResolver
 import ru.vood.configuration.server.repo.dto.EnvProperty
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
+import ru.vood.configuration.server.repo.dto.StandEnum
 
 @Service
 class PlaceHoldersResolverImpl(
@@ -17,7 +18,8 @@ class PlaceHoldersResolverImpl(
     private val holdersFuns = holderResolvers.flatMap { f -> f.placeHolderName.map { n -> n to f } }.toMap()
     override fun placeHolders(
         property: List<EnvProperty>,
-        flinkServiceProfile: FlinkServiceProfile
+        flinkServiceProfile: FlinkServiceProfile,
+        stand: StandEnum
     ): List<PlaceHolder> {
         val flatMap = property
             .filter { it.propertyValue.contains("\${") && it.propertyValue.contains("}") }
@@ -26,7 +28,7 @@ class PlaceHoldersResolverImpl(
         val propertyWithPlaceHolder = flatMap
             .flatMap { ph ->
                 val valuePlaceHolder =
-                    holdersFuns.get(ph)?.valuePlaceHolder(flinkServiceProfile, ph)
+                    holdersFuns.get(ph)?.valuePlaceHolder(flinkServiceProfile, ph, stand)
                         ?.let { value -> PlaceHolder(ph, value) }
                 val fold = Either.fromNullable(valuePlaceHolder).fold({ listOf() }, { q -> listOf(q) })
                 fold

@@ -3,6 +3,7 @@ package ru.vood.configuration.server.controller.placeholder
 import org.springframework.stereotype.Service
 import ru.vood.configuration.server.controller.placeholder.intf.HolderResolver
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
+import ru.vood.configuration.server.repo.dto.StandEnum
 
 @Service
 class UsersResolvablePalaceHolders : HolderResolver {
@@ -13,5 +14,5 @@ class UsersResolvablePalaceHolders : HolderResolver {
             "TRUSTSTORE_LOCATION",
         )
 
-    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String = "\${" + ph + "}"
+    override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String, stand: StandEnum): String = "\${" + ph + "}"
 }

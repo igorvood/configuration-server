@@ -10,6 +10,7 @@ import ru.vood.configuration.server.controller.placeholder.intf.PlaceHoldersReso
 import ru.vood.configuration.server.repo.dto.EnvProperty
 import ru.vood.configuration.server.repo.dto.FlinkService
 import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
+import ru.vood.configuration.server.repo.dto.StandEnum
 
 internal class PlaceHolderResolverImplTest {
 
@@ -33,7 +34,8 @@ internal class PlaceHolderResolverImplTest {
 
         val placeHolders = placeHoldersResolverImpl.placeHolders(
             listOf,
-            FlinkServiceProfile(FlinkService("id_flinkService", "SomeMain"), "profileId")
+            FlinkServiceProfile(FlinkService("id_flinkService", "SomeMain"), "profileId"),
+            stand
         )
 
         Assertions.assertEquals(1, placeHolders.size)
@@ -44,7 +46,7 @@ internal class PlaceHolderResolverImplTest {
     }
 
     class HolderResolverTest : HolderResolver {
-        override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String): String =
+        override fun valuePlaceHolder(flinkServiceProfile: FlinkServiceProfile, ph: String, stand: StandEnum): String =
             "PlaceHolder_2_value"
 
         override val placeHolderName: Set<String>
