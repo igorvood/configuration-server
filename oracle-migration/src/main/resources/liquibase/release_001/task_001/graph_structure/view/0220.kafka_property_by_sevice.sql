@@ -8,9 +8,9 @@ with srv as (
 )
 select
     srv.SERVICE_ID, srv.PROFILE_ID,  srv.STAND, srv.PROP_ID, srv.TYPE_PROP,
-    srv.PROPERTY_KEY||'.'||srv.TYPE_PROP||'.'||srv.PROP_ID env_prop_name, prp.PROPERTY_VAL
+    srv.PROPERTY_KEY||'.'||srv.TYPE_PROP||'.'||srv.PROP_ID env_prop_name, nvl(prp.PROPERTY_VAL, srv.PROP_VALUE) PROPERTY_VAL
 from srv
-  join KAFKA_PROP_VALUE_by_STAND prp on (prp.GRP_ID, prp.TYPE_PROP, prp.PROP_ID, prp.STAND) = ((srv.GRP_PROP,srv.TYPE_PROP, srv.PROP_ID,  srv.STAND ))
+  left join KAFKA_PROP_VALUE_by_STAND prp on (prp.GRP_ID, prp.TYPE_PROP, prp.PROP_ID, prp.STAND) = ((srv.GRP_PROP,srv.TYPE_PROP, srv.PROP_ID,  srv.STAND ))
 order by SERVICE_ID, PROFILE_ID, STAND, env_prop_name
 /
 comment on table kafka_property_by_sevice is 'вьюха для update нод графов.'
