@@ -35,7 +35,7 @@ internal class PlaceHolderResolverImplTest {
         val placeHolders = placeHoldersResolverImpl.placeHolders(
             listOf,
             FlinkServiceProfile(FlinkService("id_flinkService", "SomeMain"), "profileId"),
-            stand
+            StandEnum.NOTEBOOK
         )
 
         Assertions.assertEquals(1, placeHolders.size)
