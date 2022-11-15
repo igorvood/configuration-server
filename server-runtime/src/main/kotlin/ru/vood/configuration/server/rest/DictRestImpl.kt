@@ -5,6 +5,7 @@ import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 import ru.vood.configuration.server.repo.dto.FlinkService
+import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 import ru.vood.configuration.server.repo.dto.Graph
 import ru.vood.configuration.server.repo.intf.DictRepository
 import ru.vood.configuration.server.rest.intf.DictRest
@@ -24,5 +25,11 @@ class DictRestImpl(
     @GetMapping("/serviceList", produces = [MediaType.APPLICATION_JSON_VALUE])
     override fun serviceList(): Set<FlinkService> {
         return dictRepository.serviceList()
+    }
+
+    @Operation(summary = "Список имен профилей для сервиса", tags = ["Отчеты."])
+    @GetMapping("/serviceProfile", produces = [MediaType.APPLICATION_JSON_VALUE])
+    override fun serviceProfile(serviceId: String):Set<FlinkServiceProfile> {
+        return dictRepository.serviceProfile(serviceId)
     }
 }

@@ -1,6 +1,7 @@
 package ru.vood.configuration.server.rest.intf
 
 import ru.vood.configuration.server.repo.dto.FlinkService
+import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 import ru.vood.configuration.server.repo.dto.Graph
 
 interface DictRest {
@@ -8,4 +9,5 @@ interface DictRest {
     fun graphList(): Set<Graph>
 
     fun serviceList(): Set<FlinkService>
+    fun serviceProfile(serviceId: String): Set<FlinkServiceProfile>
 }
