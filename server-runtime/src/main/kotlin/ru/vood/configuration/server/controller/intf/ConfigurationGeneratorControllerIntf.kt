@@ -16,4 +16,6 @@ interface ConfigurationGeneratorControllerIntf {
         serviceId: String,
         stand: StandEnum
     ): List<EviromentService>
+
+    fun environmentZip(serviceId: String): ByteArray
 }

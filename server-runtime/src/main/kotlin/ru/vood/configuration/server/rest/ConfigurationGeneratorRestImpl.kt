@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.bind.annotation.RestController
 import ru.vood.configuration.server.controller.intf.ConfigurationGeneratorControllerIntf
 import ru.vood.configuration.server.repo.dto.EviromentService
@@ -37,5 +38,15 @@ class ConfigurationGeneratorRestImpl(
         stand: StandEnum
     ): List<EviromentService> {
         return configurationGeneratorControllerIntf.generateAllServiceProfile(serviceId, stand)
+    }
+
+    @Operation(summary = "Zip файл со всеми конфигурациями сервиса по всем стендам", tags = ["Генерация"])
+    @GetMapping("/envirimentsZip", produces =[ MediaType.APPLICATION_PDF_VALUE]
+    )
+    @ResponseBody
+    override fun environmentZip(
+        @RequestParam serviceId: String
+    ): ByteArray {
+        return configurationGeneratorControllerIntf.environmentZip(serviceId)
     }
 }

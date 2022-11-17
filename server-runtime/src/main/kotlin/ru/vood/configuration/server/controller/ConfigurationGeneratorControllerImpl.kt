@@ -11,6 +11,11 @@ import ru.vood.configuration.server.repo.dto.FlinkServiceProfile
 import ru.vood.configuration.server.repo.dto.StandEnum
 import ru.vood.configuration.server.repo.intf.ConfigurationGeneratorRepositoryIntf
 import ru.vood.configuration.server.repo.intf.DictRepository
+import java.io.File
+import java.io.FileOutputStream
+import java.nio.file.Files
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
 
 
 @Service
@@ -62,5 +67,40 @@ PROGRAMARGS=$propertiesEnvStr
         return serviceProfile.map { s ->
             EviromentService(s, generateEnvBody(s.serviceId.id, s.profileId, stand))
         }
+    }
+
+    override fun environmentZip(serviceId: String): ByteArray {
+        val tmpDir = Files.createTempDirectory("configurationServer").toFile()
+        val tmpDirStr = tmpDir.absolutePath
+
+        val zipPath = "$tmpDirStr/ENV_Compressed.zip"
+        val fos = FileOutputStream(zipPath)
+        val zipOut = ZipOutputStream(fos)
+
+        val allEnvFiles = StandEnum.values()
+            .filter { q -> !q.local }
+            .associateWith { stand -> generateAllServiceProfile(serviceId, stand) }
+        val allFileNames = allEnvFiles
+            .flatMap { (stand, envs) ->
+                val fileNamesByStand = envs.map { env ->
+                    val fileName =
+                        "${env.flinkServiceProfile.serviceId.id}_${env.flinkServiceProfile.profileId}.env"
+                    val zipPath = stand.name + "/" + fileName
+                    val zipEntry = ZipEntry(zipPath)
+                    zipOut.putNextEntry(zipEntry);
+                    zipOut.write(env.body.toByteArray(), 0, env.body.length)
+                    zipPath
+                }
+                fileNamesByStand
+            }
+        zipOut.close();
+
+        val zipFile = File(zipPath)
+        val readBytes = zipFile.readBytes()
+
+        if (zipFile.exists()) {
+            zipFile.delete()
+        }
+        return readBytes
     }
 }

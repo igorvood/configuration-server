@@ -43,7 +43,7 @@ class DictRepositoryImpl(
             """select id, PROFILE_ID, MAIN_CLASS from dict_service_profile 
                where ID = ? 
             """,
-            { rs, _ -> FlinkServiceProfile(FlinkService(rs.getString(1), rs.getString(2)), rs.getString(3)) },
+            { rs, _ -> FlinkServiceProfile(FlinkService(rs.getString(1), rs.getString(3)), rs.getString(2)) },
             serviceId
         ).toSet()
     }
