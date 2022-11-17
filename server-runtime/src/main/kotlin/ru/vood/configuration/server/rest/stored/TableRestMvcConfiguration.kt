@@ -1,16 +1,10 @@
 package ru.vood.configuration.server.rest.stored
 
 import io.swagger.v3.oas.annotations.Operation
-import org.springdoc.core.Constants
-import org.springdoc.webmvc.ui.SwaggerWelcomeCommon
-import org.springframework.data.rest.core.config.RepositoryRestConfiguration
-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer
 import org.springframework.http.MediaType
-import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.servlet.config.annotation.CorsRegistry
 import javax.servlet.http.HttpServletRequest
 
 

@@ -29,7 +29,7 @@ class DictRestImpl(
 
     @Operation(summary = "Список имен профилей для сервиса", tags = ["Отчеты."])
     @GetMapping("/serviceProfile", produces = [MediaType.APPLICATION_JSON_VALUE])
-    override fun serviceProfile(serviceId: String):Set<FlinkServiceProfile> {
+    override fun serviceProfile(serviceId: String): Set<FlinkServiceProfile> {
         return dictRepository.serviceProfile(serviceId)
     }
 }
