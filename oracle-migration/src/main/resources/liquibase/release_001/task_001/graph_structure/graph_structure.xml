@@ -11,7 +11,7 @@
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0100.dict_abstract_graph_node.sql" endDelimiter="${sqlBatchDelimiter}"/>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0106.dict_kafka_property_grp.sql" endDelimiter="${sqlBatchDelimiter}"/>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0110.dict_topic_node.sql" endDelimiter="${sqlBatchDelimiter}"/>
-        <sqlFile path="liquibase/release_001/task_001/graph_structure/0112.dict_topic_params.sql" endDelimiter="${sqlBatchDelimiter}"/>
+        <sqlFile path="liquibase/release_001/task_001/graph_structure/0112.dict_topic_params_by_stand.sql" endDelimiter="${sqlBatchDelimiter}"/>
 
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0118.dict_service.sql" endDelimiter="${sqlBatchDelimiter}"/>
         <sqlFile path="liquibase/release_001/task_001/graph_structure/0120.dict_service_node.sql" endDelimiter="${sqlBatchDelimiter}"/>
